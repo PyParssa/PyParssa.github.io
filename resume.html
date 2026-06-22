@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume — Charlie Parssa</title>
+  <meta name="description" content="Resume of Parssa Mohammadi (Charlie) — Backend Developer & SEO/GEO Specialist" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow: #FFD600;
+      --yellow-light: #FFF9D6;
+      --black: #111111;
+      --gray: #555555;
+      --border: #e8e8e8;
+      --white: #ffffff;
+      --font-display: 'Caveat', cursive;
+      --font-body: 'Nunito', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 56px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--yellow);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a[aria-current] { color: var(--yellow); }
+
+    /* ── HEADER ── */
+    .resume-header {
+      background: var(--black);
+      padding: 4rem 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .resume-header-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      max-width: 860px;
+      width: 100%;
+    }
+
+    .resume-photo-placeholder {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #1e1e1e;
+      border: 3px dashed #FFD60055;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      color: #555;
+      text-align: center;
+      flex-shrink: 0;
+      gap: 0.25rem;
+      padding: 0.5rem;
+    }
+
+    .resume-photo-placeholder .rp-icon { font-size: 1.5rem; opacity: 0.4; }
+
+    .resume-header-text { }
+
+    .resume-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      color: var(--white);
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .resume-header h1 span { color: var(--yellow); }
+
+    .resume-subtitle {
+      font-size: 0.95rem;
+      color: #aaa;
+      margin-top: 0.4rem;
+    }
+
+    .resume-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .resume-contact-item {
+      color: #ccc;
+      font-size: 0.82rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .resume-contact-item:hover { color: var(--yellow); }
+
+    /* ── LAYOUT ── */
+    .resume-body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* ── SECTIONS ── */
+    .resume-section {
+      margin-bottom: 2.75rem;
+    }
+
+    .resume-section:last-child { margin-bottom: 0; }
+
+    .section-title {
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--black);
+      opacity: 0.4;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--yellow);
+      display: inline-block;
+    }
+
+    /* Experience */
+    .exp-item {
+      margin-bottom: 1.75rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--border);
+      position: relative;
+    }
+
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--yellow);
+      border: 2px solid var(--black);
+    }
+
+    .exp-role {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--black);
+    }
+
+    .exp-company {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gray);
+      margin-top: 0.1rem;
+    }
+
+    .exp-date {
+      font-size: 0.75rem;
+      color: #aaa;
+      font-weight: 600;
+      margin-top: 0.2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .exp-desc {
+      font-size: 0.88rem;
+      color: var(--gray);
+      margin-top: 0.5rem;
+      line-height: 1.7;
+    }
+
+    /* Photo placeholder in sidebar */
+    .bootcamp-photo {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 12px;
+      background: #f3f3f0;
+      border: 2px dashed #ddd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: #999;
+      font-size: 0.75rem;
+      text-align: center;
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .bootcamp-photo .bp-icon { font-size: 1.75rem; opacity: 0.4; }
+
+    .bootcamp-caption {
+      font-size: 0.72rem;
+      color: #aaa;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Skills */
+    .skill-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .skill-group-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+      opacity: 0.45;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .skill-tag {
+      background: var(--yellow-light);
+      border: 1.5px solid #FFDD00;
+      color: var(--black);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+    }
+
+    /* Certifications */
+    .cert-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      padding: 0.85rem 1rem;
+      background: var(--yellow-light);
+      border-radius: 10px;
+      border: 1.5px solid #FFDD00;
+    }
+
+    .cert-icon { font-size: 1.25rem; flex-shrink: 0; }
+
+    .cert-text strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .cert-text span {
+      font-size: 0.78rem;
+      color: var(--gray);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid #222;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      color: #555;
+      font-size: 0.8rem;
+    }
+
+    footer a { color: var(--yellow); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      .resume-body { grid-template-columns: 1fr; gap: 0; }
+      .resume-header-inner { grid-template-columns: 1fr; text-align: center; }
+      .resume-contacts { justify-content: center; }
+      .nav-links { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">charlie.</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">What I Do</a></li>
+      <li><a href="resume.html" aria-current="true">Resume</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="resume-header">
+    <div class="resume-header-inner">
+
+      <!-- 📸 Profile photo — replace placeholder with your image -->
+      <img src="images/charlie.jpg" alt="Parssa Mohammadi" style="width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid #FFD600;" />
+
+
+      <div class="resume-header-text">
+        <h1>Parssa <span>"Charlie"</span> Mohammadi</h1>
+        <p class="resume-subtitle">Backend Developer · SEO &amp; GEO Specialist · AI Workflow Designer</p>
+        <div class="resume-contacts">
+          <a href="mailto:prince.of.night1382@gmail.com" class="resume-contact-item">✉️ prince.of.night1382@gmail.com</a>
+          <a href="https://www.linkedin.com/in/parssa-mohammadi-a9840a1b4/" target="_blank" rel="noopener" class="resume-contact-item">💼 LinkedIn</a>
+          <a href="https://parssa.pro" target="_blank" class="resume-contact-item">🌐 parssa.pro</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <div class="resume-body">
+
+    <!-- LEFT COLUMN: Experience + Summary -->
+    <main>
+
+      <!-- Summary -->
+      <div class="resume-section">
+        <span class="section-title">Summary</span>
+        <p style="font-size:0.95rem;color:#444;line-height:1.8;">
+          I'm a certified backend developer and SEO/GEO specialist who believes technology should work for people — not the other way around. I study new AI workflows and turn them into practical tools that create real value for businesses. Whether it's building a clean API, optimising search presence, or designing an AI-powered process, I focus on what actually ships and works.
+        </p>
+      </div>
+
+      <!-- Experience -->
+      <div class="resume-section">
+        <span class="section-title">Experience</span>
+
+        <div class="exp-item">
+          <div class="exp-role">Backend Developer & AI Tools Engineer</div>
+          <div class="exp-company">Yara Company — Marketing Group</div>
+          <div class="exp-date">Recent Experience</div>
+          <div class="exp-desc">
+            Collaborated with the marketing team to build AI-powered tools for SEO and GEO optimisation. Developed and maintained backend systems, automated content workflows, and created practical internal tools that improved team efficiency and search performance.
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-role">SEO & GEO Specialist</div>
+          <div class="exp-company">Freelance / Independent</div>
+          <div class="exp-date">Ongoing</div>
+          <div class="exp-desc">
+            Providing SEO and geographic optimisation strategies for clients across various industries. Focused on making search visibility simple and measurable — with particular expertise in medical and local business sectors.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Projects -->
+      <div class="resume-section">
+        <span class="section-title">Projects & Focus Areas</span>
+
+        <div class="exp-item">
+          <div class="exp-role">AI Workflow Research & Tool Building</div>
+          <div class="exp-date">Ongoing personal project</div>
+          <div class="exp-desc">
+            Continuously studying emerging AI tools and LLM workflows — then turning insights into practical, usable tools for real business environments. Focus on making AI accessible without the complexity.
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-role">SEO & GEO for Medical Clinics</div>
+          <div class="exp-date">Specialisation area</div>
+          <div class="exp-desc">
+            Applying backend and search expertise specifically to the medical clinic sector — helping practices improve online visibility, localisation, and patient-facing digital presence.
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- RIGHT COLUMN: Skills, Certs, Photo -->
+    <aside>
+
+      <!-- Bootcamp photo placeholder -->
+      <div class="resume-section">
+        <span class="section-title">In the Field</span>
+
+        <!-- 📸 University / bootcamp photo — replace with your image -->
+        <!-- <img src="images/bootcamp.jpg" alt="Charlie at a bootcamp" style="width:100%;border-radius:12px;margin-bottom:0.5rem;" /> -->
+        <div class="bootcamp-photo">
+          <div class="bp-icon">🎓</div>
+          <p>Bootcamp /<br/>University Photo</p>
+          <p style="font-size:0.65rem;margin-top:0.25rem;">Replace with:<br/><code>img src="images/bootcamp.jpg"</code></p>
+        </div>
+        <p class="bootcamp-caption">University bootcamp — where it all started.</p>
+      </div>
+
+      <!-- Certifications -->
+      <div class="resume-section">
+        <span class="section-title">Certifications</span>
+
+        <div class="cert-item">
+          <span class="cert-icon">⚙️</span>
+          <div class="cert-text">
+            <strong>Meta Certified Backend Developer</strong>
+            <span>Meta · Professional Certificate</span>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <span class="cert-icon">🔍</span>
+          <div class="cert-text">
+            <strong>SEO & GEO Specialist</strong>
+            <span>Google Certified</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Skills -->
+      <div class="resume-section">
+        <span class="section-title">Skills</span>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Backend</div>
+          <div class="skill-tags">
+            <span class="skill-tag">APIs</span>
+            <span class="skill-tag">Databases</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Node.js</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">SEO & GEO</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Technical SEO</span>
+            <span class="skill-tag">Local SEO</span>
+            <span class="skill-tag">GEO Targeting</span>
+            <span class="skill-tag">Analytics</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">AI & Tools</div>
+          <div class="skill-tags">
+            <span class="skill-tag">LLM Workflows</span>
+            <span class="skill-tag">Automation</span>
+            <span class="skill-tag">Prompt Eng.</span>
+            <span class="skill-tag">Tool Building</span>
+          </div>
+        </div>
+
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Parssa "Charlie" Mohammadi · <a href="https://parssa.pro">parssa.pro</a></p>
+  </footer>
+
+</body>
+</html>
