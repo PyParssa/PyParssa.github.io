@@ -63,17 +63,55 @@
     }
     /* Hide button on desktop */
     #menu-btn { display: none; }
-
+    /* i added this line  lllllllllllllllll */
     @media (max-width: 680px) {
-    /* Show hamburger on mobile */
-    #menu-btn { display: block; }
+  /* Hamburger button styling */
+  #menu-btn {
+    display: block;
+    background: none;
+    border: 2px solid #FFD600;  /* your yellow */
+    color: #FFD600;
+    font-size: 1.2rem;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    cursor: pointer;
+    line-height: 1;
+  }
 
-    /* Hide links by default on mobile */
-    .nav-links { display: none; flex-direction: column; }
+  /* The dropdown panel */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: #111;
+    flex-direction: column;
+    gap: 0;
+    border-top: 2px solid #FFD600;
+    z-index: 99;
+  }
 
-    /* Show links when "open" class is added */
-    .nav-links.open { display: flex; }
-    }
+  /* Each link gets its own row */
+  .nav-links li a {
+    display: block;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #222;
+    font-size: 1rem;
+  }
+
+  /* Hover state */
+  .nav-links li a:hover {
+    background: #FFD600;
+    color: #111;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+}
+
 
     .nav-links a {
       color: var(--white);
@@ -533,10 +571,17 @@
     <p>© 2025 Parssa "Charlie" Mohammadi · <a href="https://parssa.pro">parssa.pro</a></p>
   </footer>
   <script>
-  function toggleMenu() {
+function toggleMenu() {
   const nav = document.getElementById('nav-links');
   nav.classList.toggle('open');
-  }
+}
+
+// Close menu when any link is clicked
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('nav-links').classList.remove('open');
+  });
+});
 </script>
 </body>
 </html>
