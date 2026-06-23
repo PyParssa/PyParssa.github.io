@@ -45,6 +45,53 @@
       padding: 0 2rem;
       height: 56px;
     }
+    @media (max-width: 680px) {
+  /* Hamburger button styling */
+  #menu-btn {
+    display: block;
+    background: none;
+    border: 2px solid #FFD600;  /* your yellow */
+    color: #FFD600;
+    font-size: 1.2rem;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  /* The dropdown panel */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: #111;
+    flex-direction: column;
+    gap: 0;
+    border-top: 2px solid #FFD600;
+    z-index: 99;
+  }
+
+  /* Each link gets its own row */
+  .nav-links li a {
+    display: block;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #222;
+    font-size: 1rem;
+  }
+
+  /* Hover state */
+  .nav-links li a:hover {
+    background: #FFD600;
+    color: #111;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+}
 
     .nav-logo {
       font-family: var(--font-display);
@@ -69,6 +116,7 @@
       text-transform: uppercase;
       transition: color 0.2s;
     }
+    
 
     .nav-links a:hover, .nav-links a[aria-current] { color: var(--yellow); }
 
@@ -340,7 +388,14 @@
 
   <!-- NAV -->
   <nav>
-    <a href="index.html" class="nav-logo">charlie.</a>
+    <a href="index.html" class="nav-logo">Parssa Pro</a>
+    <button id="menu-btn" onclick="toggleMenu()">☰</button>
+<ul class="nav-links" id="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">What I Do</a></li>
+      <li><a href="resume.html" aria-current="true">Resume</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+</ul>
     <ul class="nav-links">
       <li><a href="index.html#about">About</a></li>
       <li><a href="index.html#services">What I Do</a></li>
@@ -509,6 +564,18 @@
   <footer>
     <p>© 2025 Parssa "Charlie" Mohammadi · <a href="https://parssa.pro">parssa.pro</a></p>
   </footer>
+  <script>
+function toggleMenu() {
+  const nav = document.getElementById('nav-links');
+  nav.classList.toggle('open');
+}
 
+// Close menu when any link is clicked
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('nav-links').classList.remove('open');
+  });
+});
+</script>
 </body>
 </html>
