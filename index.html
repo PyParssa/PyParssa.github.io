@@ -61,6 +61,19 @@
       gap: 2rem;
       list-style: none;
     }
+    /* Hide button on desktop */
+    #menu-btn { display: none; }
+
+    @media (max-width: 680px) {
+    /* Show hamburger on mobile */
+    #menu-btn { display: block; }
+
+    /* Hide links by default on mobile */
+    .nav-links { display: none; flex-direction: column; }
+
+    /* Show links when "open" class is added */
+    .nav-links.open { display: flex; }
+    }
 
     .nav-links a {
       color: var(--white);
@@ -417,6 +430,11 @@
   <!-- NAV -->
   <nav>
     <a href="index.html" class="nav-logo">charlie.</a>
+    <button id="menu-btn" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Resume</a></li>
+    </ul>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#services">What I Do</a></li>
@@ -514,6 +532,9 @@
   <footer>
     <p>© 2025 Parssa "Charlie" Mohammadi · <a href="https://parssa.pro">parssa.pro</a></p>
   </footer>
-
+  function toggleMenu() {
+  const nav = document.getElementById('nav-links');
+  nav.classList.toggle('open');
+  }
 </body>
 </html>
