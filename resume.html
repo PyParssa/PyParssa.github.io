@@ -45,10 +45,25 @@
       padding: 0 2rem;
       height: 56px;
     }
-              /* Hide button on desktop */
-    #menu-btn { display: none; }
-    @media (max-width: 680px) {
 
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--yellow);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    /* Hide button on desktop */
+    #menu-btn { display: none; }
+    /* i added this line  lllllllllllllllll */
+    @media (max-width: 680px) {
   /* Hamburger button styling */
   #menu-btn {
     display: block;
@@ -96,19 +111,6 @@
   }
 }
 
-    .nav-logo {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      color: var(--yellow);
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
 
     .nav-links a {
       color: var(--white);
@@ -119,9 +121,8 @@
       text-transform: uppercase;
       transition: color 0.2s;
     }
-    
 
-    .nav-links a:hover, .nav-links a[aria-current] { color: var(--yellow); }
+    .nav-links a:hover { color: var(--yellow); }
 
     /* ── HEADER ── */
     .resume-header {
