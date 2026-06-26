@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedicChatBot – Parssa Medical Clinic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #22C55E;
+      --green-dark:  #16A34A;
+      --green-light: #DCFCE7;
+      --green-mid:   #BBF7D0;
+      --bg:          #F8FAFC;
+      --card:        #FFFFFF;
+      --text-1:      #1E293B;
+      --text-2:      #64748B;
+      --text-3:      #94A3B8;
+      --border:      #E2E8F0;
+      --border-soft: #F1F5F9;
+      --shadow-sm:   0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md:   0 4px 16px rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.05);
+      --radius-sm:   10px;
+      --radius-md:   16px;
+      --radius-lg:   20px;
+      --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-1);
+      overflow: hidden;
+    }
+
+    /* ─── Layout ─── */
+    .app {
+      display: flex;
+      flex-direction: column;
+      height: 100dvh;
+      max-width: 780px;
+      margin: 0 auto;
+      background: var(--card);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+
+    /* ─── Top Nav / Header ─── */
+    .app-header {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 24px;
+      background: var(--card);
+      border-bottom: 1px solid var(--border-soft);
+      position: relative;
+    }
+
+    /* Medical cross accent — top-right signature */
+    .app-header::after {
+      content: '';
+      position: absolute;
+      right: 24px; top: 50%; transform: translateY(-50%);
+      width: 22px; height: 22px;
+      background:
+        linear-gradient(var(--green-light), var(--green-light)) center/7px 100% no-repeat,
+        linear-gradient(var(--green-light), var(--green-light)) center/100% 7px no-repeat;
+      border-radius: 2px;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .app-avatar {
+      flex-shrink: 0;
+      width: 42px; height: 42px;
+      border-radius: 13px;
+      background: var(--green-light);
+      border: 1.5px solid var(--green-mid);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green-dark);
+    }
+
+    .app-header-info { flex: 1; min-width: 0; }
+
+    .app-clinic-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-1);
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .app-status {
+      display: flex; align-items: center; gap: 6px;
+      margin-top: 2px;
+    }
+    .app-status-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #10B981;
+      flex-shrink: 0;
+      animation: status-pulse 2.5s ease-in-out infinite;
+    }
+    @keyframes status-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.5); }
+      50%       { box-shadow: 0 0 0 4px rgba(16,185,129,0); }
+    }
+    @media (prefers-reduced-motion: reduce) { .app-status-dot { animation: none; } }
+
+    .app-status-text {
+      font-size: 12px;
+      font-weight: 500;
+      color: #10B981;
+    }
+
+    /* ─── Messages ─── */
+    .app-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 28px 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      scroll-behavior: smooth;
+    }
+    .app-messages::-webkit-scrollbar { width: 5px; }
+    .app-messages::-webkit-scrollbar-track { background: transparent; }
+    .app-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+    /* Date divider */
+    .mcb-divider {
+      display: flex; align-items: center; gap: 10px;
+      margin: 4px 0;
+    }
+    .mcb-divider::before, .mcb-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    .mcb-divider span {
+      font-size: 11px; color: var(--text-3); font-weight: 500; white-space: nowrap;
+    }
+
+    /* Message rows */
+    .mcb-msg-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      animation: msg-in 0.28s var(--ease-out) both;
+    }
+    @keyframes msg-in {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) { .mcb-msg-row { animation: none; } }
+
+    .mcb-msg-row.user      { align-items: flex-end; }
+    .mcb-msg-row.assistant { align-items: flex-start; }
+
+    .mcb-sender {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-3);
+      padding: 0 4px;
+    }
+
+    .mcb-bubble {
+      max-width: 72%;
+      padding: 13px 18px;
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text-1);
+    }
+    .mcb-msg-row.user .mcb-bubble {
+      background: var(--green);
+      color: #fff;
+      border-bottom-right-radius: 5px;
+      box-shadow: 0 2px 10px rgba(34,197,94,0.22);
+    }
+    .mcb-msg-row.assistant .mcb-bubble {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-bottom-left-radius: 5px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mcb-time {
+      font-size: 10.5px;
+      color: var(--text-3);
+      padding: 0 4px;
+    }
+
+    /* ─── Quick Replies ─── */
+    .app-quick-replies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 0 24px 12px;
+    }
+    .mcb-qr-btn {
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1.5px solid var(--green-mid);
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: 13.5px;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s, border-color 0.15s, transform 0.12s;
+    }
+    .mcb-qr-btn:hover {
+      background: var(--green-mid);
+      border-color: var(--green);
+      transform: translateY(-1px);
+    }
+    .mcb-qr-btn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+
+    /* ─── Typing indicator ─── */
+    .mcb-typing {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 0 24px 4px;
+      animation: msg-in 0.25s var(--ease-out) both;
+    }
+    .mcb-typing.hidden { display: none; }
+
+    .mcb-typing-avatar {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--green-light);
+      border: 1px solid var(--green-mid);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .mcb-typing-bubble {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      border-bottom-left-radius: 5px;
+      padding: 12px 16px;
+      display: flex; gap: 5px; align-items: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .mcb-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--text-3);
+      animation: typing-bounce 1.3s ease-in-out infinite;
+    }
+    .mcb-dot:nth-child(2) { animation-delay: 0.15s; }
+    .mcb-dot:nth-child(3) { animation-delay: 0.30s; }
+    @keyframes typing-bounce {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30%            { transform: translateY(-5px); opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) { .mcb-dot { animation: none; opacity: 0.6; } }
+
+    /* ─── Input Area ─── */
+    .app-input-area {
+      flex-shrink: 0;
+      padding: 14px 20px 18px;
+      border-top: 1px solid var(--border-soft);
+      background: var(--card);
+    }
+
+    .app-input-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 11px 12px 11px 18px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .app-input-row:focus-within {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(34,197,94,0.12);
+    }
+
+    .app-textarea {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--text-1);
+      resize: none;
+      outline: none;
+      min-height: 24px;
+      max-height: 140px;
+      overflow-y: auto;
+    }
+    .app-textarea::placeholder { color: var(--text-3); }
+
+    .app-send-btn {
+      flex-shrink: 0;
+      width: 42px; height: 42px;
+      border-radius: 13px;
+      background: var(--green);
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(34,197,94,0.28);
+      transition: background 0.15s, transform 0.12s, box-shadow 0.15s;
+    }
+    .app-send-btn:hover:not(:disabled) {
+      background: var(--green-dark);
+      transform: scale(1.05);
+      box-shadow: 0 4px 14px rgba(34,197,94,0.38);
+    }
+    .app-send-btn:active:not(:disabled) { transform: scale(0.97); }
+    .app-send-btn:disabled {
+      background: var(--border);
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+    .app-send-btn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+
+    .app-input-caption {
+      margin-top: 10px;
+      font-size: 11.5px;
+      color: var(--text-3);
+      text-align: center;
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+    }
+
+    /* ─── Mobile tweaks ─── */
+    @media (max-width: 600px) {
+      .app { border: none; }
+      .app-header { padding: 14px 16px; }
+      .app-messages { padding: 20px 16px 16px; }
+      .app-quick-replies { padding: 0 16px 10px; }
+      .mcb-typing { padding: 0 16px 4px; }
+      .app-input-area { padding: 12px 14px 16px; }
+      .mcb-bubble { max-width: 86%; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ─── Header ─── -->
+  <header class="app-header">
+    <div class="app-avatar" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2v10c0 3.3 2.7 6 6 6s6-2.7 6-6V8"/>
+        <circle cx="18" cy="6" r="2"/>
+        <line x1="12" y1="2" x2="12" y2="6"/>
+        <line x1="10" y1="4" x2="14" y2="4"/>
+      </svg>
+    </div>
+    <div class="app-header-info">
+      <div class="app-clinic-name" id="mcbClinicName">Parssa Medical Clinic</div>
+      <div class="app-status">
+        <span class="app-status-dot" aria-hidden="true"></span>
+        <span class="app-status-text">AI Receptionist</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── Messages ─── -->
+  <div class="app-messages" id="mcbMessages" role="log" aria-live="polite" aria-label="Chat messages">
+    <div class="mcb-divider"><span>Today</span></div>
+    <div class="mcb-msg-row assistant">
+      <span class="mcb-sender">Charlie · Reception Assistant</span>
+      <div class="mcb-bubble">
+        Hello! 👋 Welcome to Parssa Medical Clinic. I'm Charlie, your virtual reception assistant — here to help with appointment scheduling, general health questions, and clinic information.<br><br>How can I assist you today?
+      </div>
+      <span class="mcb-time">9:00 AM</span>
+    </div>
+  </div>
+
+  <!-- ─── Quick Replies ─── -->
+  <div class="app-quick-replies" id="mcbQuickReplies" role="group" aria-label="Quick reply options">
+    <button class="mcb-qr-btn" onclick="sendQuickReply(this)">📅 Book appointment</button>
+    <button class="mcb-qr-btn" onclick="sendQuickReply(this)">📋 My prescriptions</button>
+    <button class="mcb-qr-btn" onclick="sendQuickReply(this)">🕐 Clinic hours</button>
+    <button class="mcb-qr-btn" onclick="sendQuickReply(this)">📍 Location &amp; parking</button>
+  </div>
+
+  <!-- ─── Typing ─── -->
+  <div class="mcb-typing hidden" id="mcbTyping" aria-label="Assistant is typing" aria-live="polite">
+    <div class="mcb-typing-avatar" aria-hidden="true">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.2" stroke-linecap="round">
+        <circle cx="8" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="16" cy="12" r="1"/>
+      </svg>
+    </div>
+    <div class="mcb-typing-bubble" aria-hidden="true">
+      <span class="mcb-dot"></span>
+      <span class="mcb-dot"></span>
+      <span class="mcb-dot"></span>
+    </div>
+  </div>
+
+  <!-- ─── Input ─── -->
+  <div class="app-input-area">
+    <div class="app-input-row">
+      <textarea
+        class="app-textarea"
+        id="mcbInput"
+        placeholder="Message Charlie…"
+        rows="1"
+        aria-label="Type your message"
+        maxlength="600"
+      ></textarea>
+      <button class="app-send-btn" id="mcbSend" aria-label="Send message" disabled>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+      </button>
+    </div>
+    <div class="app-input-caption" aria-hidden="true">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Secure &amp; confidential · Not for emergencies
+    </div>
+  </div>
+
+</div>
+
+<script>
+  /* ─── Session ─── */
+  let sessionId = localStorage.getItem('session_id');
+  if (!sessionId) {
+    sessionId = crypto.randomUUID();
+    localStorage.setItem('session_id', sessionId);
+  }
+
+  /* ─── DOM refs ─── */
+  const messagesEl   = document.getElementById('mcbMessages');
+  const inputEl      = document.getElementById('mcbInput');
+  const sendBtn      = document.getElementById('mcbSend');
+  const typingEl     = document.getElementById('mcbTyping');
+  const quickReplies = document.getElementById('mcbQuickReplies');
+
+  /* ─── API ─── */
+  async function getBotResponse(message) {
+    const response = await fetch('/api/chat/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message, session_id: sessionId })
+    });
+    const data = await response.json();
+    return data.response;
+  }
+
+  /* ─── Helpers ─── */
+  function getTime() {
+    return new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+  }
+
+  function appendMessage(text, role) {
+    const row = document.createElement('div');
+    row.className = `mcb-msg-row ${role}`;
+
+    if (role === 'assistant') {
+      const sender = document.createElement('span');
+      sender.className = 'mcb-sender';
+      sender.textContent = 'Charlie · Reception Assistant';
+      row.appendChild(sender);
+    }
+
+    const bubble = document.createElement('div');
+    bubble.className = 'mcb-bubble';
+    bubble.innerHTML = text.replace(/\n/g, '<br>');
+    row.appendChild(bubble);
+
+    const time = document.createElement('span');
+    const t = getTime();
+    time.className = 'mcb-time';
+    time.textContent = t;
+    time.setAttribute('aria-label', `Sent at ${t}`);
+    row.appendChild(time);
+
+    messagesEl.appendChild(row);
+    scrollToBottom();
+  }
+
+  function scrollToBottom() {
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function showTyping() {
+    typingEl.classList.remove('hidden');
+    scrollToBottom();
+  }
+  function hideTyping() {
+    typingEl.classList.add('hidden');
+  }
+
+  /* ─── Input resize ─── */
+  inputEl.addEventListener('input', () => {
+    inputEl.style.height = 'auto';
+    inputEl.style.height = Math.min(inputEl.scrollHeight, 140) + 'px';
+    sendBtn.disabled = inputEl.value.trim() === '';
+  });
+
+  inputEl.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      if (!sendBtn.disabled) handleSend();
+    }
+  });
+  sendBtn.addEventListener('click', handleSend);
+
+  /* ─── Quick replies ─── */
+  async function sendQuickReply(btn) {
+    quickReplies.innerHTML = '';
+    appendMessage(btn.textContent, 'user');
+    showTyping();
+    const answer = await getBotResponse(btn.textContent);
+    hideTyping();
+    appendMessage(answer, 'assistant');
+  }
+
+  /* ─── Send ─── */
+  async function handleSend() {
+    const text = inputEl.value.trim();
+    if (!text) return;
+    quickReplies.innerHTML = '';
+    appendMessage(text, 'user');
+    inputEl.value = '';
+    inputEl.style.height = 'auto';
+    sendBtn.disabled = true;
+    showTyping();
+    const answer = await getBotResponse(text);
+    hideTyping();
+    appendMessage(answer, 'assistant');
+  }
+</script>
+</body>
+</html>
