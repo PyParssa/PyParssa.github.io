@@ -126,9 +126,14 @@
       margin: 0 auto;
       padding: 3rem 2rem 5rem;
       display: grid;
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
       gap: 3rem;
       align-items: start;
+    }
+
+    .resume-body > main,
+    .resume-body > aside {
+      min-width: 0;
     }
 
     /* SECTIONS */
@@ -427,6 +432,7 @@
         </div>
 
       </div>
+    </main>
 
     <!-- RIGHT COLUMN -->
     <aside>
@@ -498,7 +504,6 @@
       </div>
 
     </aside>
-    </main>
 
       <!-- 80/20 -->
       <div class="full-width-section">
@@ -547,7 +552,7 @@
       </div>
 
       <!-- Projects — 3 cards -->
-      <div class="class="full-width-section"">
+      <div class="full-width-section">
         <span class="section-title">Projects & Focus Areas</span>
 
         <!-- Card 1 -->
