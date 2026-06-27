@@ -330,9 +330,47 @@
     .about p {
       font-size: 1.05rem;
       color: #333;
-      max-width: 640px;
-      margin: 0 auto;
+      max-width: 760px;
+      margin: 0 auto 1rem;
       line-height: 1.8;
+    }
+
+    .about-story {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .about-story strong {
+      color: var(--black);
+    }
+
+    .about-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .about-card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(17, 17, 17, 0.08);
+      border-radius: 16px;
+      padding: 1.25rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .about-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.45rem;
+      color: var(--black);
+    }
+
+    .about-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      text-align: left;
+      max-width: none;
     }
 
     /* ── WHAT I DO ── */
@@ -510,14 +548,68 @@
   <!-- ABOUT -->
   <section class="about" id="about">
     <div class="about-inner">
-      <p class="section-label">Who I am</p>
+      <p class="section-label">Who Am I?</p>
       <h2>Your tech-savvy nephew is here.<br/>Save your time and effort—let me do it faster and easier.</h2>
-      <p>
-        I’m Parssa (aka Charlie). I don’t build useless AI wrappers or flashy demos that break under pressure. With backing as a Meta-certified backend developer and a Google-certified SEO/GEO strategist, I build stable infrastructure and intelligent automation systems designed to scale real businesses.
-      </p>
+      <div class="about-story">
+        <p>
+          Hi, I’m <strong>Parssa Mohammadi</strong>, though most people know me as <strong>Charlie</strong>.
+        </p>
+        <p>
+          I am a <strong>Biomedical Engineering (BME)</strong> graduate with high honors, but my work lives at the intersection of complex problem-solving and the <strong>practical application of AI</strong>. My background is rooted in deep research, specifically exploring how AI can revolutionize the medical field and cognitive marketing.
+        </p>
+        <p>
+          <strong>What I Do:</strong> I help businesses stop “playing the game” and start seeing <strong>tangible results</strong>. Currently, I provide specialized <strong>SEO and GEO services</strong>, alongside building and maintaining custom <strong>AI tools and automations</strong>. Whether it’s optimizing your digital presence or streamlining your operations through backend development (Meta-certified), I focus on the tech that actually moves the needle.
+        </p>
+        <p>
+          <strong>My Philosophy: The 80/20 Rule:</strong> I am a firm believer that success comes from working <strong>smarter, not just harder</strong>. I apply the <strong>Pareto Principle</strong> to everything I build: I identify the 20% of actions—the most critical automations and SEO strategies—that will deliver 80% of your results. In an age of “AI slop” and generic content, I prioritize high-utility, high-impact systems that serve a specific purpose.
+        </p>
+        <p>
+          <strong>Why Work With Me?</strong> I believe AI should be a partner that saves you time and opens new creative doors. If you’re looking for a partner who values <strong>practicality over hype</strong>, let’s build something that actually works.
+        </p>
+      </div>
+      <div class="about-cards">
+        <div class="about-card">
+          <h3>AI usage in medical imaging field co-author</h3>
+          <p>Contributed to research and development focused on applying AI in medical imaging.</p>
+        </div>
+        <div class="about-card">
+          <h3>Cancer institute web app support</h3>
+          <p>Helped a cancer institute create a web app for cancer mitosis diagnosis.</p>
+        </div>
+        <div class="about-card">
+          <h3>Currently developing Askterest</h3>
+          <p>A cool way for self-reflection and personal growth through thoughtful AI-driven experiences.</p>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- WHAT I DO -->
+  <section class="services" id="services">
+    <div class="services-inner">
+      <div class="services-header">
+        <p class="section-label">What I do</p>
+        <h2>Skills built to ship.</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🛠️</div>
+          <h3>Backend Development</h3>
+          <p>Building reliable APIs, databases, and server-side systems — certified by Meta and built on real-world experience.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔍</div>
+          <h3>SEO & GEO Strategy</h3>
+          <p>Google-certified. I help businesses rank — locally and globally — through smart search and geo-optimisation strategies.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🤖</div>
+          <h3>AI Workflow Design</h3>
+          <p>Studying and implementing new AI workflows to automate, simplify, and make businesses run smarter — not harder.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
 <section style="padding: 5rem 2rem; background: #111; text-align: center;">
   <p style="font-size: 0.78rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #ffffff55; margin-bottom: 0.75rem;">Behind the work</p>
@@ -583,35 +675,6 @@
     </a>
   </p>
 </section>
-
-  
-  <!-- WHAT I DO -->
-  <section class="services" id="services">
-    <div class="services-inner">
-      <div class="services-header">
-        <p class="section-label">What I do</p>
-        <h2>Skills built to ship.</h2>
-      </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">🛠️</div>
-          <h3>Backend Development</h3>
-          <p>Building reliable APIs, databases, and server-side systems — certified by Meta and built on real-world experience.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🔍</div>
-          <h3>SEO & GEO Strategy</h3>
-          <p>Google-certified. I help businesses rank — locally and globally — through smart search and geo-optimisation strategies.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🤖</div>
-          <h3>AI Workflow Design</h3>
-          <p>Studying and implementing new AI workflows to automate, simplify, and make businesses run smarter — not harder.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
 
   
   <!-- CONTACT -->
