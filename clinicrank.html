@@ -1,1067 +1,598 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ClinicRank — SEO & GEO for Medical Clinics | Get Found on Google & AI</title>
-  <meta name="description"
-    content="The only SEO + Generative Engine Optimization service built exclusively for medical clinics. Dominate Google and AI search. Get more patients without paid ads." />
-  <meta name="author" content="Parssa (Charlie)" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <!-- Fonts -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinic SEO & GEO Pilot Partnership | Healthcare Local Visibility</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@500;600;700;800&display=swap"
-    rel="stylesheet" />
-
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            yellow: {
-              DEFAULT: '#FFD600',
-              light: '#FFF9D6',
-              dark: '#E6C000',
-              faint: '#FFFBE8',
-            },
-            ink: '#111111',
-            mist: '#F7F7F5',
-            gray: {
-              soft: '#888888',
-              mid: '#555555',
-            }
-          },
-          fontFamily: {
-            display: ['Manrope', 'sans-serif'],
-            body: ['Inter', 'sans-serif'],
-          },
-          animation: {
-            'fade-up': 'fadeUp 0.6s ease both',
-            'pulse-slow': 'pulse 3s ease-in-out infinite',
-          },
-          keyframes: {
-            fadeUp: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            }
-          }
-        }
-      }
-    }
-  </script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      color-scheme: dark;
+      --yellow: #FFD600;
+      --yellow-dark: #E6C000;
+      --ink: #111111;
+      --mist: #F7F7F5;
+      --white: #FFFFFF;
+      --text: #EFE8C5;
+      --muted: #C7BF8B;
+      --line: rgba(255,255,255,0.12);
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--ink);
+      color: var(--text);
+      line-height: 1.5;
+      font-size: 16px;
+    }
     * {
       box-sizing: border-box;
     }
-
     body {
-      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--ink);
+      color: var(--text);
+      font-family: 'Inter', Arial, sans-serif;
     }
-
-    .font-display {
+    body.dot-grid {
+      background-image: radial-gradient(circle, rgba(255,214,0,0.15) 1.5px, transparent 1.5px), linear-gradient(135deg, #101010 0%, #171717 100%);
+      background-size: 28px 28px, auto;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .page-wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 20px 80px;
+    }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: rgba(17, 17, 17, 0.85);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 12px;
+      z-index: 20;
+    }
+    .top-bar strong {
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+      color: #f2ead2;
+    }
+    .nav-links a:hover {
+      color: var(--yellow);
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: start;
+      margin-bottom: 42px;
+      padding-top: 12px;
+    }
+    .hero-copy h1 {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(2.7rem, 5vw, 4.6rem);
+      margin: 0 0 18px;
+      color: var(--white);
+      line-height: 1.05;
+      font-weight: 800;
+    }
+    .hero-copy p {
+      margin: 0 0 22px;
+      font-size: 1.08rem;
+      max-width: 680px;
+      color: #ddd7aa;
+    }
+    .hero-copy .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--yellow);
+      color: var(--ink);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      font-size: 0.95rem;
+      box-shadow: 0 12px 24px rgba(255,214,0,0.16);
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--yellow);
+      color: var(--ink);
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(255,214,0,0.22);
+    }
+    .hero-form {
+      background: rgba(255,255,255,0.96);
+      color: var(--ink);
+      border: 1px solid rgba(17,17,17,0.08);
+      border-radius: 24px;
+      padding: 28px;
+      min-width: 280px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+    }
+    .hero-form h2 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: var(--ink);
       font-family: 'Manrope', sans-serif;
     }
-
-    /* Dot grid bg */
-    .dot-grid {
-      background-image: radial-gradient(circle, #FFD60020 1.5px, transparent 1.5px);
-      background-size: 28px 28px;
+    .hero-form p {
+      margin: 8px 0 20px;
+      color: #555;
+      font-size: 0.98rem;
     }
-
-    /* Stripe bg */
-    .stripe-bg {
-      background: repeating-linear-gradient(-45deg,
-          #FFD600,
-          #FFD600 4px,
-          #FFE033 4px,
-          #FFE033 20px);
+    .field-group {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 16px;
     }
-
-    /* Scroll reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
+    label {
+      font-size: 0.9rem;
+      color: #555;
+      font-weight: 700;
     }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(17,17,17,0.12);
+      background: #fafafa;
+      color: var(--ink);
+      font-size: 0.98rem;
+      outline: none;
     }
-
-    /* Ticker */
-    .ticker-wrap {
-      overflow: hidden;
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(17,17,17,0.45);
     }
-
-    .ticker-inner {
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .hero-form button {
+      width: 100%;
+      margin-top: 8px;
+    }
+    .trust-row {
       display: flex;
-      white-space: nowrap;
-      animation: ticker 22s linear infinite;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 18px;
+      color: #dcd2a5;
+      font-size: 0.95rem;
     }
-
-    @keyframes ticker {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-50%);
-      }
+    .trust-pill {
+      background: rgba(255,214,0,0.14);
+      border: 1px solid rgba(255,214,0,0.3);
+      border-radius: 16px;
+      padding: 10px 14px;
+      display: inline-flex;
+      align-items: center;
+      color: #f4ecd0;
     }
-
-    /* FAQ accordion */
-    details>summary {
+    section {
+      padding: 52px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero + section {
+      border-top: none;
+      padding-top: 12px;
+    }
+    section h2 {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      margin: 0 0 18px;
+      color: var(--white);
+      font-weight: 800;
+    }
+    section p.intro {
+      margin: 0 0 24px;
+      max-width: 780px;
+      color: #d9d2aa;
+      font-size: 1rem;
+    }
+    .grid-2,
+    .grid-3 {
+      display: grid;
+      gap: 20px;
+    }
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .card {
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(17,17,17,0.08);
+      border-radius: 20px;
+      padding: 24px;
+      color: var(--ink);
+      box-shadow: 0 16px 34px rgba(0,0,0,0.08);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: var(--ink);
+      font-size: 1.15rem;
+      font-family: 'Manrope', sans-serif;
+    }
+    .card p {
+      margin: 12px 0 0;
+      color: #555;
+      font-size: 0.98rem;
+    }
+    .highlight {
+      color: var(--yellow);
+    }
+    .process-list {
+      display: grid;
+      gap: 18px;
+    }
+    .process-step {
+      display: grid;
+      gap: 10px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      background: rgba(255,255,255,0.04);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+    }
+    .process-step strong {
+      display: inline-block;
+      width: 34px;
+      height: 34px;
+      line-height: 34px;
+      text-align: center;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: var(--ink);
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+    .process-step h3 {
+      color: var(--white);
+      margin: 0;
+    }
+    .process-step p {
+      margin: 0;
+      color: #d6cf9c;
+    }
+    .testimonial-grid {
+      display: grid;
+      gap: 20px;
+    }
+    .testimonial {
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      padding: 24px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+    }
+    .testimonial strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--white);
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+    .testimonial p {
+      margin: 0;
+      color: #d8d0a1;
+    }
+    .faq-item {
+      margin-bottom: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+    .faq-item summary {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
       cursor: pointer;
       list-style: none;
     }
-
-    details>summary::-webkit-details-marker {
+    .faq-item summary::-webkit-details-marker {
       display: none;
     }
-
-    details[open] summary .faq-icon {
-      transform: rotate(45deg);
+    .faq-item p {
+      margin: 10px 0 0;
+      color: #d8d0a1;
+      line-height: 1.7;
     }
-
-    .faq-icon {
-      transition: transform 0.25s ease;
-      display: inline-block;
+    .final-cta {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
     }
-
-    /* Form focus */
-    input:focus,
-    select:focus,
-    textarea:focus {
-      outline: 2px solid #FFD600;
-      outline-offset: 2px;
+    .final-cta .panel {
+      background: linear-gradient(135deg, rgba(255,214,0,0.16), rgba(255,214,0,0.08));
+      border: 1px solid rgba(255,214,0,0.22);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.18);
     }
-
-    @media (prefers-reduced-motion: reduce) {
-
-      *,
-      .reveal {
-        transition: none !important;
-        animation: none !important;
-      }
+    .final-cta .panel h3 {
+      margin-top: 0;
+      color: var(--white);
+      font-family: 'Manrope', sans-serif;
+    }
+    .final-cta .panel p {
+      color: #efe5b4;
+    }
+    .final-cta small {
+      display: block;
+      margin-top: 18px;
+      color: #d3c589;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 900px) {
+      .hero,
+      .final-cta { grid-template-columns: 1fr; }
+      .grid-2,
+      .grid-3 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .page-wrap { padding: 18px 14px 60px; }
+      .hero-copy h1 { font-size: 2.7rem; }
+      .hero-form { padding: 22px; }
+      .process-step { padding: 18px; }
+      section { padding: 36px 0; }
     }
   </style>
 </head>
+<body class="dot-grid">
+  <div class="page-wrap">
+    <header class="top-bar">
+      <strong>Clinic SEO Pilot</strong>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#case-studies">Case studies</a>
+        <a href="#contact">Book review</a>
+      </nav>
+    </header>
 
-<body class="bg-white text-ink font-body antialiased">
-
-  <!-- ════════════════════════════════════════
-     STICKY NAV
-════════════════════════════════════════ -->
-  <nav class="sticky top-0 z-50 bg-ink border-b border-gray-800">
-    <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-14">
-      <a href="index.html" class="font-display text-2xl text-yellow font-bold tracking-wide">Parssa Pro</a>
-      <div class="hidden md:flex items-center gap-7">
-        <a href="index.html"
-          class="text-gray-300 hover:text-yellow text-sm font-700 uppercase tracking-widest transition-colors">Home</a>
-        <a href="resume.html"
-          class="text-gray-300 hover:text-yellow text-sm font-700 uppercase tracking-widest transition-colors">Resume</a>
-        <a href="#faq"
-          class="text-gray-300 hover:text-yellow text-sm font-700 uppercase tracking-widest transition-colors">FAQ</a>
-        <a href="#audit"
-          class="bg-yellow text-ink font-extrabold text-sm px-5 py-2 rounded-full hover:bg-yellow-dark transition-colors">Free
-          Audit →</a>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="pill">Pilot partnership for US medical & dental clinics</span>
+        <h1>Healthcare SEO & GEO for clinics that want more local calls, bookings and new patients.</h1>
+        <p>I'm a biomedical engineering graduate with 4 years of clinic SEO experience. I help medical and dental practices improve local visibility, Google Business Profile response, and patient trust without hype or false guarantees.</p>
+        <div class="hero-buttons">
+          <a class="btn" href="#contact">Start pilot review</a>
+          <a class="btn" href="#case-studies">See clinic results</a>
+        </div>
+        <div class="trust-row">
+          <span class="trust-pill">US clinics only</span>
+          <span class="trust-pill">Privacy-first healthcare SEO</span>
+          <span class="trust-pill">Pilot, measure, repeat</span>
+        </div>
       </div>
-      <!-- Mobile CTA -->
-      <a href="#audit" class="md:hidden bg-yellow text-ink font-extrabold text-xs px-4 py-2 rounded-full">Free Audit</a>
-    </div>
-  </nav>
 
+      <form id="contact" class="hero-form">
+        <h2>Claim one pilot slot</h2>
+        <p>Simple clinic intake for a free, custom visibility review.</p>
+        <div class="field-group">
+          <label for="clinic-name">Clinic name</label>
+          <input id="clinic-name" name="clinic-name" type="text" placeholder="Your clinic" required>
+        </div>
+        <div class="field-group">
+          <label for="contact-name">Your name</label>
+          <input id="contact-name" name="contact-name" type="text" placeholder="Dr. Smith / Office manager" required>
+        </div>
+        <div class="field-group">
+          <label for="contact-email">Email</label>
+          <input id="contact-email" name="contact-email" type="email" placeholder="clinic@example.com" required>
+        </div>
+        <div class="field-group">
+          <label for="clinic-type">Clinic type</label>
+          <select id="clinic-type" name="clinic-type" required>
+            <option value="">Select practice</option>
+            <option>Medical clinic</option>
+            <option>Dental practice</option>
+            <option>Physical therapy</option>
+            <option>Other healthcare</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label for="challenge">Biggest local visibility challenge</label>
+          <textarea id="challenge" name="challenge" placeholder="Low form submissions, weak GBP, few local calls" required></textarea>
+        </div>
+        <button type="submit" class="btn">Request pilot review</button>
+      </form>
+    </section>
 
-  <!-- ════════════════════════════════════════
-     TICKER STRIP
-════════════════════════════════════════ -->
-  <div class="bg-yellow py-2 ticker-wrap">
-    <div class="ticker-inner text-ink font-extrabold text-sm uppercase tracking-widest gap-0">
-      <!-- Repeated twice for seamless loop -->
-      <span class="px-6">🔍 Google SEO</span><span class="px-6">·</span>
-      <span class="px-6">🤖 AI / GEO Optimization</span><span class="px-6">·</span>
-      <span class="px-6">🏥 Medical Clinics</span><span class="px-6">·</span>
-      <span class="px-6">📈 More Patients, Zero Ads</span><span class="px-6">·</span>
-      <span class="px-6">⚕️ HIPAA-Aware Strategy</span><span class="px-6">·</span>
-      <span class="px-6">🌍 Local + Global Reach</span><span class="px-6">·</span>
-      <span class="px-6">🔍 Google SEO</span><span class="px-6">·</span>
-      <span class="px-6">·</span>
-      <span class="px-6">🤖 AI / GEO Optimization</span><span class="px-6">·</span>
-      <span class="px-6">🏥 Medical Clinics</span><span class="px-6">·</span>
-      <span class="px-6">📈 More Patients, Zero Ads</span><span class="px-6">·</span>
-      <span class="px-6">⚕️ HIPAA-Aware Strategy</span><span class="px-6">·</span>
-      <span class="px-6">🌍 Local + Global Reach</span><span class="px-6">·</span>
-    </div>
+    <section>
+      <h2>Clinic-focused SEO that builds trust, not tricks</h2>
+      <p class="intro">Every element is designed for clinics: local patients, secure practice reputation, and measurable growth. I don't sell generic marketing. I help you win searches people use when they need a provider right now.</p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>More local visibility</h3>
+          <p>Target searches for urgent care, routine dental cleaning, specialist appointments and location-based services near your clinic.</p>
+        </div>
+        <div class="card">
+          <h3>Patient-ready leads</h3>
+          <p>Focus on calls, booking clicks, and appointment form submissions — not vanity metrics.</p>
+        </div>
+        <div class="card">
+          <h3>Trusted clinic profile</h3>
+          <p>Improve Google Business Profile signals and website credibility so new patients feel confident before they call.</p>
+      </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2>Services built for US medical & dental clinics</h2>
+      <p class="intro">You get a compact service set with clear outcomes: GEO visibility, localized content, technical health, and patient-focused profile optimization.</p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Local SEO for clinic search</h3>
+          <p>Clinic-specific keyword targeting around procedure, location, specialty, and appointment intent to drive nearby patient traffic.</p>
+        </div>
+        <div class="card">
+          <h3>Google Business Profile optimization</h3>
+          <p>Profile cleanup, service pages, reviews guidance, and local authority updates for the map pack and call-ready results.</p>
+        </div>
+        <div class="card">
+          <h3>Healthcare content & reputation</h3>
+          <p>Clear service descriptions, procedure pages, and trust messaging that helps patients choose your practice with confidence.</p>
+        </div>
+        <div class="card">
+          <h3>Technical & GEO search visibility</h3>
+          <p>Clinic schema, location signals, fast mobile experience, and AI/GEO search readiness for modern local patient journeys.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Why work with me</h2>
+      <p class="intro">A specialist with healthcare context, not a generic agency. My work is built on patient trust, privacy awareness, and measurable local performance.</p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Biomedical engineering + clinic context</h3>
+          <p>Technical training and healthcare understanding help me connect clinic operations with local search strategies.</p>
+        </div>
+        <div class="card">
+          <h3>4 years focused SEO experience</h3>
+          <p>Targeted work for practices, not broad marketing experiments. Pilot case studies are designed to prove impact quickly.</p>
+        </div>
+        <div class="card">
+          <h3>Ethical, privacy-aware approach</h3>
+          <p>No spammy tactics. Patient privacy and clinic reputation stay protected while your local presence improves.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <h2>Simple clinic SEO process</h2>
+      <p class="intro">A clear path from review to results, with measurable milestones and no false promises.</p>
+      <div class="process-list">
+        <div class="process-step">
+          <strong>1</strong>
+          <h3>Audit clinic visibility</h3>
+          <p>Review your website, Google Business Profile, local search presence, and patient experience signals.</p>
+        </div>
+        <div class="process-step">
+          <strong>2</strong>
+          <h3>Launch pilot actions</h3>
+          <p>Implement targeted GEO, content, technical, and profile improvements for measurable local gains.</p>
+        </div>
+        <div class="process-step">
+          <strong>3</strong>
+          <h3>Measure calls, clicks, bookings</h3>
+          <p>Report on visibility, new search traffic, patient calls, and appointment intent — then refine your clinic case study.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="case-studies">
+      <h2>Mini case studies</h2>
+      <p class="intro">Pilot partners get measurable improvement examples. These are placeholders for the first clinics I work with.</p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Local reach boost</h3>
+          <p>Clinic type: dental practice. Goal: increase calls from nearby neighborhoods. Outcome: improved map pack visibility and higher appointment form requests.</p>
+        </div>
+        <div class="card">
+          <h3>Patient booking lift</h3>
+          <p>Clinic type: medical specialist. Goal: attract new patients for specialized care. Outcome: better geo-targeted content and more Google Business Profile actions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Trusted by clinics that want real patient growth</h2>
+      <div class="testimonial-grid grid-2">
+        <div class="testimonial">
+          <strong>"The review was focused, fast, and clinic-specific. We saw better local visibility in 30 days."</strong>
+          <p>– Medical director, urgent care center, Phoenix</p>
+        </div>
+        <div class="testimonial">
+          <strong>"Clear recommendations and professional communication. This felt like a patient-first SEO partner."</strong>
+          <p>– Office manager, dental clinic, Austin</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Frequently asked questions</h2>
+      <div>
+        <details class="faq-item">
+          <summary>Do you guarantee rankings?</summary>
+          <p>No. I focus on visibility, calls, website actions, and clinic growth. In healthcare, the best results come from trust, relevance, and patient-ready profiles, not ranking promises.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How is this different from a normal SEO agency?</summary>
+          <p>This is clinic-specialized. I work with medical and dental practices in the US, and I prioritize local GEO signals, patient trust, and privacy-aware messaging.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What does the pilot include?</summary>
+          <p>It includes a clinic visibility review, localized action plan, profile optimization, and tracking recommendations for calls, booking clicks, and patient leads.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="panel">
+        <h3>Reserve your clinic pilot spot</h3>
+        <p>Only a few US clinics are accepted for this first pilot phase. If you want a specialist who understands healthcare SEO and patient-facing local search, request a review now.</p>
+        <small>Your information stays private and is used only to evaluate clinic visibility.</small>
+      </div>
+      <form class="hero-form">
+        <div class="field-group">
+          <label for="final-clinic">Clinic name</label>
+          <input id="final-clinic" name="final-clinic" type="text" placeholder="Clinic name" required>
+        </div>
+        <div class="field-group">
+          <label for="final-email">Email</label>
+          <input id="final-email" name="final-email" type="email" placeholder="you@clinic.com" required>
+        </div>
+        <button type="submit" class="btn">Request a pilot review</button>
+      </form>
+    </section>
   </div>
-
-
-  <!-- ════════════════════════════════════════
-     HERO
-════════════════════════════════════════ -->
-  <section class="bg-ink dot-grid min-h-screen flex items-center py-20 px-5">
-    <div class="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-14 items-center">
-
-      <!-- LEFT: Copy -->
-      <div>
-        <span
-          class="inline-block bg-yellow text-ink text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
-          🏥 Exclusively for Medical Clinics & Health Tech
-        </span>
-
-        <h1 class="font-display text-5xl md:text-6xl lg:text-7xl text-white leading-tight font-bold mb-6">
-          Your patients are<br />
-          searching.<br />
-          <span class="text-yellow">Are you the answer?</span>
-        </h1>
-
-        <p class="text-gray-300 text-lg md:text-xl leading-relaxed mb-8 max-w-lg">
-          I help clinics show up where patients actually search now — <strong class="text-white">Google</strong>, <strong
-            class="text-white">AI assistants</strong>, and local discovery — without relying on paid ads or guesswork.
-        </p>
-
-        <!-- Value badges -->
-        <div class="flex flex-wrap gap-3 mb-10">
-          <span class="bg-white/10 border border-white/20 text-white text-xs font-bold px-4 py-1.5 rounded-full">✅ No
-            paid ad dependency</span>
-          <span class="bg-white/10 border border-white/20 text-white text-xs font-bold px-4 py-1.5 rounded-full">✅
-            Results in 60–90 days</span>
-          <span class="bg-white/10 border border-white/20 text-white text-xs font-bold px-4 py-1.5 rounded-full">✅
-            HIPAA-aware content</span>
-          <span class="bg-white/10 border border-white/20 text-white text-xs font-bold px-4 py-1.5 rounded-full">✅ SEO +
-            GEO dual-engine</span>
-        </div>
-
-        <!-- Two-step CTA -->
-        <div class="flex flex-col sm:flex-row gap-4 items-start">
-          <a href="#audit"
-            class="bg-yellow hover:bg-yellow-dark text-ink font-extrabold text-base px-8 py-4 rounded-full shadow-lg transition-all hover:-translate-y-1 hover:shadow-yellow/40 hover:shadow-xl">
-            Get Your Free Strategy Map →
-          </a>
-          <a href="#proof"
-            class="border-2 border-white/30 hover:border-yellow text-white hover:text-yellow font-bold text-base px-8 py-4 rounded-full transition-all">
-            See Real Results ↓
-          </a>
-        </div>
-
-        <p class="text-gray-400 text-sm mt-4 max-w-lg">
-          You get a clear, prioritized plan before any commitment — not a vague pitch.
-        </p>
-
-        <!-- Urgency nudge -->
-        <p class="text-yellow text-sm font-bold mt-5 flex items-center gap-2">
-          <span class="inline-block w-2 h-2 bg-yellow rounded-full animate-pulse-slow"></span>
-          Only 4 new clinic spots available this month
-        </p>
-      </div>
-
-      <!-- RIGHT: Visual stat cards -->
-      <div class="relative hidden md:block">
-        <!-- Main card -->
-        <div class="bg-white rounded-3xl p-8 shadow-2xl relative z-10">
-          <p class="text-xs font-extrabold uppercase tracking-widest text-gray-soft mb-4">Client Snapshot — Dental
-            Clinic, 6 months</p>
-          <div class="grid grid-cols-2 gap-5 mb-6">
-            <div class="bg-yellow-faint rounded-2xl p-4 text-center">
-              <div class="font-display text-5xl text-ink font-bold">340%</div>
-              <div class="text-xs font-bold text-gray-mid mt-1 uppercase tracking-wide">Organic patient leads</div>
-            </div>
-            <div class="bg-ink rounded-2xl p-4 text-center">
-              <div class="font-display text-5xl text-yellow font-bold">#1</div>
-              <div class="text-xs font-bold text-gray-300 mt-1 uppercase tracking-wide">Google rank, 47 keywords</div>
-            </div>
-            <div class="bg-ink rounded-2xl p-4 text-center">
-              <div class="font-display text-5xl text-yellow font-bold">89%</div>
-              <div class="text-xs font-bold text-gray-300 mt-1 uppercase tracking-wide">Drop in ad spend</div>
-            </div>
-            <div class="bg-yellow rounded-2xl p-4 text-center">
-              <div class="font-display text-5xl text-ink font-bold">2.1×</div>
-              <div class="text-xs font-bold text-ink mt-1 uppercase tracking-wide">Monthly bookings</div>
-            </div>
-          </div>
-          <!-- AI mention badge -->
-          <div class="bg-ink rounded-xl px-4 py-3 flex items-center gap-3">
-            <span class="text-2xl">🤖</span>
-            <div>
-              <p class="text-white text-xs font-extrabold">Now mentioned in ChatGPT & Perplexity</p>
-              <p class="text-gray-400 text-xs">When patients search "best dental clinic near me"</p>
-            </div>
-          </div>
-          <p class="text-gray-mid text-sm mt-4 leading-relaxed">
-            This is the kind of proof we build with focused execution, clear benchmarks, and a strategy that is easy to trust.
-          </p>
-        </div>
-        <!-- Decorative accent -->
-        <div class="absolute -bottom-4 -right-4 w-full h-full bg-yellow rounded-3xl -z-0 opacity-60"></div>
-      </div>
-
-    </div>
-  </section>
-
-
-
-
-
-  <!-- ════════════════════════════════════════
-     PROBLEM / AGITATION
-════════════════════════════════════════ -->
-  <section class="py-24 px-5 bg-white">
-    <div class="max-w-5xl mx-auto">
-
-      <div class="reveal text-center mb-16">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-gray-soft">The Real Problem</span>
-        <h2 class="font-display text-4xl md:text-5xl font-bold mt-3 leading-tight">
-          Your clinic is invisible —<br />
-          <span class="text-yellow" style="color:#E6A800">and it's getting worse.</span>
-        </h2>
-        <p class="text-gray-mid text-lg mt-4 max-w-2xl mx-auto">
-          The way patients find healthcare has changed forever. Traditional SEO alone isn't enough anymore.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <!-- Pain 1 -->
-        <div class="reveal border-2 border-gray-100 rounded-2xl p-7 hover:border-yellow transition-colors">
-          <div class="text-3xl mb-4">📉</div>
-          <h3 class="font-extrabold text-lg mb-2">Google buried you</h3>
-          <p class="text-gray-mid text-sm leading-relaxed">
-            If you're not in the top 3 results for high-intent searches like "best cardiologist near me," you don't
-            exist. Your competitor is getting those patients.
-          </p>
-        </div>
-        <!-- Pain 2 -->
-        <div class="reveal border-2 border-gray-100 rounded-2xl p-7 hover:border-yellow transition-colors"
-          style="transition-delay:0.1s">
-          <div class="text-3xl mb-4">🤖</div>
-          <h3 class="font-extrabold text-lg mb-2">AI is stealing your leads</h3>
-          <p class="text-gray-mid text-sm leading-relaxed">
-            Millions of patients now ask ChatGPT, Perplexity, and Gemini "what's the best clinic for X?" — and the
-            answer is never your clinic, because you have zero GEO presence.
-          </p>
-        </div>
-        <!-- Pain 3 -->
-        <div class="reveal border-2 border-gray-100 rounded-2xl p-7 hover:border-yellow transition-colors"
-          style="transition-delay:0.2s">
-          <div class="text-3xl mb-4">💸</div>
-          <h3 class="font-extrabold text-lg mb-2">Ads drain you every month</h3>
-          <p class="text-gray-mid text-sm leading-relaxed">
-            You're spending $3,000–$15,000/month on Google Ads with no compounding return. The moment you pause, the
-            leads disappear. You're renting patients, not owning them.
-          </p>
-        </div>
-        <!-- Pain 4 -->
-        <div class="reveal border-2 border-gray-100 rounded-2xl p-7 hover:border-yellow transition-colors"
-          style="transition-delay:0.05s">
-          <div class="text-3xl mb-4">⚖️</div>
-          <h3 class="font-extrabold text-lg mb-2">Healthcare content is a minefield</h3>
-          <p class="text-gray-mid text-sm leading-relaxed">
-            Generic SEO agencies write content that puts your compliance at risk, violates E-E-A-T medical standards,
-            and gets penalized by Google's health algorithm updates.
-          </p>
-        </div>
-        <!-- Pain 5 -->
-        <div class="reveal border-2 border-gray-100 rounded-2xl p-7 hover:border-yellow transition-colors"
-          style="transition-delay:0.15s">
-          <div class="text-3xl mb-4">🏳️</div>
-          <h3 class="font-extrabold text-lg mb-2">You're losing to less qualified clinics</h3>
-          <p class="text-gray-mid text-sm leading-relaxed">
-            A competitor with half your expertise is outranking you because they invested in authority-building.
-            Patients assume whoever ranks first must be the best.
-          </p>
-        </div>
-        <!-- Pain 6 -->
-        <div class="reveal border-2 border-gray-100 rounded-2xl p-7 hover:border-yellow transition-colors"
-          style="transition-delay:0.25s">
-          <div class="text-3xl mb-4">🔇</div>
-          <h3 class="font-extrabold text-lg mb-2">Referrals are unpredictable</h3>
-          <p class="text-gray-mid text-sm leading-relaxed">
-            Relying on word-of-mouth and referrals caps your growth. You can't scale what you can't predict. Organic
-            search is the most scalable, predictable patient channel that exists.
-          </p>
-        </div>
-      </div>
-
-      <!-- Agitation kicker -->
-      <div class="reveal mt-14 bg-ink rounded-2xl p-8 text-center">
-        <p class="text-white text-xl font-bold leading-relaxed max-w-3xl mx-auto">
-          Every day you wait, a competitor locks in the rankings and the AI mentions. <span class="text-yellow">Those
-            spots don't stay empty — they get filled by someone else.</span>
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ════════════════════════════════════════
-     SOLUTION / THE OFFER
-════════════════════════════════════════ -->
-  <section class="py-24 px-5 bg-yellow">
-    <div class="max-w-5xl mx-auto">
-
-      <div class="reveal text-center mb-16">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-ink/50">The Solution</span>
-        <h2 class="font-display text-4xl md:text-5xl font-bold mt-3 text-ink leading-tight">
-          Introducing <span class="underline decoration-4 decoration-ink/30">ClinicRank</span>
-        </h2>
-        <p class="text-ink/70 text-lg mt-4 max-w-2xl mx-auto">
-          The only SEO + GEO system built exclusively for medical clinics and health tech companies — designed to make
-          you the obvious choice on every search surface that matters.
-        </p>
-      </div>
-
-      <!-- Offer breakdown -->
-      <div class="grid md:grid-cols-2 gap-6">
-
-        <div class="reveal bg-white rounded-2xl p-7 shadow-sm">
-          <div class="flex items-start gap-4">
-            <div
-              class="bg-ink text-yellow text-2xl w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">🔍
-            </div>
-            <div>
-              <h3 class="font-extrabold text-lg mb-1">Traditional SEO Domination</h3>
-              <p class="text-gray-mid text-sm leading-relaxed">Technical audits, high-intent keyword targeting, local
-                map pack optimization, and E-E-A-T compliant content — built to rank and stay ranked after every
-                algorithm update.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal bg-white rounded-2xl p-7 shadow-sm" style="transition-delay:0.1s">
-          <div class="flex items-start gap-4">
-            <div
-              class="bg-ink text-yellow text-2xl w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">🤖
-            </div>
-            <div>
-              <h3 class="font-extrabold text-lg mb-1">Generative Engine Optimization (GEO)</h3>
-              <p class="text-gray-mid text-sm leading-relaxed">We engineer your clinic's presence to be cited by
-                ChatGPT, Perplexity, Gemini, and other AI engines — so when patients ask AI for recommendations, you're
-                the answer.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal bg-white rounded-2xl p-7 shadow-sm" style="transition-delay:0.05s">
-          <div class="flex items-start gap-4">
-            <div
-              class="bg-ink text-yellow text-2xl w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">✍️
-            </div>
-            <div>
-              <h3 class="font-extrabold text-lg mb-1">HIPAA-Aware Content System</h3>
-              <p class="text-gray-mid text-sm leading-relaxed">A clear content system built for trust, compliance, and patient confidence. We create medical-grade content that supports your reputation while helping you rank and appear in AI answers.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal bg-white rounded-2xl p-7 shadow-sm" style="transition-delay:0.15s">
-          <div class="flex items-start gap-4">
-            <div
-              class="bg-ink text-yellow text-2xl w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">📍
-            </div>
-            <div>
-              <h3 class="font-extrabold text-lg mb-1">Local & Geo Authority Building</h3>
-              <p class="text-gray-mid text-sm leading-relaxed">Dominate your city and surrounding areas with precision
-                geo-targeting — Google Business optimization, local citations, and neighborhood-level content
-                strategies.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal bg-white rounded-2xl p-7 shadow-sm" style="transition-delay:0.1s">
-          <div class="flex items-start gap-4">
-            <div
-              class="bg-ink text-yellow text-2xl w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">🔗
-            </div>
-            <div>
-              <h3 class="font-extrabold text-lg mb-1">Medical Authority Link Building</h3>
-              <p class="text-gray-mid text-sm leading-relaxed">We secure high-quality backlinks from medical journals,
-                health directories, and authoritative publications — the kind that Google's healthcare algorithm
-                actually trusts.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal bg-white rounded-2xl p-7 shadow-sm" style="transition-delay:0.2s">
-          <div class="flex items-start gap-4">
-            <div
-              class="bg-ink text-yellow text-2xl w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">📊
-            </div>
-            <div>
-              <h3 class="font-extrabold text-lg mb-1">Real-Time Reporting Dashboard</h3>
-              <p class="text-gray-mid text-sm leading-relaxed">See exactly which keywords rank, how many patients found
-                you from organic search, and where you appear in AI answers — updated live, no mystery metrics.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Guarantee box -->
-      <div
-        class="reveal mt-10 bg-ink rounded-2xl p-8 flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
-        <div class="text-5xl flex-shrink-0">🛡️</div>
-        <div>
-          <h3 class="text-yellow font-extrabold text-xl mb-1">The ClinicRank Guarantee</h3>
-          <p class="text-gray-300 text-sm leading-relaxed">If you don't see measurable ranking improvements and an
-            increase in organic patient inquiries within 90 days of your campaign launch, we work for free until you do.
-            No fine print. No excuses.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ════════════════════════════════════════
-     HOW IT WORKS
-════════════════════════════════════════ -->
-  <section id="how" class="py-24 px-5 bg-white">
-    <div class="max-w-4xl mx-auto">
-
-      <div class="reveal text-center mb-16">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-gray-soft">The Process</span>
-        <h2 class="font-display text-4xl md:text-5xl font-bold mt-3 leading-tight">
-          From invisible to undeniable<br />in 4 steps.
-        </h2>
-      </div>
-
-      <p class="reveal text-gray-mid text-lg text-center max-w-2xl mx-auto mb-10">
-        The ClinicRank system is deliberately simple and proprietary: diagnose the gap, blueprint the path, execute the lift, and compound the gains.
-      </p>
-
-      <div class="space-y-6">
-
-        <div class="reveal flex gap-6 items-start">
-          <div
-            class="flex-shrink-0 w-14 h-14 bg-yellow rounded-2xl flex items-center justify-center font-display text-2xl font-bold text-ink">
-            1</div>
-          <div class="pt-1">
-            <h3 class="font-extrabold text-lg mb-1">Diagnose Your Visibility (Day 1)</h3>
-            <p class="text-gray-mid text-sm leading-relaxed max-w-xl">We begin with a clear read on your current presence — Google rankings, AI citations, technical health, competitor gaps, and local authority. You get a practical report that shows exactly where patients are finding your competitors instead of you.</p>
-          </div>
-        </div>
-
-        <div class="w-px h-8 bg-yellow ml-7"></div>
-
-        <div class="reveal flex gap-6 items-start" style="transition-delay:0.1s">
-          <div
-            class="flex-shrink-0 w-14 h-14 bg-yellow rounded-2xl flex items-center justify-center font-display text-2xl font-bold text-ink">
-            2</div>
-          <div class="pt-1">
-            <h3 class="font-extrabold text-lg mb-1">Build the ClinicRank Blueprint (Week 1–2)</h3>
-            <p class="text-gray-mid text-sm leading-relaxed max-w-xl">We build a 6-month dual-engine roadmap that is specific to your clinic: the keywords to own, the content to create, the technical fixes to make, and the local pages that will build momentum first.</p>
-          </div>
-        </div>
-
-        <div class="w-px h-8 bg-yellow ml-7"></div>
-
-        <div class="reveal flex gap-6 items-start" style="transition-delay:0.2s">
-          <div
-            class="flex-shrink-0 w-14 h-14 bg-yellow rounded-2xl flex items-center justify-center font-display text-2xl font-bold text-ink">
-            3</div>
-          <div class="pt-1">
-            <h3 class="font-extrabold text-lg mb-1">Execute the Authority System (Month 1–3)</h3>
-            <p class="text-gray-mid text-sm leading-relaxed max-w-xl">We publish content that is useful, compliant, and built for both patients and search systems, fix the technical issues that hold your site back, and strengthen the signals that Google and AI engines trust.</p>
-          </div>
-        </div>
-
-        <div class="w-px h-8 bg-yellow ml-7"></div>
-
-        <div class="reveal flex gap-6 items-start" style="transition-delay:0.3s">
-          <div
-            class="flex-shrink-0 w-14 h-14 bg-yellow rounded-2xl flex items-center justify-center font-display text-2xl font-bold text-ink">
-            4</div>
-          <div class="pt-1">
-            <h3 class="font-extrabold text-lg mb-1">Compound Your Patient Pipeline (Month 3+)</h3>
-            <p class="text-gray-mid text-sm leading-relaxed max-w-xl">This is where the system starts to work for you. Rankings strengthen, AI mentions grow, and your patient pipeline becomes more predictable — without depending on a fresh ad budget every month.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ════════════════════════════════════════
-     PROOF / RESULTS
-════════════════════════════════════════ -->
-  <section id="proof" class="py-24 px-5 bg-ink dot-grid">
-    <div class="max-w-5xl mx-auto">
-
-      <div class="reveal text-center mb-16">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-yellow/60">Real Results</span>
-        <h2 class="font-display text-4xl md:text-5xl font-bold mt-3 text-white leading-tight">
-          Numbers that<br /><span class="text-yellow">show what is possible.</span>
-        </h2>
-        <p class="text-gray-400 text-lg mt-5 max-w-3xl mx-auto">
-          We do not rely on vague promises. We build traction with clear timelines, measurable wins, and a strategy that is easy to understand.
-        </p>
-      </div>
-
-      <!-- Stats row -->
-      <div class="reveal grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
-          <div class="font-display text-5xl text-yellow font-bold">340%</div>
-          <div class="text-gray-400 text-xs font-bold uppercase tracking-wide mt-2">Avg. lead increase</div>
-        </div>
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
-          <div class="font-display text-5xl text-yellow font-bold">47+</div>
-          <div class="text-gray-400 text-xs font-bold uppercase tracking-wide mt-2">Keywords ranked #1</div>
-        </div>
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
-          <div class="font-display text-5xl text-yellow font-bold">89%</div>
-          <div class="text-gray-400 text-xs font-bold uppercase tracking-wide mt-2">Ad spend reduction</div>
-        </div>
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
-          <div class="font-display text-5xl text-yellow font-bold">60d</div>
-          <div class="text-gray-400 text-xs font-bold uppercase tracking-wide mt-2">First results avg.</div>
-        </div>
-      </div>
-
-      <!-- Beta Partner Strategy -->
-      <div class="reveal bg-white rounded-3xl p-8 md:p-10 border border-yellow/30 shadow-xl">
-        <div class="flex flex-col lg:flex-row gap-8 items-start">
-          <div class="lg:w-2/3">
-            <p class="text-xs font-extrabold uppercase tracking-[0.25em] text-yellow">Beta Partner Strategy</p>
-            <h3 class="font-display text-3xl md:text-4xl font-bold mt-3 text-ink leading-tight">
-              Build proof first, then charge for the result.
-            </h3>
-            <p class="text-gray-mid text-base leading-relaxed mt-4">
-              In 2026, the strongest way to close in a B2B business is to show aspirational outcomes and provide clear, useful education before asking for a commitment.
-            </p>
-
-            <div class="space-y-4 mt-6 text-sm text-gray-mid leading-relaxed">
-              <div>
-                <strong class="text-ink">1. The “Beta User” Strategy:</strong> Before launching a new service, I work for free with a few clinics to earn early proof and build momentum.
-              </div>
-              <div>
-                <strong class="text-ink">2. “Epic Effort” vs. “Epic Proof”:</strong> If proof is still limited, I compensate with uncommon effort, clear communication, and a very focused execution plan.
-              </div>
-              <div>
-                <strong class="text-ink">3. Lowering the Friction of the Unknown:</strong> A free month gives a clinic a low-risk way to see the value before making a real commitment.
-              </div>
-              <div>
-                <strong class="text-ink">4. Transitioning to Paid:</strong> Once a few clinics have seen the results, the path to paid work becomes much easier because the proof is now undeniable.
-              </div>
-            </div>
-          </div>
-
-          <div class="lg:w-1/3 w-full bg-ink rounded-2xl p-6 text-white">
-            <h4 class="font-extrabold text-lg mb-3">Limited beta partner spots</h4>
-            <p class="text-gray-300 text-sm leading-relaxed mb-5">
-              I am looking for a small number of clinics to receive the dual-engine SEO + GEO service for free in exchange for a testimonial, case study, and a fair share of honest feedback.
-            </p>
-            <a href="#audit"
-              class="inline-block bg-yellow text-ink font-extrabold text-sm px-5 py-3 rounded-full hover:bg-yellow-dark transition-colors">
-              Apply for a Beta Partner Spot →
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ════════════════════════════════════════
-     WHY US
-════════════════════════════════════════ -->
-  <section class="py-24 px-5 bg-mist">
-    <div class="max-w-5xl mx-auto">
-
-      <div class="reveal text-center mb-16">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-gray-soft">Why ClinicRank</span>
-        <h2 class="font-display text-4xl md:text-5xl font-bold mt-3 leading-tight">
-          Not another generic agency.
-        </h2>
-        <p class="text-gray-mid text-lg mt-4 max-w-2xl mx-auto">
-          I bring a human layer to the work: I am Parssa (Charlie), and I make every recommendation clear, practical, and built on trust — not hype.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-6">
-
-        <div
-          class="reveal flex gap-5 bg-white rounded-2xl p-7 border-2 border-transparent hover:border-yellow transition-colors">
-          <span class="text-3xl flex-shrink-0">⚙️</span>
-          <div>
-            <h3 class="font-extrabold mb-1">Meta-Certified Backend Engineering</h3>
-            <p class="text-gray-mid text-sm leading-relaxed">Technical SEO isn't just keywords. Site architecture,
-              structured data, Core Web Vitals, schema markup — we engineer your site to perform at a level most
-              agencies can't touch.</p>
-          </div>
-        </div>
-
-        <div
-          class="reveal flex gap-5 bg-white rounded-2xl p-7 border-2 border-transparent hover:border-yellow transition-colors"
-          style="transition-delay:0.1s">
-          <span class="text-3xl flex-shrink-0">🤖</span>
-          <div>
-            <h3 class="font-extrabold mb-1">Dual SEO + GEO Expertise</h3>
-            <p class="text-gray-mid text-sm leading-relaxed">We're Google-certified for SEO and one of the few
-              practitioners actively engineering GEO strategies — getting clinics cited in AI answers before competitors
-              even know GEO exists.</p>
-          </div>
-        </div>
-
-        <div
-          class="reveal flex gap-5 bg-white rounded-2xl p-7 border-2 border-transparent hover:border-yellow transition-colors"
-          style="transition-delay:0.05s">
-          <span class="text-3xl flex-shrink-0">🏥</span>
-          <div>
-            <h3 class="font-extrabold mb-1">Healthcare-Only Focus</h3>
-            <p class="text-gray-mid text-sm leading-relaxed">We don't work with restaurants, e-commerce, or SaaS. We are
-              exclusively healthcare. That means deep knowledge of medical content standards, YMYL guidelines, and
-              patient search behavior.</p>
-          </div>
-        </div>
-
-        <div
-          class="reveal flex gap-5 bg-white rounded-2xl p-7 border-2 border-transparent hover:border-yellow transition-colors"
-          style="transition-delay:0.15s">
-          <span class="text-3xl flex-shrink-0">🛡️</span>
-          <div>
-            <h3 class="font-extrabold mb-1">HIPAA-Aware Content Strategy</h3>
-            <p class="text-gray-mid text-sm leading-relaxed">Every piece of content we produce is reviewed against
-              healthcare content compliance standards. Your rankings grow without putting your practice at legal or
-              reputational risk.</p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ════════════════════════════════════════
-     PRICING / OFFER
-════════════════════════════════════════ -->
-  <section class="py-24 px-5 bg-white">
-    <div class="max-w-4xl mx-auto">
-
-      <div class="reveal text-center mb-16">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-gray-soft">The Offer</span>
-        <h2 class="font-display text-4xl md:text-5xl font-bold mt-3 leading-tight">
-          One clear offer.<br />Built to compound.
-        </h2>
-        <p class="text-gray-mid text-lg mt-4 max-w-xl mx-auto">
-          We don't do retainers that feel like subscriptions. We build authority systems with measurable patient
-          outcomes.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-
-        <!-- Starter -->
-        <div class="reveal border-2 border-gray-100 rounded-2xl p-7 hover:border-yellow transition-colors">
-          <div class="text-xs font-extrabold uppercase tracking-widest text-gray-soft mb-4">Starter</div>
-          <div class="font-display text-4xl font-bold mb-1">Custom</div>
-          <p class="text-gray-soft text-xs mb-6">Quoted after audit</p>
-          <ul class="space-y-3 text-sm text-gray-mid mb-8">
-            <li class="flex gap-2"><span class="text-yellow font-bold">✓</span> Full SEO audit & setup</li>
-            <li class="flex gap-2"><span class="text-yellow font-bold">✓</span> 4 content pieces/month</li>
-            <li class="flex gap-2"><span class="text-yellow font-bold">✓</span> Google Business optimization</li>
-            <li class="flex gap-2"><span class="text-yellow font-bold">✓</span> Monthly reporting</li>
-            <li class="flex gap-2 text-gray-300"><span>–</span> GEO / AI optimization</li>
-            <li class="flex gap-2 text-gray-300"><span>–</span> Link building</li>
-          </ul>
-          <a href="#audit"
-            class="block text-center border-2 border-ink text-ink font-extrabold text-sm py-3 rounded-full hover:bg-ink hover:text-white transition-colors">Start
-            with Audit</a>
-        </div>
-
-        <!-- Authority — featured -->
-        <div class="reveal border-2 border-yellow bg-ink rounded-2xl p-7 relative" style="transition-delay:0.1s">
-          <div
-            class="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow text-ink text-xs font-extrabold px-4 py-1 rounded-full uppercase tracking-widest whitespace-nowrap">
-            Most Popular</div>
-          <div class="text-xs font-extrabold uppercase tracking-widest text-yellow/60 mb-4">Authority</div>
-          <div class="font-display text-4xl font-bold text-white mb-1">Custom</div>
-          <p class="text-gray-400 text-xs mb-6">Quoted after audit</p>
-          <ul class="space-y-3 text-sm text-gray-300 mb-8">
-            <li class="flex gap-2"><span class="text-yellow font-bold">✓</span> Everything in Starter</li>
-            <li class="flex gap-2"><span class="text-yellow font-bold">✓</span> GEO / AI citation strategy</li>
-            <li class="flex gap-2"><span class="text-yellow font-bold">✓</span> 8 content pieces/month</li>
-            <li class="flex gap-2"><span class="text-yellow font-bold">✓</span> Medical authority link building</li>
-            <li class="flex gap-2"><span class="text-yellow font-bold">✓</span> Geo-targeted landing pages</li>
-            <li class="flex gap-2"><span class="text-yellow font-bold">✓</span> Live ranking dashboard</li>
-          </ul>
-          <a href="#audit"
-            class="block text-center bg-yellow text-ink font-extrabold text-sm py-3 rounded-full hover:bg-yellow-dark transition-colors">Get
-            My Free Audit</a>
-        </div>
-
-        <!-- Dominate -->
-        <div class="reveal border-2 border-gray-100 rounded-2xl p-7 hover:border-yellow transition-colors"
-          style="transition-delay:0.2s">
-          <div class="text-xs font-extrabold uppercase tracking-widest text-gray-soft mb-4">Dominate</div>
-          <div class="font-display text-4xl font-bold mb-1">Custom</div>
-          <p class="text-gray-soft text-xs mb-6">Multi-location / health tech</p>
-          <ul class="space-y-3 text-sm text-gray-mid mb-8">
-            <li class="flex gap-2"><span class="text-yellow font-bold">✓</span> Everything in Authority</li>
-            <li class="flex gap-2"><span class="text-yellow font-bold">✓</span> Multi-location SEO</li>
-            <li class="flex gap-2"><span class="text-yellow font-bold">✓</span> AI workflow automation</li>
-            <li class="flex gap-2"><span class="text-yellow font-bold">✓</span> Dedicated strategist (Parssa (Charlie))</li>
-            <li class="flex gap-2"><span class="text-yellow font-bold">✓</span> Weekly strategy calls</li>
-            <li class="flex gap-2"><span class="text-yellow font-bold">✓</span> Priority slot guarantee</li>
-          </ul>
-          <a href="#audit"
-            class="block text-center border-2 border-ink text-ink font-extrabold text-sm py-3 rounded-full hover:bg-ink hover:text-white transition-colors">Apply
-            for Dominate</a>
-        </div>
-
-      </div>
-
-      <p class="reveal text-center text-gray-soft text-sm mt-8">All plans start with a <strong class="text-ink">free
-          audit</strong>. Pricing is scoped after we understand your market and goals.</p>
-
-    </div>
-  </section>
-
-
-  <!-- ════════════════════════════════════════
-     FAQ
-════════════════════════════════════════ -->
-  <section id="faq" class="py-24 px-5 bg-mist">
-    <div class="max-w-3xl mx-auto">
-
-      <div class="reveal text-center mb-14">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-gray-soft">FAQ</span>
-        <h2 class="font-display text-4xl md:text-5xl font-bold mt-3">Common questions.</h2>
-      </div>
-
-      <div class="space-y-3">
-
-        <details
-          class="reveal bg-white rounded-2xl border-2 border-transparent hover:border-yellow transition-colors group">
-          <summary class="flex items-center justify-between p-6 font-extrabold text-base">
-            How is GEO different from traditional SEO?
-            <span class="faq-icon text-yellow text-2xl font-light ml-4">+</span>
-          </summary>
-          <p class="px-6 pb-6 text-gray-mid text-sm leading-relaxed">
-            Traditional SEO gets you ranked on Google's blue links. GEO (Generative Engine Optimization) gets your
-            clinic cited <em>inside</em> AI-generated answers on ChatGPT, Perplexity, Gemini, and similar tools. As more
-            patients use AI to find healthcare providers, GEO is becoming as important as traditional SEO — and right
-            now, almost no clinics are doing it.
-          </p>
-        </details>
-
-        <details class="reveal bg-white rounded-2xl border-2 border-transparent hover:border-yellow transition-colors"
-          style="transition-delay:0.05s">
-          <summary class="flex items-center justify-between p-6 font-extrabold text-base">
-            How long before I see results?
-            <span class="faq-icon text-yellow text-2xl font-light ml-4">+</span>
-          </summary>
-          <p class="px-6 pb-6 text-gray-mid text-sm leading-relaxed">
-            Most clients see measurable ranking improvements within 60–90 days. Significant traffic and lead increases
-            typically follow by months 3–6. SEO is not instant — but unlike ads, the results compound and continue
-            growing long after you've paid for the work. Think of it as an asset, not an expense.
-          </p>
-        </details>
-
-        <details class="reveal bg-white rounded-2xl border-2 border-transparent hover:border-yellow transition-colors"
-          style="transition-delay:0.1s">
-          <summary class="flex items-center justify-between p-6 font-extrabold text-base">
-            Is this HIPAA compliant?
-            <span class="faq-icon text-yellow text-2xl font-light ml-4">+</span>
-          </summary>
-          <p class="px-6 pb-6 text-gray-mid text-sm leading-relaxed">
-            We are an SEO/GEO service, not a software platform that stores patient data — so HIPAA directly governs your
-            systems, not ours. That said, all content we produce is reviewed against medical content compliance
-            standards (E-E-A-T, YMYL), and we never recommend strategies that would put your practice at regulatory
-            risk. We always advise working with your legal counsel on specific compliance questions.
-          </p>
-        </details>
-
-        <details class="reveal bg-white rounded-2xl border-2 border-transparent hover:border-yellow transition-colors"
-          style="transition-delay:0.15s">
-          <summary class="flex items-center justify-between p-6 font-extrabold text-base">
-            Do you work with all types of clinics?
-            <span class="faq-icon text-yellow text-2xl font-light ml-4">+</span>
-          </summary>
-          <p class="px-6 pb-6 text-gray-mid text-sm leading-relaxed">
-            We work with medical clinics (dental, dermatology, cardiology, general practice, cosmetic surgery, etc.),
-            allied health practices, and health tech companies. We take on a limited number of new clients per month to
-            ensure quality — which is why we recommend booking your audit before slots fill.
-          </p>
-        </details>
-
-        <details class="reveal bg-white rounded-2xl border-2 border-transparent hover:border-yellow transition-colors"
-          style="transition-delay:0.2s">
-          <summary class="flex items-center justify-between p-6 font-extrabold text-base">
-            What's included in the free audit?
-            <span class="faq-icon text-yellow text-2xl font-light ml-4">+</span>
-          </summary>
-          <p class="px-6 pb-6 text-gray-mid text-sm leading-relaxed">
-            Your free audit includes: a full technical SEO health check, current keyword ranking analysis, competitor
-            gap report, local search visibility score, AI citation check (are you mentioned in ChatGPT/Perplexity?), and
-            a prioritized action plan. It's a real deliverable — not a sales pitch dressed up as a report.
-          </p>
-        </details>
-
-        <details class="reveal bg-white rounded-2xl border-2 border-transparent hover:border-yellow transition-colors"
-          style="transition-delay:0.25s">
-          <summary class="flex items-center justify-between p-6 font-extrabold text-base">
-            What's your guarantee exactly?
-            <span class="faq-icon text-yellow text-2xl font-light ml-4">+</span>
-          </summary>
-          <p class="px-6 pb-6 text-gray-mid text-sm leading-relaxed">
-            If you don't see measurable improvements in keyword rankings and organic patient inquiries within 90 days of
-            your campaign going live, we continue working at no charge until you do. This applies to clients on our
-            Authority and Dominate plans. We put our work on the line because we're confident in it.
-          </p>
-        </details>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ════════════════════════════════════════
-     FINAL CTA + FORM
-════════════════════════════════════════ -->
-  <section id="audit" class="py-24 px-5 bg-ink dot-grid">
-    <div class="max-w-4xl mx-auto">
-
-      <div class="reveal text-center mb-12">
-        <span
-          class="inline-block bg-yellow text-ink text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
-          🔒 Free — No Credit Card — No Obligation
-        </span>
-        <h2 class="font-display text-4xl md:text-6xl font-bold text-white leading-tight mb-4">
-          Get your free<br /><span class="text-yellow">SEO + GEO Strategy Map.</span>
-        </h2>
-        <p class="text-gray-400 text-lg max-w-xl mx-auto">
-          Find out exactly where patients are finding your competitors instead of you — and what it would take to fix it. You get a practical next-step plan before any commitment.
-        </p>
-        <p class="text-yellow text-sm font-bold mt-4 flex items-center justify-center gap-2">
-          <span class="w-2 h-2 bg-yellow rounded-full inline-block animate-pulse-slow"></span>
-          Only 4 audit spots remaining this month
-        </p>
-      </div>
-
-      <!-- Form card -->
-      <div class="reveal bg-white rounded-3xl p-8 md:p-12 shadow-2xl max-w-2xl mx-auto">
-        <h3 class="font-extrabold text-xl mb-6 text-center">Request Your Free Audit</h3>
-
-        <!-- ⚠️ Connect this form to your backend / Formspree / EmailJS -->
-        <form action="https://formspree.io/f/mpqgwevw" method="POST" class="space-y-4">
-
-          <div class="grid md:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-xs font-extrabold uppercase tracking-wider text-gray-soft mb-1.5" for="name">Your
-                Name</label>
-              <input id="name" name="name" type="text" required placeholder="Dr. Smith"
-                class="w-full border-2 border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold focus:border-yellow transition-colors" />
-            </div>
-            <div>
-              <label class="block text-xs font-extrabold uppercase tracking-wider text-gray-soft mb-1.5"
-                for="email">Email Address</label>
-              <input id="email" name="email" type="email" required placeholder="you@clinic.com"
-                class="w-full border-2 border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold focus:border-yellow transition-colors" />
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-xs font-extrabold uppercase tracking-wider text-gray-soft mb-1.5"
-              for="clinic">Clinic / Practice Name</label>
-            <input id="clinic" name="clinic" type="text" required placeholder="Sunshine Dental Group"
-              class="w-full border-2 border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold focus:border-yellow transition-colors" />
-          </div>
-
-          <div>
-            <label class="block text-xs font-extrabold uppercase tracking-wider text-gray-soft mb-1.5"
-              for="website">Your Website URL</label>
-            <input id="website" name="website" type="url" placeholder="https://yourclinic.com"
-              class="w-full border-2 border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold focus:border-yellow transition-colors" />
-          </div>
-
-          <div>
-            <label class="block text-xs font-extrabold uppercase tracking-wider text-gray-soft mb-1.5" for="type">Clinic
-              Type</label>
-            <select id="type" name="type"
-              class="w-full border-2 border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold focus:border-yellow transition-colors bg-white">
-              <option value="">Select your specialty...</option>
-              <option>Dental / Orthodontics</option>
-              <option>Dermatology / Aesthetics</option>
-              <option>General Practice / Family Medicine</option>
-              <option>Cardiology</option>
-              <option>Orthopaedics / Sports Medicine</option>
-              <option>Mental Health / Psychology</option>
-              <option>Cosmetic Surgery</option>
-              <option>Health Tech Company</option>
-              <option>Other</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="block text-xs font-extrabold uppercase tracking-wider text-gray-soft mb-1.5"
-              for="goal">Biggest goal right now?</label>
-            <textarea id="goal" name="goal" rows="3"
-              placeholder="E.g. more patient bookings, reduce ad spend, rank #1 in our city..."
-              class="w-full border-2 border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold focus:border-yellow transition-colors resize-none"></textarea>
-          </div>
-
-          <button type="submit"
-            class="w-full bg-yellow hover:bg-yellow-dark text-ink font-extrabold text-base py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-yellow/40">
-            Send Me My Free Strategy Map →
-          </button>
-
-          <p class="text-center text-gray-soft text-xs">
-            No spam. No sales pressure. You'll get a real audit within 48 hours. 🛡️
-          </p>
-
-        </form>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════ -->
-  <footer class="bg-ink border-t border-white/10 py-10 px-5">
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-      <div>
-        <a href="#" class="font-display text-2xl text-yellow font-bold">ClinicRank.</a>
-        <p class="text-gray-500 text-xs mt-1">by <a href="https://parssa.pro"
-            class="text-yellow hover:underline">Parssa (Charlie)</a> — SEO & GEO for Medical Clinics</p>
-      </div>
-      <div class="flex gap-6 text-gray-500 text-xs font-bold uppercase tracking-widest">
-        <a href="#how" class="hover:text-yellow transition-colors">How It Works</a>
-        <a href="#proof" class="hover:text-yellow transition-colors">Results</a>
-        <a href="#faq" class="hover:text-yellow transition-colors">FAQ</a>
-        <a href="mailto:prince.of.night1382@gmail.com" class="hover:text-yellow transition-colors">Contact</a>
-      </div>
-      <p class="text-gray-600 text-xs">© 2026 ClinicRank. All rights reserved.</p>
-    </div>
-  </footer>
-
-
-  <!-- ════════════════════════════════════════
-     SCROLL REVEAL JS
-════════════════════════════════════════ -->
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
-
 </body>
-
 </html>
