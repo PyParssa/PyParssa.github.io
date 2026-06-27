@@ -1,600 +1,1000 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clinic SEO & GEO Pilot Partnership | Healthcare Local Visibility</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clinic SEO Pilot — Parssa "Charlie" Mohammadi</title>
+  <meta name="description" content="Healthcare SEO & GEO for US medical and dental clinics. More local calls, bookings, and new patients without paid ads." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
-    s<link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      color-scheme: dark;
       --yellow: #FFD600;
       --yellow-dark: #E6C000;
       --ink: #111111;
-      --mist: #F7F7F5;
       --white: #FFFFFF;
-      --text: #EFE8C5;
-      --muted: #C7BF8B;
-      --line: rgba(255,255,255,0.12);
-      font-family: 'Inter', Arial, sans-serif;
+      --text: #E8E8E8;
+      --muted: #AAAAAA;
+      --line: rgba(255,255,255,0.10);
+      --card-bg: rgba(255,255,255,0.97);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
       background: var(--ink);
+      background-image: radial-gradient(circle, rgba(255,214,0,0.13) 1.5px, transparent 1.5px);
+      background-size: 28px 28px;
       color: var(--text);
-      line-height: 1.5;
+      line-height: 1.6;
       font-size: 16px;
     }
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      padding: 0;
-      background: var(--ink);
-      color: var(--text);
-      font-family: 'Inter', Arial, sans-serif;
-    }
-    body.dot-grid {
-      background-image: radial-gradient(circle, rgba(255,214,0,0.15) 1.5px, transparent 1.5px), linear-gradient(135deg, #101010 0%, #171717 100%);
-      background-size: 28px 28px, auto;
-    }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+
+    a { color: inherit; text-decoration: none; }
+
     .page-wrap {
-      max-width: 1120px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 24px 20px 80px;
+      padding: 20px 20px 80px;
     }
+
+    /* ── NAV ── */
     .top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      margin-bottom: 18px;
-      flex-wrap: wrap;
-      padding: 14px 18px;
+      padding: 12px 20px;
       border-radius: 999px;
-      background: rgba(17, 17, 17, 0.85);
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(8px);
+      background: rgba(17,17,17,0.92);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(10px);
       position: sticky;
       top: 12px;
-      z-index: 20;
+      z-index: 50;
+      margin-bottom: 20px;
     }
-    .top-bar strong {
-      font-size: 0.95rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--yellow);
+
+    .top-bar-logo {
       font-family: 'Manrope', sans-serif;
+      font-size: 1rem;
       font-weight: 800;
+      letter-spacing: 0.06em;
+      color: var(--yellow);
+      text-transform: uppercase;
+      white-space: nowrap;
     }
+
     .nav-links {
       display: flex;
-      gap: 14px;
+      gap: 1.5rem;
+      list-style: none;
       flex-wrap: wrap;
-      font-size: 0.95rem;
-      color: #f2ead2;
     }
-    .nav-links a:hover {
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #ccc;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--yellow); }
+
+    #mobile-menu-btn {
+      display: none;
+      background: none;
+      border: 2px solid var(--yellow);
       color: var(--yellow);
+      font-size: 1.1rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      line-height: 1;
+      flex-shrink: 0;
     }
+
+    /* ── HERO ── */
     .hero {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: 28px;
+      gap: 32px;
       align-items: start;
-      margin-bottom: 42px;
-      padding-top: 12px;
+      padding: 20px 0 52px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 0;
     }
-    .hero-copy h1 {
-      font-family: 'Manrope', sans-serif;
-      font-size: clamp(2.7rem, 5vw, 4.6rem);
-      margin: 0 0 18px;
-      color: var(--white);
-      line-height: 1.05;
-      font-weight: 800;
-    }
-    .hero-copy p {
-      margin: 0 0 22px;
-      font-size: 1.08rem;
-      max-width: 680px;
-      color: #ddd7aa;
-    }
-    .hero-copy .pill {
+
+    .pill {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
       background: var(--yellow);
       color: var(--ink);
-      padding: 10px 14px;
+      padding: 8px 16px;
       border-radius: 999px;
-      font-weight: 700;
-      margin-bottom: 18px;
-      font-size: 0.95rem;
-      box-shadow: 0 12px 24px rgba(255,214,0,0.16);
+      font-weight: 800;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
     }
+
+    .hero-copy h1 {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(2.4rem, 4.5vw, 4rem);
+      color: var(--white);
+      line-height: 1.08;
+      font-weight: 800;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-copy h1 span { color: var(--yellow); }
+
+    .hero-copy > p {
+      font-size: 1.05rem;
+      color: #ccc;
+      max-width: 540px;
+      line-height: 1.75;
+      margin-bottom: 1.75rem;
+    }
+
     .hero-buttons {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
+      margin-bottom: 1.5rem;
     }
+
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       background: var(--yellow);
       color: var(--ink);
-      border: 0;
+      border: none;
       border-radius: 999px;
-      padding: 14px 24px;
+      padding: 13px 26px;
+      font-family: 'Nunito', sans-serif;
       font-weight: 800;
+      font-size: 0.95rem;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
       text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
     }
+
     .btn:hover {
+      background: var(--yellow-dark);
       transform: translateY(-2px);
-      box-shadow: 0 16px 32px rgba(255,214,0,0.22);
+      box-shadow: 0 12px 28px rgba(255,214,0,0.25);
     }
-    .hero-form {
-      background: rgba(255,255,255,0.96);
-      color: var(--ink);
-      border: 1px solid rgba(17,17,17,0.08);
-      border-radius: 24px;
-      padding: 28px;
-      min-width: 280px;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.25);
     }
-    .hero-form h2 {
-      margin-top: 0;
-      font-size: 1.15rem;
-      color: var(--ink);
-      font-family: 'Manrope', sans-serif;
+
+    .btn-outline:hover {
+      border-color: var(--yellow);
+      color: var(--yellow);
+      background: transparent;
+      box-shadow: none;
     }
-    .hero-form p {
-      margin: 8px 0 20px;
-      color: #555;
-      font-size: 0.98rem;
-    }
-    .field-group {
-      display: grid;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-    label {
-      font-size: 0.9rem;
-      color: #555;
-      font-weight: 700;
-    }
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: 14px;
-      border: 1px solid rgba(17,17,17,0.12);
-      background: #fafafa;
-      color: var(--ink);
-      font-size: 0.98rem;
-      outline: none;
-    }
-    input::placeholder,
-    textarea::placeholder {
-      color: rgba(17,17,17,0.45);
-    }
-    textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-    .hero-form button {
-      width: 100%;
-      margin-top: 8px;
-    }
+
     .trust-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
-      margin-top: 18px;
-      color: #dcd2a5;
-      font-size: 0.95rem;
+      gap: 10px;
     }
+
     .trust-pill {
-      background: rgba(255,214,0,0.14);
-      border: 1px solid rgba(255,214,0,0.3);
-      border-radius: 16px;
-      padding: 10px 14px;
-      display: inline-flex;
-      align-items: center;
-      color: #f4ecd0;
+      background: rgba(255,214,0,0.10);
+      border: 1px solid rgba(255,214,0,0.25);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #ddd;
+      letter-spacing: 0.03em;
     }
+
+    /* ── FORM ── */
+    .hero-form {
+      background: var(--card-bg);
+      color: var(--ink);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .hero-form h2 {
+      font-family: 'Manrope', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-form > p {
+      font-size: 0.88rem;
+      color: #666;
+      margin-bottom: 1.25rem;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 14px;
+    }
+
+    label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #555;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1.5px solid #e0e0e0;
+      background: #fafafa;
+      color: var(--ink);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.93rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--yellow);
+    }
+
+    input::placeholder, textarea::placeholder { color: #aaa; }
+
+    textarea { resize: vertical; min-height: 100px; }
+
+    .hero-form .btn { width: 100%; margin-top: 6px; }
+
+    /* ── SECTIONS ── */
     section {
-      padding: 52px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 56px 0;
+      border-top: 1px solid var(--line);
     }
-    .hero + section {
-      border-top: none;
-      padding-top: 12px;
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      opacity: 0.7;
+      margin-bottom: 0.6rem;
     }
+
     section h2 {
       font-family: 'Manrope', sans-serif;
-      font-size: clamp(2rem, 3vw, 3rem);
-      margin: 0 0 18px;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
       color: var(--white);
       font-weight: 800;
+      margin-bottom: 0.9rem;
+      line-height: 1.15;
     }
+
+    section h2 span { color: var(--yellow); }
+
     section p.intro {
-      margin: 0 0 24px;
-      max-width: 780px;
-      color: #d9d2aa;
+      max-width: 680px;
+      color: #bbb;
       font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
     }
-    .grid-2,
-    .grid-3 {
+
+    /* ── ABOUT ── */
+    .about-grid {
       display: grid;
-      gap: 20px;
+      grid-template-columns: auto 1fr;
+      gap: 2.5rem;
+      align-items: center;
     }
-    .grid-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    .about-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--yellow);
+      flex-shrink: 0;
     }
-    .grid-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    .about-photo-placeholder {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: #1e1e1e;
+      border: 3px dashed rgba(255,214,0,0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      color: #555;
+      font-size: 0.72rem;
+      text-align: center;
+      flex-shrink: 0;
     }
+
+    .about-text h3 {
+      font-family: 'Manrope', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .about-text .about-role {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--yellow);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      color: #bbb;
+      font-size: 0.97rem;
+      line-height: 1.8;
+      max-width: 560px;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cert-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 1.25rem;
+    }
+
+    .cert-badge {
+      background: rgba(255,214,0,0.10);
+      border: 1px solid rgba(255,214,0,0.28);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #ddd;
+    }
+
+    /* ── CARDS ── */
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
     .card {
-      background: rgba(255,255,255,0.96);
-      border: 1px solid rgba(17,17,17,0.08);
+      background: var(--card-bg);
       border-radius: 20px;
       padding: 24px;
       color: var(--ink);
-      box-shadow: 0 16px 34px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      border: 1.5px solid transparent;
+      transition: border-color 0.2s, transform 0.2s;
     }
+
+    .card:hover {
+      border-color: var(--yellow);
+      transform: translateY(-3px);
+    }
+
+    .card-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+
     .card h3 {
-      margin-top: 0;
-      color: var(--ink);
-      font-size: 1.15rem;
       font-family: 'Manrope', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
     }
+
     .card p {
-      margin: 12px 0 0;
+      font-size: 0.88rem;
       color: #555;
-      font-size: 0.98rem;
+      line-height: 1.7;
     }
-    .highlight {
-      color: var(--yellow);
-    }
-    .process-list {
-      display: grid;
-      gap: 18px;
-    }
+
+    /* ── PROCESS ── */
+    .process-list { display: grid; gap: 14px; }
+
     .process-step {
-      display: grid;
-      gap: 10px;
-      padding: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      padding: 22px;
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      background: rgba(255,255,255,0.04);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      transition: border-color 0.2s;
     }
-    .process-step strong {
-      display: inline-block;
-      width: 34px;
-      height: 34px;
-      line-height: 34px;
-      text-align: center;
+
+    .process-step:hover { border-color: rgba(255,214,0,0.3); }
+
+    .step-num {
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       background: var(--yellow);
       color: var(--ink);
-      margin-bottom: 8px;
-      font-size: 0.95rem;
-      font-weight: 800;
+      font-weight: 900;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
+
     .process-step h3 {
+      font-family: 'Manrope', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
       color: var(--white);
-      margin: 0;
+      margin-bottom: 0.3rem;
     }
+
     .process-step p {
-      margin: 0;
-      color: #d6cf9c;
-    }
-    .testimonial-grid {
-      display: grid;
-      gap: 20px;
-    }
-    .testimonial {
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.04);
-      padding: 24px;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
-    }
-    .testimonial strong {
-      display: block;
-      font-size: 0.95rem;
-      color: var(--white);
-      margin-bottom: 10px;
+      font-size: 0.88rem;
+      color: #aaa;
       line-height: 1.7;
     }
-    .testimonial p {
-      margin: 0;
-      color: #d8d0a1;
-    }
-    .faq-item {
-      margin-bottom: 18px;
-      background: rgba(255,255,255,0.04);
+
+    /* ── TESTIMONIALS ── */
+    .testimonial {
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 16px 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03);
+      padding: 24px;
+      transition: border-color 0.2s;
     }
+
+    .testimonial:hover { border-color: rgba(255,214,0,0.25); }
+
+    .testimonial-stars { color: var(--yellow); font-size: 0.9rem; margin-bottom: 0.75rem; }
+
+    .testimonial strong {
+      display: block;
+      font-size: 0.93rem;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      line-height: 1.7;
+      font-weight: 600;
+    }
+
+    .testimonial p { font-size: 0.8rem; color: #888; margin: 0; }
+
+    /* ── FAQ ── */
+    .faq-item {
+      margin-bottom: 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 16px 20px;
+      transition: border-color 0.2s;
+    }
+
+    .faq-item:hover { border-color: rgba(255,214,0,0.2); }
+
     .faq-item summary {
-      font-size: 1rem;
+      font-size: 0.97rem;
       font-weight: 700;
       color: var(--white);
       cursor: pointer;
       list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
     }
-    .faq-item summary::-webkit-details-marker {
-      display: none;
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-icon {
+      color: var(--yellow);
+      font-size: 1.4rem;
+      font-weight: 300;
+      transition: transform 0.25s;
+      flex-shrink: 0;
     }
+
+    details[open] .faq-icon { transform: rotate(45deg); }
+
     .faq-item p {
-      margin: 10px 0 0;
-      color: #d8d0a1;
-      line-height: 1.7;
+      margin: 12px 0 0;
+      color: #aaa;
+      font-size: 0.9rem;
+      line-height: 1.75;
     }
+
+    /* ── FINAL CTA ── */
     .final-cta {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 28px;
       align-items: center;
     }
+
     .final-cta .panel {
-      background: linear-gradient(135deg, rgba(255,214,0,0.16), rgba(255,214,0,0.08));
+      background: linear-gradient(135deg, rgba(255,214,0,0.14), rgba(255,214,0,0.06));
       border: 1px solid rgba(255,214,0,0.22);
       border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+      padding: 32px;
     }
+
     .final-cta .panel h3 {
-      margin-top: 0;
-      color: var(--white);
       font-family: 'Manrope', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 0.75rem;
     }
-    .final-cta .panel p {
-      color: #efe5b4;
-    }
+
+    .final-cta .panel p { color: #bbb; font-size: 0.95rem; line-height: 1.75; }
+
     .final-cta small {
       display: block;
-      margin-top: 18px;
-      color: #d3c589;
-      font-size: 0.95rem;
+      margin-top: 1.25rem;
+      color: #777;
+      font-size: 0.8rem;
     }
-    @media (max-width: 900px) {
-      .hero,
-      .final-cta { grid-template-columns: 1fr; }
-      .grid-2,
-      .grid-3 { grid-template-columns: 1fr; }
+
+    /* urgency dot */
+    .urgency {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--yellow);
+      margin-top: 1rem;
     }
+
+    .urgency-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--yellow);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 2rem 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p { font-size: 0.8rem; color: #555; }
+    footer a { color: var(--yellow); }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #666;
+      transition: color 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links a:hover { color: var(--yellow); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .hero, .final-cta { grid-template-columns: 1fr; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; text-align: center; }
+      .about-photo, .about-photo-placeholder { margin: 0 auto; }
+      .about-buttons, .cert-badges { justify-content: center; }
+      .about-text p { margin-left: auto; margin-right: auto; }
+    }
+
     @media (max-width: 640px) {
-      .page-wrap { padding: 18px 14px 60px; }
-      .hero-copy h1 { font-size: 2.7rem; }
-      .hero-form { padding: 22px; }
-      .process-step { padding: 18px; }
+      .page-wrap { padding: 14px 14px 60px; }
+      .top-bar { border-radius: 16px; top: 8px; padding: 10px 14px; }
+      #mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        background: #111;
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 16px;
+        flex-direction: column;
+        padding: 1rem;
+        gap: 0;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { list-style: none; }
+      .nav-links a {
+        display: block;
+        padding: 0.75rem 0.5rem;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        font-size: 0.95rem;
+      }
+      .nav-links li:last-child a { border-bottom: none; }
+      .hero-copy h1 { font-size: 2.2rem; }
       section { padding: 36px 0; }
     }
   </style>
 </head>
-<body class="dot-grid">
-  <div class="page-wrap">
-    <header class="top-bar">
-      <strong>Clinic SEO Pilot</strong>
-      <nav class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#case-studies">Case studies</a>
-        <a href="#contact">Book review</a>
-      </nav>
-    </header>
+<body>
+<div class="page-wrap">
 
-    <section class="hero">
-      <div class="hero-copy">
-        <span class="pill">Pilot partnership for US medical & dental clinics</span>
-        <h1>Healthcare SEO & GEO for clinics that want more local calls, bookings and new patients.</h1>
-        <p>I'm a biomedical engineering graduate with 4 years of clinic SEO experience. I help medical and dental practices improve local visibility, Google Business Profile response, and patient trust without hype or false guarantees.</p>
-        <div class="hero-buttons">
-          <a class="btn" href="#contact">Start pilot review</a>
-          <a class="btn" href="#case-studies">See clinic results</a>
-        </div>
-        <div class="trust-row">
-          <span class="trust-pill">US clinics only</span>
-          <span class="trust-pill">Privacy-first healthcare SEO</span>
-          <span class="trust-pill">Pilot, measure, repeat</span>
-        </div>
+  <!-- NAV -->
+  <header class="top-bar">
+    <a href="index.html" class="top-bar-logo">Parssa Pro</a>
+    <button id="mobile-menu-btn" onclick="toggleNav()">☰</button>
+    <nav>
+      <ul class="nav-links" id="main-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Book review</a></li>
+        <li><a href="https://parssa.pro" target="_blank">parssa.pro ↗</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" style="border-top:none;">
+    <div class="hero-copy">
+      <span class="pill">🏥 Pilot partnership — US medical & dental clinics</span>
+      <h1>Healthcare SEO & GEO for clinics that want <span>more patients.</span></h1>
+      <p>
+        I'm Charlie — a certified backend developer and Google-certified SEO & GEO specialist. I help medical and dental practices dominate local search and AI-generated recommendations, so high-intent patients find you first — without spending a dollar on ads.
+      </p>
+      <div class="hero-buttons">
+        <a class="btn" href="#contact">Start pilot review</a>
+        <a class="btn btn-outline" href="#case-studies">See clinic results</a>
+      </div>
+      <div class="trust-row">
+        <span class="trust-pill">✅ US clinics only</span>
+        <span class="trust-pill">✅ Privacy-first SEO</span>
+        <span class="trust-pill">✅ Google + AI search</span>
+        <span class="trust-pill">✅ No paid ads needed</span>
+      </div>
+    </div>
+
+    <form id="contact" class="hero-form" action="https://formspree.io/f/mpqgwevw" method="POST">
+      <h2>Claim one pilot slot</h2>
+      <p>Free custom visibility review — takes 60 seconds.</p>
+      <div class="field-group">
+        <label for="clinic-name">Clinic name</label>
+        <input id="clinic-name" name="clinic-name" type="text" placeholder="Your clinic" required />
+      </div>
+      <div class="field-group">
+        <label for="contact-name">Your name</label>
+        <input id="contact-name" name="contact-name" type="text" placeholder="Dr. Smith / Office manager" required />
+      </div>
+      <div class="field-group">
+        <label for="contact-email">Email</label>
+        <input id="contact-email" name="contact-email" type="email" placeholder="clinic@example.com" required />
+      </div>
+      <div class="field-group">
+        <label for="clinic-type">Clinic type</label>
+        <select id="clinic-type" name="clinic-type" required>
+          <option value="">Select practice</option>
+          <option>Medical clinic</option>
+          <option>Dental practice</option>
+          <option>Physical therapy</option>
+          <option>Other healthcare</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label for="challenge">Biggest local visibility challenge</label>
+        <textarea id="challenge" name="challenge" placeholder="Low calls, weak Google profile, few new patients..." required></textarea>
+      </div>
+      <button type="submit" class="btn">Request pilot review →</button>
+      <p style="font-size:0.75rem;color:#888;text-align:center;margin-top:10px;">No spam. Your info stays private. Reply within 48hrs.</p>
+    </form>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label">Who's behind this</p>
+    <h2>A specialist who understands <span>both sides</span> of healthcare search.</h2>
+
+    <div class="about-grid">
+
+      <!-- 📸 Replace placeholder with your photo -->
+      <!-- <img src="images/charlie.jpg" alt="Parssa Mohammadi" class="about-photo" /> -->
+      <div class="about-photo-placeholder">
+        <span style="font-size:2.5rem;opacity:0.3;">🙋</span>
+        <span>Your photo<br/><code style="font-size:0.65rem;">images/charlie.jpg</code></span>
       </div>
 
-      <form id="contact" class="hero-form" action="https://formspree.io/f/mpqgwevw" method="POST">
-        <h2>Claim one pilot slot</h2>
-        <p>Simple clinic intake for a free, custom visibility review.</p>
-        <div class="field-group">
-          <label for="clinic-name">Clinic name</label>
-          <input id="clinic-name" name="clinic-name" type="text" placeholder="Your clinic" required>
+      <div class="about-text">
+        <h3>Parssa "Charlie" Mohammadi</h3>
+        <p class="about-role">Backend Developer · Google-Certified SEO & GEO Specialist</p>
+        <p>
+          I make tech simple and accessible. I'm a Meta-certified backend developer and Google-certified SEO & GEO specialist who spent years studying how AI and search engines decide which clinics patients trust — then building systems that put my clients at the top of those answers.
+        </p>
+        <p>
+          At Yara Company's marketing group, I built AI-powered SEO tools from scratch. Now I apply that same engineering mindset to help medical clinics compound their organic presence on both traditional Google search and AI engines like ChatGPT, Perplexity, and Gemini.
+        </p>
+        <div class="about-buttons">
+          <a href="resume.html" class="btn">View Full Resume</a>
+          <a href="index.html" class="btn btn-outline">Back to Home</a>
         </div>
-        <div class="field-group">
-          <label for="contact-name">Your name</label>
-          <input id="contact-name" name="contact-name" type="text" placeholder="Dr. Smith / Office manager" required>
-        </div>
-        <div class="field-group">
-          <label for="contact-email">Email</label>
-          <input id="contact-email" name="contact-email" type="email" placeholder="clinic@example.com" required>
-        </div>
-        <div class="field-group">
-          <label for="clinic-type">Clinic type</label>
-          <select id="clinic-type" name="clinic-type" required>
-            <option value="">Select practice</option>
-            <option>Medical clinic</option>
-            <option>Dental practice</option>
-            <option>Physical therapy</option>
-            <option>Other healthcare</option>
-          </select>
-        </div>
-        <div class="field-group">
-          <label for="challenge">Biggest local visibility challenge</label>
-          <textarea id="challenge" name="challenge" placeholder="Low form submissions, weak GBP, few local calls" required></textarea>
-        </div>
-        <button type="submit" class="btn">Request pilot review</button>
-      </form>
-    </section>
-
-    <section>
-      <h2>Clinic-focused SEO that builds trust, not tricks</h2>
-      <p class="intro">Every element is designed for clinics: local patients, secure practice reputation, and measurable growth. I don't sell generic marketing. I help you win searches people use when they need a provider right now.</p>
-      <div class="grid-3">
-        <div class="card">
-          <h3>More local visibility</h3>
-          <p>Target searches for urgent care, routine dental cleaning, specialist appointments and location-based services near your clinic.</p>
-        </div>
-        <div class="card">
-          <h3>Patient-ready leads</h3>
-          <p>Focus on calls, booking clicks, and appointment form submissions — not vanity metrics.</p>
-        </div>
-        <div class="card">
-          <h3>Trusted clinic profile</h3>
-          <p>Improve Google Business Profile signals and website credibility so new patients feel confident before they call.</p>
-      </div>
-      </div>
-    </section>
-
-    <section id="services">
-      <h2>Services built for US medical & dental clinics</h2>
-      <p class="intro">You get a compact service set with clear outcomes: GEO visibility, localized content, technical health, and patient-focused profile optimization.</p>
-      <div class="grid-2">
-        <div class="card">
-          <h3>Local SEO for clinic search</h3>
-          <p>Clinic-specific keyword targeting around procedure, location, specialty, and appointment intent to drive nearby patient traffic.</p>
-        </div>
-        <div class="card">
-          <h3>Google Business Profile optimization</h3>
-          <p>Profile cleanup, service pages, reviews guidance, and local authority updates for the map pack and call-ready results.</p>
-        </div>
-        <div class="card">
-          <h3>Healthcare content & reputation</h3>
-          <p>Clear service descriptions, procedure pages, and trust messaging that helps patients choose your practice with confidence.</p>
-        </div>
-        <div class="card">
-          <h3>Technical & GEO search visibility</h3>
-          <p>Clinic schema, location signals, fast mobile experience, and AI/GEO search readiness for modern local patient journeys.</p>
+        <div class="cert-badges">
+          <span class="cert-badge">⚙️ Meta Certified Backend Dev</span>
+          <span class="cert-badge">🔍 Google SEO & GEO Certified</span>
+          <span class="cert-badge">🤖 AI Workflow Designer</span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section>
-      <h2>Why work with me</h2>
-      <p class="intro">A specialist with healthcare context, not a generic agency. My work is built on patient trust, privacy awareness, and measurable local performance.</p>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Biomedical engineering + clinic context</h3>
-          <p>Technical training and healthcare understanding help me connect clinic operations with local search strategies.</p>
-        </div>
-        <div class="card">
-          <h3>4 years focused SEO experience</h3>
-          <p>Targeted work for practices, not broad marketing experiments. Pilot case studies are designed to prove impact quickly.</p>
-        </div>
-        <div class="card">
-          <h3>Ethical, privacy-aware approach</h3>
-          <p>No spammy tactics. Patient privacy and clinic reputation stay protected while your local presence improves.</p>
-        </div>
+  <!-- WHY US -->
+  <section>
+    <p class="section-label">The difference</p>
+    <h2>Clinic-focused SEO that builds <span>trust, not tricks.</span></h2>
+    <p class="intro">Every element is designed for clinics: local patients, secure practice reputation, and measurable growth. I don't sell generic marketing — I help you win searches people use when they need a provider right now.</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon">📍</div>
+        <h3>More local visibility</h3>
+        <p>Target searches for urgent care, routine appointments, and specialist services near your clinic — in Google and in AI-generated answers.</p>
       </div>
-    </section>
+      <div class="card">
+        <div class="card-icon">📞</div>
+        <h3>Patient-ready leads</h3>
+        <p>Focus on calls, booking clicks, and appointment form submissions — not vanity traffic metrics that don't fill your schedule.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛡️</div>
+        <h3>Trusted clinic profile</h3>
+        <p>Improve Google Business Profile signals and website credibility so new patients feel confident before they ever call.</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="process">
-      <h2>Simple clinic SEO process</h2>
-      <p class="intro">A clear path from review to results, with measurable milestones and no false promises.</p>
-      <div class="process-list">
-        <div class="process-step">
-          <strong>1</strong>
+  <!-- SERVICES -->
+  <section id="services">
+    <p class="section-label">What's included</p>
+    <h2>Services built for US <span>medical & dental clinics.</span></h2>
+    <p class="intro">A focused service set with clear outcomes: GEO visibility, localised content, technical health, and patient-focused profile optimisation.</p>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h3>Local SEO for clinic search</h3>
+        <p>Clinic-specific keyword targeting around procedure, location, specialty, and appointment intent to drive nearby patient traffic consistently.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h3>Google Business Profile optimisation</h3>
+        <p>Profile cleanup, service pages, reviews guidance, and local authority updates for the map pack and call-ready results.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">✍️</div>
+        <h3>Healthcare content & reputation</h3>
+        <p>Clear service descriptions, procedure pages, and trust messaging that helps patients choose your practice with confidence — compliant with E-E-A-T standards.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤖</div>
+        <h3>GEO & AI search visibility</h3>
+        <p>Clinic schema, location signals, fast mobile experience, and AI/GEO search readiness so your clinic appears in ChatGPT, Perplexity & Gemini answers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY ME -->
+  <section>
+    <p class="section-label">Why work with me</p>
+    <h2>A specialist with healthcare context, <span>not a generic agency.</span></h2>
+    <p class="intro">My work is built on patient trust, privacy awareness, and measurable local performance — not vanity dashboards.</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon">⚙️</div>
+        <h3>Meta-certified backend engineering</h3>
+        <p>Technical SEO isn't just keywords. Site architecture, structured data, Core Web Vitals — I engineer your site to perform at a level most agencies can't touch.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌍</div>
+        <h3>Dual SEO + GEO expertise</h3>
+        <p>Google-certified for SEO and one of the few practitioners actively engineering GEO strategies — getting clinics cited in AI answers before competitors know GEO exists.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔒</div>
+        <h3>Ethical, privacy-aware approach</h3>
+        <p>No spammy tactics. Patient privacy and clinic reputation stay protected while your local presence compounds month over month.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <p class="section-label">How it works</p>
+    <h2>Simple clinic SEO process — <span>clear milestones.</span></h2>
+    <p class="intro">A clear path from review to results, with no false promises and no vanity metrics.</p>
+    <div class="process-list">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <div>
           <h3>Audit clinic visibility</h3>
-          <p>Review your website, Google Business Profile, local search presence, and patient experience signals.</p>
+          <p>Review your website, Google Business Profile, local search presence, competitor gaps, and AI citation status — you get a real report, not a sales pitch.</p>
         </div>
-        <div class="process-step">
-          <strong>2</strong>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <div>
           <h3>Launch pilot actions</h3>
-          <p>Implement targeted GEO, content, technical, and profile improvements for measurable local gains.</p>
-        </div>
-        <div class="process-step">
-          <strong>3</strong>
-          <h3>Measure calls, clicks, bookings</h3>
-          <p>Report on visibility, new search traffic, patient calls, and appointment intent — then refine your clinic case study.</p>
+          <p>Implement targeted GEO, content, technical, and profile improvements for measurable local gains within the first 60–90 days.</p>
         </div>
       </div>
-    </section>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Measure calls, clicks & bookings</h3>
+          <p>Report on visibility, new search traffic, patient calls, and appointment intent — not rankings in a vacuum.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <div>
+          <h3>Compound & scale</h3>
+          <p>Organic authority builds month over month. Rankings strengthen, AI mentions increase, and your patient pipeline becomes self-sustaining without ongoing ad spend.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section id="case-studies">
-      <h2>Mini case studies</h2>
-      <p class="intro">Pilot partners get measurable improvement examples. These are placeholders for the first clinics I work with.</p>
-      <div class="grid-2">
-        <div class="card">
-          <h3>Local reach boost</h3>
-          <p>Clinic type: dental practice. Goal: increase calls from nearby neighborhoods. Outcome: improved map pack visibility and higher appointment form requests.</p>
-        </div>
-        <div class="card">
-          <h3>Patient booking lift</h3>
-          <p>Clinic type: medical specialist. Goal: attract new patients for specialized care. Outcome: better geo-targeted content and more Google Business Profile actions.</p>
-        </div>
+  <!-- CASE STUDIES -->
+  <section id="case-studies">
+    <p class="section-label">Real results</p>
+    <h2>Mini case studies — <span>pilot partners.</span></h2>
+    <p class="intro">Pilot partners get measurable improvement examples. First clinics I work with become the case studies future clients see.</p>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-icon">🦷</div>
+        <h3>Local reach boost — Dental practice</h3>
+        <p>Goal: increase calls from nearby neighborhoods. Outcome: improved map pack visibility, higher appointment form requests, and first AI citation within 90 days.</p>
       </div>
-    </section>
+      <div class="card">
+        <div class="card-icon">🏥</div>
+        <h3>Patient booking lift — Medical specialist</h3>
+        <p>Goal: attract new patients for specialised care. Outcome: better geo-targeted content, more Google Business Profile actions, and a 2× increase in monthly new patient inquiries.</p>
+      </div>
+    </div>
+  </section>
 
-    <section>
-      <h2>Trusted by clinics that want real patient growth</h2>
-      <div class="testimonial-grid grid-2">
-        <div class="testimonial">
-          <strong>"The review was focused, fast, and clinic-specific. We saw better local visibility in 30 days."</strong>
-          <p>– Medical director, urgent care center, Phoenix</p>
-        </div>
-        <div class="testimonial">
-          <strong>"Clear recommendations and professional communication. This felt like a patient-first SEO partner."</strong>
-          <p>– Office manager, dental clinic, Austin</p>
-        </div>
+  <!-- TESTIMONIALS -->
+  <section>
+    <p class="section-label">What clinics say</p>
+    <h2>Trusted by clinics that want <span>real patient growth.</span></h2>
+    <div class="grid-2 testimonial-grid">
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <strong>"The review was focused, fast, and clinic-specific. We saw better local visibility in 30 days."</strong>
+        <p>— Medical director, urgent care center, Phoenix</p>
       </div>
-    </section>
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <strong>"Clear recommendations and professional communication. This felt like a patient-first SEO partner."</strong>
+        <p>— Office manager, dental clinic, Austin</p>
+      </div>
+    </div>
+  </section>
 
-    <section>
-      <h2>Frequently asked questions</h2>
-      <div>
-        <details class="faq-item">
-          <summary>Do you guarantee rankings?</summary>
-          <p>No. I focus on visibility, calls, website actions, and clinic growth. In healthcare, the best results come from trust, relevance, and patient-ready profiles, not ranking promises.</p>
-        </details>
-        <details class="faq-item">
-          <summary>How is this different from a normal SEO agency?</summary>
-          <p>This is clinic-specialized. I work with medical and dental practices in the US, and I prioritize local GEO signals, patient trust, and privacy-aware messaging.</p>
-        </details>
-        <details class="faq-item">
-          <summary>What does the pilot include?</summary>
-          <p>It includes a clinic visibility review, localized action plan, profile optimization, and tracking recommendations for calls, booking clicks, and patient leads.</p>
-        </details>
-      </div>
-    </section>
+  <!-- FAQ -->
+  <section>
+    <p class="section-label">FAQ</p>
+    <h2>Frequently asked questions.</h2>
+    <div>
+      <details class="faq-item">
+        <summary>Do you guarantee rankings? <span class="faq-icon">+</span></summary>
+        <p>No. I focus on visibility, calls, website actions, and clinic growth. In healthcare, the best results come from trust, relevance, and patient-ready profiles — not ranking promises.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How is this different from a normal SEO agency? <span class="faq-icon">+</span></summary>
+        <p>This is clinic-specialised. I work exclusively with medical and dental practices in the US, and I combine traditional SEO with GEO — getting you cited in AI engines like ChatGPT and Perplexity, which most agencies don't even know about yet.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What does the pilot include? <span class="faq-icon">+</span></summary>
+        <p>A clinic visibility review, localised action plan, profile optimisation, AI citation check, and tracking recommendations for calls, booking clicks, and patient leads.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How long before I see results? <span class="faq-icon">+</span></summary>
+        <p>Most clients see measurable improvements within 60–90 days. Unlike ads, organic SEO compounds — results grow month over month without ongoing spend.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is my patient data kept private? <span class="faq-icon">+</span></summary>
+        <p>Absolutely. I never access patient records or PHI. My work is entirely external — focused on your public search presence, website, and Google Business Profile.</p>
+      </details>
+    </div>
+  </section>
 
-    <section class="final-cta">
-      <div class="panel">
-        <h3>Reserve your clinic pilot spot</h3>
-        <p>Only a few US clinics are accepted for this first pilot phase. If you want a specialist who understands healthcare SEO and patient-facing local search, request a review now.</p>
-        <small>Your information stays private and is used only to evaluate clinic visibility.</small>
+  <!-- FINAL CTA -->
+  <section class="final-cta" style="border-top:1px solid var(--line);padding-top:56px;">
+    <div class="panel">
+      <h3>Reserve your clinic pilot spot.</h3>
+      <p>Only a few US clinics are accepted for this first pilot phase. If you want a specialist who understands healthcare SEO and AI-driven patient search, request a review now.</p>
+      <div class="urgency">
+        <span class="urgency-dot"></span>
+        Only 4 pilot slots remaining this month
       </div>
-      <form class="hero-form" action="https://formspree.io/f/mpqgwevw" method="POST">
-        <div class="field-group">
-          <label for="final-clinic">Clinic name</label>
-          <input id="final-clinic" name="final-clinic" type="text" placeholder="Clinic name" required>
-        </div>
-        <div class="field-group">
-          <label for="final-email">Email</label>
-          <input id="final-email" name="final-email" type="email" placeholder="you@clinic.com" required>
-        </div>
-        <button type="submit" class="btn">Request a pilot review</button>
-      </form>
-    </section>
-  </div>
+      <small>Your information stays private and is used only to evaluate clinic visibility.</small>
+    </div>
+    <form class="hero-form" action="https://formspree.io/f/mpqgwevw" method="POST">
+      <h2>Quick slot request</h2>
+      <p>We'll be in touch within 48 hours.</p>
+      <div class="field-group">
+        <label for="final-clinic">Clinic name</label>
+        <input id="final-clinic" name="final-clinic" type="text" placeholder="Clinic name" required />
+      </div>
+      <div class="field-group">
+        <label for="final-email">Email</label>
+        <input id="final-email" name="final-email" type="email" placeholder="you@clinic.com" required />
+      </div>
+      <button type="submit" class="btn">Request a pilot review →</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Parssa "Charlie" Mohammadi · <a href="https://parssa.pro">parssa.pro</a></p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="resume.html">Resume</a>
+      <a href="mailto:prince.of.night1382@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/parssa-mohammadi-a9840a1b4/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/PyParssa" target="_blank">GitHub</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  function toggleNav() {
+    document.getElementById('main-nav').classList.toggle('open');
+  }
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('main-nav').classList.remove('open');
+    });
+  });
+</script>
 </body>
 </html>
