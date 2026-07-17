@@ -3,986 +3,666 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parssa PyPe — Digital Systems Specialist</title>
-  <meta name="description" content="Digital Systems Specialist building efficient Django websites, AI-powered web experiences, SEO & GEO services, and business intelligence automations such as receptionist bots." />
+  <title>Resume — Parssa Mohammadi | Digital Systems Specialist</title>
+  <meta name="description" content="Resume of Parssa Mohammadi (PyPe) — Digital Systems Specialist building efficient Django websites, AI-powered web systems, SEO & GEO services, and business automation solutions." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
       --yellow: #FFD600;
-      --yellow-dark: #E6C000;
-      --ink: #111111;
-      --white: #FFFFFF;
-      --text: #E8E8E8;
-      --muted: #AAAAAA;
-      --line: rgba(255,255,255,0.10);
-      --card-bg: rgba(255,255,255,0.97);
+      --yellow-light: #FFF9D6;
+      --black: #111111;
+      --gray: #555555;
+      --border: #e8e8e8;
+      --white: #ffffff;
+      --font-display: 'Caveat', cursive;
+      --font-body: 'Nunito', sans-serif;
     }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Nunito', sans-serif;
-      background: var(--ink);
-      background-image: radial-gradient(circle, rgba(255,214,0,0.13) 1.5px, transparent 1.5px);
-      background-size: 28px 28px;
-      color: var(--text);
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--black);
       line-height: 1.6;
-      font-size: 16px;
     }
 
-    a { color: inherit; text-decoration: none; }
-
-    .page-wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px 20px 80px;
-    }
-
-    /* ── NAV ── */
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 20px;
-      border-radius: 999px;
-      background: rgba(17,17,17,0.92);
-      border: 1px solid rgba(255,255,255,0.10);
-      backdrop-filter: blur(10px);
+    /* NAV */
+    nav {
       position: sticky;
-      top: 12px;
-      z-index: 50;
-      margin-bottom: 20px;
+      top: 0;
+      z-index: 100;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 56px;
+      position: relative;
     }
 
-    .top-bar-logo {
-      font-family: 'Manrope', sans-serif;
-      font-size: 1rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
       color: var(--yellow);
-      text-transform: uppercase;
-      white-space: nowrap;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    #menu-btn {
+      display: none;
+      background: none;
+      border: 2px solid #FFD600;
+      color: #FFD600;
+      font-size: 1.2rem;
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      cursor: pointer;
+      line-height: 1;
     }
 
     .nav-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
       list-style: none;
-      flex-wrap: wrap;
     }
 
     .nav-links a {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #ccc;
-      letter-spacing: 0.04em;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--yellow); }
+    .nav-links a:hover, .nav-links a[aria-current] { color: var(--yellow); }
 
-    #mobile-menu-btn {
-      display: none;
-      background: none;
-      border: 2px solid var(--yellow);
-      color: var(--yellow);
-      font-size: 1.1rem;
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      cursor: pointer;
-      line-height: 1;
-      flex-shrink: 0;
-    }
-
-    /* ── HERO ── */
-    .hero {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 32px;
-      align-items: start;
-      padding: 20px 0 52px;
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 0;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      background: var(--yellow);
-      color: var(--ink);
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 0.82rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 1.25rem;
-    }
-
-    .hero-copy h1 {
-      font-family: 'Manrope', sans-serif;
-      font-size: clamp(2.4rem, 4.5vw, 4rem);
-      color: var(--white);
-      line-height: 1.08;
-      font-weight: 800;
-      margin-bottom: 1.1rem;
-    }
-
-    .hero-copy h1 span { color: var(--yellow); }
-
-    .hero-copy > p {
-      font-size: 1.05rem;
-      color: #ccc;
-      max-width: 540px;
-      line-height: 1.75;
-      margin-bottom: 1.75rem;
-    }
-
-    .hero-buttons {
+    /* HEADER */
+    .resume-header {
+      background: var(--black);
+      padding: 4rem 2rem 3rem;
       display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-    }
-
-    .btn {
-      display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: var(--yellow);
-      color: var(--ink);
-      border: none;
-      border-radius: 999px;
-      padding: 13px 26px;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800;
-      font-size: 0.95rem;
-      cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
     }
 
-    .btn:hover {
-      background: var(--yellow-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(255,214,0,0.25);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--white);
-      border: 2px solid rgba(255,255,255,0.25);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--yellow);
-      color: var(--yellow);
-      background: transparent;
-      box-shadow: none;
-    }
-
-    .trust-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .trust-pill {
-      background: rgba(255,214,0,0.10);
-      border: 1px solid rgba(255,214,0,0.25);
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: #ddd;
-      letter-spacing: 0.03em;
-    }
-
-    /* ── FORM ── */
-    .hero-form {
-      background: var(--card-bg);
-      color: var(--ink);
-      border-radius: 24px;
-      padding: 30px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.25);
-      border: 1px solid rgba(0,0,0,0.06);
-    }
-
-    .hero-form h2 {
-      font-family: 'Manrope', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: var(--ink);
-      margin-bottom: 0.35rem;
-    }
-
-    .hero-form > p {
-      font-size: 0.88rem;
-      color: #666;
-      margin-bottom: 1.25rem;
-    }
-
-    .field-group {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      margin-bottom: 14px;
-    }
-
-    label {
-      font-size: 0.8rem;
-      font-weight: 800;
-      color: #555;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1.5px solid #e0e0e0;
-      background: #fafafa;
-      color: var(--ink);
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.93rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--yellow);
-    }
-
-    input::placeholder, textarea::placeholder { color: #aaa; }
-
-    textarea { resize: vertical; min-height: 100px; }
-
-    .hero-form .btn { width: 100%; margin-top: 6px; }
-
-    /* ── SECTIONS ── */
-    section {
-      padding: 56px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .section-label {
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--yellow);
-      opacity: 0.7;
-      margin-bottom: 0.6rem;
-    }
-
-    section h2 {
-      font-family: 'Manrope', sans-serif;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      color: var(--white);
-      font-weight: 800;
-      margin-bottom: 0.9rem;
-      line-height: 1.15;
-    }
-
-    section h2 span { color: var(--yellow); }
-
-    section p.intro {
-      max-width: 680px;
-      color: #bbb;
-      font-size: 1rem;
-      line-height: 1.8;
-      margin-bottom: 2rem;
-    }
-
-    /* ── ABOUT ── */
-    .about-grid {
+    .resume-header-inner {
       display: grid;
       grid-template-columns: auto 1fr;
       gap: 2.5rem;
       align-items: center;
+      max-width: 860px;
+      width: 100%;
     }
 
-    .about-photo {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--yellow);
-      flex-shrink: 0;
-    }
-
-    .about-photo-placeholder {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: #1e1e1e;
-      border: 3px dashed rgba(255,214,0,0.4);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      color: #555;
-      font-size: 0.72rem;
-      text-align: center;
-      flex-shrink: 0;
-    }
-
-    .about-text h3 {
-      font-family: 'Manrope', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 800;
+    .resume-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
       color: var(--white);
-      margin-bottom: 0.3rem;
-    }
-
-    .about-text .about-role {
-      font-size: 0.88rem;
       font-weight: 700;
-      color: var(--yellow);
-      letter-spacing: 0.06em;
+      line-height: 1.1;
+    }
+
+    .resume-header h1 span { color: var(--yellow); }
+
+    .resume-subtitle {
+      font-size: 0.95rem;
+      color: #aaa;
+      margin-top: 0.4rem;
+    }
+
+    /* LAYOUT */
+    .resume-body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .resume-body > main,
+    .resume-body > aside {
+      min-width: 0;
+    }
+
+    /* SECTIONS */
+    .resume-section {
+      margin-bottom: 2.75rem;
+    }
+
+    .resume-section:last-child { margin-bottom: 0; }
+
+    .section-title {
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-
-    .about-text p {
-      color: #bbb;
-      font-size: 0.97rem;
-      line-height: 1.8;
-      max-width: 560px;
+      color: var(--black);
+      opacity: 0.4;
       margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--yellow);
+      display: inline-block;
     }
 
-    .about-buttons {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+    /* Experience */
+    .exp-item {
+      margin-bottom: 1.75rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--border);
+      position: relative;
     }
 
-    .cert-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 1.25rem;
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--yellow);
+      border: 2px solid var(--black);
     }
 
-    .cert-badge {
-      background: rgba(255,214,0,0.10);
-      border: 1px solid rgba(255,214,0,0.28);
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-size: 0.78rem;
-      font-weight: 800;
-      color: #ddd;
-    }
+    .exp-role { font-size: 1rem; font-weight: 800; color: var(--black); }
+    .exp-company { font-size: 0.88rem; font-weight: 600; color: var(--gray); margin-top: 0.1rem; }
+    .exp-date { font-size: 0.75rem; color: #aaa; font-weight: 600; margin-top: 0.2rem; letter-spacing: 0.05em; }
+    .exp-desc { font-size: 0.88rem; color: var(--gray); margin-top: 0.5rem; line-height: 1.7; }
 
-    /* ── CARDS ── */
-    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: 20px;
-      padding: 24px;
-      color: var(--ink);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
-      border: 1.5px solid transparent;
+    /* Project cards */
+    .project-card {
+      border: 2px solid #eee;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
       transition: border-color 0.2s, transform 0.2s;
     }
 
-    .card:hover {
+    .project-card:hover {
       border-color: var(--yellow);
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
 
-    .card-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+    .project-card-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
 
-    .card h3 {
-      font-family: 'Manrope', sans-serif;
-      font-size: 1rem;
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--yellow);
+      color: var(--black);
+      font-family: var(--font-body);
       font-weight: 800;
-      color: var(--ink);
+      font-size: 0.78rem;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+
+    .project-link:hover { background: #E6C000; }
+
+    .project-link.disabled {
+      background: #eee;
+      color: #aaa;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Sidebar */
+    .bootcamp-caption {
+      font-size: 0.72rem;
+      color: #aaa;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-group { margin-bottom: 1.25rem; }
+
+    .skill-group-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+      opacity: 0.45;
       margin-bottom: 0.5rem;
     }
 
-    .card p {
-      font-size: 0.88rem;
-      color: #555;
-      line-height: 1.7;
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    .skill-tag {
+      background: var(--yellow-light);
+      border: 1.5px solid #FFDD00;
+      color: var(--black);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
     }
 
-    /* ── PROCESS ── */
-    .process-list { display: grid; gap: 14px; }
-
-    .process-step {
+    .cert-item {
       display: flex;
       align-items: flex-start;
-      gap: 1.25rem;
-      padding: 22px;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.03);
-      transition: border-color 0.2s;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      padding: 0.85rem 1rem;
+      background: var(--yellow-light);
+      border-radius: 10px;
+      border: 1.5px solid #FFDD00;
     }
 
-    .process-step:hover { border-color: rgba(255,214,0,0.3); }
+    .cert-icon { font-size: 1.25rem; flex-shrink: 0; }
 
-    .step-num {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--yellow);
-      color: var(--ink);
-      font-weight: 900;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+    .cert-text strong { display: block; font-size: 0.88rem; font-weight: 800; }
+    .cert-text span { font-size: 0.78rem; color: var(--gray); }
+    .full-width-section {
+      grid-column: 1 / -1;  /* span from first to last column */
     }
-
-    .process-step h3 {
-      font-family: 'Manrope', sans-serif;
-      font-size: 1rem;
-      font-weight: 800;
-      color: var(--white);
-      margin-bottom: 0.3rem;
-    }
-
-    .process-step p {
-      font-size: 0.88rem;
-      color: #aaa;
-      line-height: 1.7;
-    }
-
-    /* ── TESTIMONIALS ── */
-    .testimonial {
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      background: rgba(255,255,255,0.03);
-      padding: 24px;
-      transition: border-color 0.2s;
-    }
-
-    .testimonial:hover { border-color: rgba(255,214,0,0.25); }
-
-    .testimonial-stars { color: var(--yellow); font-size: 0.9rem; margin-bottom: 0.75rem; }
-
-    .testimonial strong {
-      display: block;
-      font-size: 0.93rem;
-      color: var(--white);
-      margin-bottom: 0.75rem;
-      line-height: 1.7;
-      font-weight: 600;
-    }
-
-    .testimonial p { font-size: 0.8rem; color: #888; margin: 0; }
-
-    /* ── FAQ ── */
-    .faq-item {
-      margin-bottom: 12px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 16px 20px;
-      transition: border-color 0.2s;
-    }
-
-    .faq-item:hover { border-color: rgba(255,214,0,0.2); }
-
-    .faq-item summary {
-      font-size: 0.97rem;
-      font-weight: 700;
-      color: var(--white);
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .faq-item summary::-webkit-details-marker { display: none; }
-
-    .faq-icon {
-      color: var(--yellow);
-      font-size: 1.4rem;
-      font-weight: 300;
-      transition: transform 0.25s;
-      flex-shrink: 0;
-    }
-
-    details[open] .faq-icon { transform: rotate(45deg); }
-
-    .faq-item p {
-      margin: 12px 0 0;
-      color: #aaa;
-      font-size: 0.9rem;
-      line-height: 1.75;
-    }
-
-    /* ── FINAL CTA ── */
-    .final-cta {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .final-cta .panel {
-      background: linear-gradient(135deg, rgba(255,214,0,0.14), rgba(255,214,0,0.06));
-      border: 1px solid rgba(255,214,0,0.22);
-      border-radius: 24px;
-      padding: 32px;
-    }
-
-    .final-cta .panel h3 {
-      font-family: 'Manrope', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--white);
-      margin-bottom: 0.75rem;
-    }
-
-    .final-cta .panel p { color: #bbb; font-size: 0.95rem; line-height: 1.75; }
-
-    .final-cta small {
-      display: block;
-      margin-top: 1.25rem;
-      color: #777;
-      font-size: 0.8rem;
-    }
-
-    /* urgency dot */
-    .urgency {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--yellow);
-      margin-top: 1rem;
-    }
-
-    .urgency-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--yellow);
-      border-radius: 50%;
-      animation: pulse 2s ease-in-out infinite;
-      flex-shrink: 0;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    /* ── FOOTER ── */
+    /* Footer */
     footer {
-      border-top: 1px solid var(--line);
-      padding: 2rem 0 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    footer p { font-size: 0.8rem; color: #555; }
-    footer a { color: var(--yellow); }
-
-    .footer-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .footer-links a {
+      background: var(--black);
+      border-top: 1px solid #222;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      color: #555;
       font-size: 0.8rem;
-      font-weight: 700;
-      color: #666;
-      transition: color 0.2s;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
 
-    .footer-links a:hover { color: var(--yellow); }
+    footer a { color: var(--yellow); text-decoration: none; }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 860px) {
-      .hero, .final-cta { grid-template-columns: 1fr; }
-      .grid-2, .grid-3 { grid-template-columns: 1fr; }
-      .about-grid { grid-template-columns: 1fr; text-align: center; }
-      .about-photo, .about-photo-placeholder { margin: 0 auto; }
-      .about-buttons, .cert-badges { justify-content: center; }
-      .about-text p { margin-left: auto; margin-right: auto; }
-    }
+    /* RESPONSIVE */
+    @media (max-width: 680px) {
+      nav { position: sticky; }
 
-    @media (max-width: 640px) {
-      .page-wrap { padding: 14px 14px 60px; }
-      .top-bar { border-radius: 16px; top: 8px; padding: 10px 14px; }
-      #mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
+      #menu-btn { display: block; }
+
+      .resume-header-inner {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .resume-header-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
       .nav-links {
         display: none;
         position: absolute;
-        top: calc(100% + 8px);
+        top: 56px;
         left: 0;
         right: 0;
         background: #111;
-        border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 16px;
         flex-direction: column;
-        padding: 1rem;
         gap: 0;
+        border-top: 2px solid #FFD600;
+        z-index: 99;
       }
+
       .nav-links.open { display: flex; }
-      .nav-links li { list-style: none; }
-      .nav-links a {
+
+      .nav-links li a {
         display: block;
-        padding: 0.75rem 0.5rem;
-        border-bottom: 1px solid rgba(255,255,255,0.06);
-        font-size: 0.95rem;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #222;
+        font-size: 1rem;
       }
-      .nav-links li:last-child a { border-bottom: none; }
-      .hero-copy h1 { font-size: 2.2rem; }
-      section { padding: 36px 0; }
+
+      .nav-links li a:hover { background: #FFD600; color: #111; }
+
+      .resume-body { grid-template-columns: 1fr; gap: 0; }
+      .resume-header-inner { grid-template-columns: 1fr; text-align: center; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .eighty-twenty-grid { grid-template-columns: 1fr !important; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
     }
   </style>
 </head>
 <body>
-<div class="page-wrap">
 
   <!-- NAV -->
-  <header class="top-bar">
-    <a href="index.html" class="top-bar-logo">Parssa Pro</a>
-    <button id="mobile-menu-btn" onclick="toggleNav()">☰</button>
-    <nav>
-      <ul class="nav-links" id="main-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#contact">Book review</a></li>
-        <li><a href="https://parssa.pro" target="_blank">parssa.pro ↗</a></li>
-      </ul>
-    </nav>
+  <nav>
+    <a href="index.html" class="nav-logo">Parssa Pro</a>
+    <button id="menu-btn" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">What I Do</a></li>
+      <li><a href="resume.html" aria-current="true">Resume</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="clinicrank.html">ClinicRank</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="resume-header">
+    <div class="resume-header-inner">
+
+      <img src="images/charlie.jpg" alt="Parssa Mohammadi"
+        style="width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid #FFD600;flex-shrink:0;" />
+
+      <div class="resume-header-text">
+        <h1>Parssa Mohammadi aka <span>"PyPe"</span></h1>
+        <p class="resume-subtitle">Digital Systems Specialist</p>
+        <div style="display:flex; flex-wrap:wrap; gap:0.75rem; margin-top:1.25rem;">
+          <a href="#connect"
+            style="display:inline-flex;align-items:center;gap:0.5rem;background:transparent;color:#fff;border:2px solid #444;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.85rem;padding:0.5rem 1.25rem;border-radius:999px;text-decoration:none;transition:border-color 0.2s,color 0.2s;">
+            💬 Get in Touch
+          </a>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" style="border-top:none;">
-    <div class="hero-copy">
-      <span class="pill">🏥 Pilot partnership — US medical & dental clinics</span>
-      <h1>Healthcare SEO & GEO for clinics that want <span>more patients.</span></h1>
-      <p>
-        I'm PyPe — a Digital Systems Specialist building efficient websites with Django, implementing AI in web systems, offering SEO & GEO services, and creating business intelligence automations like receptionist bots for websites.
-      </p>
-      <div class="hero-buttons">
-        <a class="btn" href="#contact">Start pilot review</a>
-        <a class="btn btn-outline" href="#case-studies">See clinic results</a>
-      </div>
-      <div class="trust-row">
-        <span class="trust-pill">✅ US clinics only</span>
-        <span class="trust-pill">✅ Privacy-first SEO</span>
-        <span class="trust-pill">✅ Google + AI search</span>
-        <span class="trust-pill">✅ No paid ads needed</span>
-      </div>
-    </div>
+  <!-- BODY -->
+  <div class="resume-body">
 
-    <form id="contact" class="hero-form" action="https://formspree.io/f/mpqgwevw" method="POST">
-      <h2>Claim one pilot slot</h2>
-      <p>Free custom visibility review — takes 60 seconds.</p>
-      <div class="field-group">
-        <label for="clinic-name">Clinic name</label>
-        <input id="clinic-name" name="clinic-name" type="text" placeholder="Your clinic" required />
-      </div>
-      <div class="field-group">
-        <label for="contact-name">Your name</label>
-        <input id="contact-name" name="contact-name" type="text" placeholder="Dr. Smith / Office manager" required />
-      </div>
-      <div class="field-group">
-        <label for="contact-email">Email</label>
-        <input id="contact-email" name="contact-email" type="email" placeholder="clinic@example.com" required />
-      </div>
-      <div class="field-group">
-        <label for="clinic-type">Clinic type</label>
-        <select id="clinic-type" name="clinic-type" required>
-          <option value="">Select practice</option>
-          <option>Medical clinic</option>
-          <option>Dental practice</option>
-          <option>Physical therapy</option>
-          <option>Other healthcare</option>
-        </select>
-      </div>
-      <div class="field-group">
-        <label for="challenge">Biggest local visibility challenge</label>
-        <textarea id="challenge" name="challenge" placeholder="Low calls, weak Google profile, few new patients..." required></textarea>
-      </div>
-      <button type="submit" class="btn">Request pilot review →</button>
-      <p style="font-size:0.75rem;color:#888;text-align:center;margin-top:10px;">No spam. Your info stays private. Reply within 48hrs.</p>
-    </form>
-  </section>
+    <!-- LEFT COLUMN -->
+    <main>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <p class="section-label">Who's behind this</p>
-    <h2>A specialist who builds <span>modern digital systems</span> for growth.</h2>
-
-    <div class="about-grid">
-
-      <!-- 📸 Replace placeholder with your photo -->
-      <img src="images/pictureme2.jpg" alt="Parssa Mohammadi" class="about-photo" /> -->
-
-
-      <div class="about-text">
-        <h3>Parssa "PyPe" Mohammadi</h3>
-        <p class="about-role">Digital Systems Specialist · Django Web Engineer · SEO & GEO Strategist</p>
-        <p>
-          I build efficient websites with Django, implement AI in web systems, and create search visibility strategies that help businesses grow. My work combines development, automation, SEO, and GEO into practical systems that support real results.
+      <!-- Summary -->
+      <div class="resume-section">
+        <span class="section-title">Summary</span>
+        <p style="font-size:0.95rem;color:#444;line-height:1.8;">
+          I am a Digital Systems Specialist focused on building efficient websites with Django, implementing artificial intelligence in web systems, offering SEO and GEO services, and creating business intelligence automations such as receptionist bots for websites. I turn complex ideas into practical, high-impact digital systems.
         </p>
-        <p>
-          I also design business intelligence automations such as receptionist bots for websites, helping companies improve lead handling, customer experience, and operational efficiency while staying aligned with modern digital growth goals.
-        </p>
-        <div class="about-buttons">
-          <a href="resume.html" class="btn">View Full Resume</a>
-          <a href="index.html" class="btn btn-outline">Back to Home</a>
-        </div>
-        <div class="cert-badges">
-          <span class="cert-badge">🌐 Django Web Systems</span>
-          <span class="cert-badge">🔍 SEO & GEO Strategy</span>
-          <span class="cert-badge">🤖 AI + Automation</span>
-        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- WHY US -->
-  <section>
-    <p class="section-label">The difference</p>
-    <h2>Clinic-focused SEO that builds <span>trust, not tricks.</span></h2>
-    <p class="intro">Every element is designed for clinics: local patients, secure practice reputation, and measurable growth. I don't sell generic marketing — I help you win searches people use when they need a provider right now.</p>
-    <div class="grid-3">
-      <div class="card">
-        <div class="card-icon">📍</div>
-        <h3>More local visibility</h3>
-        <p>Target searches for urgent care, routine appointments, and specialist services near your clinic — in Google and in AI-generated answers.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">📞</div>
-        <h3>Patient-ready leads</h3>
-        <p>Focus on calls, booking clicks, and appointment form submissions — not vanity traffic metrics that don't fill your schedule.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🛡️</div>
-        <h3>Trusted clinic profile</h3>
-        <p>Improve Google Business Profile signals and website credibility so new patients feel confident before they ever call.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <p class="section-label">What's included</p>
-    <h2>Services built for US <span>medical & dental clinics.</span></h2>
-    <p class="intro">A focused service set with clear outcomes: efficient web systems, AI-ready implementation, GEO visibility, and business automation for modern growth.</p>
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-icon">🌐</div>
-        <h3>Django web systems</h3>
-        <p>Efficient, scalable websites and web platforms built with Django — a robust framework for AI-ready digital products and business operations.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">📋</div>
-        <h3>Google Business Profile optimisation</h3>
-        <p>Profile cleanup, service pages, reviews guidance, and local authority updates for the map pack and call-ready results.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">✍️</div>
-        <h3>Healthcare content & reputation</h3>
-        <p>Clear service descriptions, procedure pages, and trust messaging that helps patients choose your practice with confidence — compliant with E-E-A-T standards.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🤖</div>
-        <h3>SEO, GEO & AI visibility</h3>
-        <p>Search optimization, AI/GEO visibility, and intelligent web experiences that help your brand get discovered in Google and AI-generated answers.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">📈</div>
-        <h3>Business automation</h3>
-        <p>Receptionist bots and workflow automations that turn website visitors into smarter, faster interactions for your business.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY ME -->
-  <section>
-    <p class="section-label">Why work with me</p>
-    <h2>A specialist with healthcare context, <span>not a generic agency.</span></h2>
-    <p class="intro">My work is built on patient trust, privacy awareness, and measurable local performance — not vanity dashboards.</p>
-    <div class="grid-3">
-      <div class="card">
-        <div class="card-icon">⚙️</div>
-        <h3>Meta-certified backend engineering</h3>
-        <p>Technical SEO isn't just keywords. Site architecture, structured data, Core Web Vitals — I engineer your site to perform at a level most agencies can't touch.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🌍</div>
-        <h3>Dual SEO + GEO expertise</h3>
-        <p>Google-certified for SEO and one of the few practitioners actively engineering GEO strategies — getting clinics cited in AI answers before competitors know GEO exists.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🔒</div>
-        <h3>Ethical, privacy-aware approach</h3>
-        <p>No spammy tactics. Patient privacy and clinic reputation stay protected while your local presence compounds month over month.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section id="process">
-    <p class="section-label">How it works</p>
-    <h2>Simple clinic SEO process — <span>clear milestones.</span></h2>
-    <p class="intro">A clear path from review to results, with no false promises and no vanity metrics.</p>
-    <div class="process-list">
-      <div class="process-step">
-        <div class="step-num">1</div>
-        <div>
-          <h3>Audit clinic visibility</h3>
-          <p>Review your website, Google Business Profile, local search presence, competitor gaps, and AI citation status — you get a real report, not a sales pitch.</p>
+      <!-- Gallery -->
+      <div class="resume-section">
+        <span class="section-title">Moments & Milestones</span>
+        <div class="gallery-grid">
+          <div style="aspect-ratio:4/3;border-radius:16px;overflow:hidden;">
+            <img src="images/webpic1.webp" alt="Moment 1"
+              style="width:100%;height:100%;object-fit:cover;border-radius:16px;" />
+          </div>
+          <div style="aspect-ratio:4/3;border-radius:16px;overflow:hidden;">
+            <img src="images/webpic2.webp" alt="Moment 2"
+              style="width:100%;height:100%;object-fit:cover;border-radius:16px;" />
+          </div>
+          <div style="aspect-ratio:4/3;border-radius:16px;overflow:hidden;">
+            <img src="images/meinmeta.png" alt="Me at Meta"
+              style="width:100%;height:100%;object-fit:cover;border-radius:16px;" />
+          </div>
         </div>
       </div>
-      <div class="process-step">
-        <div class="step-num">2</div>
-        <div>
-          <h3>Launch pilot actions</h3>
-          <p>Implement targeted GEO, content, technical, and profile improvements for measurable local gains within the first 60–90 days.</p>
+
+      <!-- Experience -->
+      <div class="resume-section">
+        <span class="section-title">Experience</span>
+
+        <div class="exp-item">
+          <div class="exp-role">Digital Systems Specialist & AI Web Engineer</div>
+          <div class="exp-company">Yara Company — Marketing Group</div>
+          <div class="exp-date">Recent Experience</div>
+          <div class="exp-desc">
+            Collaborated with teams to build AI-powered tools for SEO and GEO optimization, developed Django-based web systems, automated workflows, and created practical internal tools that improved team efficiency, search performance, and customer-facing experiences.
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-role">SEO, GEO & Automation Specialist</div>
+          <div class="exp-company">Freelance / Independent</div>
+          <div class="exp-date">Ongoing</div>
+          <div class="exp-desc">
+            I help businesses improve visibility and operations through SEO, GEO, AI-powered web experiences, and automation systems such as receptionist bots that support leads, support, and growth.
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- RIGHT COLUMN -->
+    <aside>
+
+      <!-- In the Field -->
+      <div class="resume-section">
+        <span class="section-title">In the Field</span>
+        <img src="images/bootcamp.jpg" alt="PyPe at a bootcamp"
+          style="width:100%;border-radius:12px;margin-bottom:0.5rem;object-fit:cover;" />
+        <p class="bootcamp-caption">A Day In University Group — where it all started.</p>
+      </div>
+
+      <!-- Certifications -->
+      <div class="resume-section">
+        <span class="section-title">Certifications</span>
+
+        <div class="cert-item">
+          <span class="cert-icon">⚙️</span>
+          <div class="cert-text">
+            <strong>Meta Certified Backend Developer</strong>
+            <span>Meta · Professional Certificate</span>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <span class="cert-icon">🔍</span>
+          <div class="cert-text">
+            <strong>SEO & GEO Specialist</strong>
+            <span>Google Certified</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Skills -->
+      <div class="resume-section">
+        <span class="section-title">Skills</span>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Backend</div>
+          <div class="skill-tags">
+            <span class="skill-tag">APIs</span>
+            <span class="skill-tag">Databases</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Node.js</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">SEO & GEO</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Technical SEO</span>
+            <span class="skill-tag">Local SEO</span>
+            <span class="skill-tag">GEO Targeting</span>
+            <span class="skill-tag">Analytics</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">AI & Tools</div>
+          <div class="skill-tags">
+            <span class="skill-tag">LLM Workflows</span>
+            <span class="skill-tag">Automation</span>
+            <span class="skill-tag">Prompt Eng.</span>
+            <span class="skill-tag">Tool Building</span>
+          </div>
+        </div>
+
+      </div>
+
+    </aside>
+
+      <!-- 80/20 -->
+      <div class="full-width-section">
+        <span class="section-title">How I Think</span>
+
+        <div style="background:#111;border-radius:20px;padding:2rem 1.75rem;">
+          <h3 style="font-family:'Caveat',cursive;font-size:2rem;color:#fff;margin-bottom:0.4rem;line-height:1.2;">
+            The <span style="color:#FFD600;">80/20</span> Rule.<br/>My operating system.
+          </h3>
+          <p style="color:#aaa;font-size:0.88rem;line-height:1.8;margin-bottom:1.5rem;">
+            I don't believe in doing everything. I believe in finding the right things — then compounding on them every single day.
+          </p>
+
+          <div class="eighty-twenty-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+
+            <!-- 20% -->
+            <div style="background:#FFD600;border-radius:16px;padding:1.5rem 1.25rem;position:relative;overflow:hidden;">
+              <div style="position:absolute;bottom:-1rem;right:0.5rem;font-family:'Caveat',cursive;font-size:5rem;font-weight:700;color:#00000012;line-height:1;pointer-events:none;">20%</div>
+              <div style="font-size:1.5rem;margin-bottom:0.6rem;">🎯</div>
+              <h4 style="font-family:'Nunito',sans-serif;font-weight:900;font-size:0.95rem;color:#111;margin-bottom:0.5rem;">The Vital 20%</h4>
+              <p style="font-size:0.8rem;color:#333;line-height:1.7;position:relative;z-index:1;">
+                Find the highest-leverage action, cut the noise ruthlessly, execute with full focus. <strong>Most results come from a small set of the right moves.</strong>
+              </p>
+            </div>
+
+            <!-- 80% -->
+            <div style="background:#1a1a1a;border:2px solid #2a2a2a;border-radius:16px;padding:1.5rem 1.25rem;position:relative;overflow:hidden;">
+              <div style="position:absolute;bottom:-1rem;right:0.5rem;font-family:'Caveat',cursive;font-size:5rem;font-weight:700;color:#ffffff08;line-height:1;pointer-events:none;">80%</div>
+              <div style="font-size:1.5rem;margin-bottom:0.6rem;">📈</div>
+              <h4 style="font-family:'Nunito',sans-serif;font-weight:900;font-size:0.95rem;color:#fff;margin-bottom:0.5rem;">The Compound 80%</h4>
+              <p style="font-size:0.8rem;color:#aaa;line-height:1.7;position:relative;z-index:1;">
+                Show up every day and get 1% better. <strong style="color:#fff;">Consistent, compounding improvement.</strong> That's where real mastery lives.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Quote -->
+          <div style="margin-top:1rem;border:1.5px solid #FFD60030;border-radius:12px;padding:1.25rem;text-align:center;">
+            <p style="font-family:'Caveat',cursive;font-size:1.3rem;color:#FFD600;line-height:1.5;">
+              "Do the right things first. Then do them better every day."
+            </p>
+            <p style="color:#555;font-size:0.72rem;font-weight:700;margin-top:0.4rem;letter-spacing:0.1em;">— PyPe</p>
+          </div>
         </div>
       </div>
-      <div class="process-step">
-        <div class="step-num">3</div>
-        <div>
-          <h3>Measure calls, clicks & bookings</h3>
-          <p>Report on visibility, new search traffic, patient calls, and appointment intent — not rankings in a vacuum.</p>
+
+      <!-- Projects — 3 cards -->
+      <div class="full-width-section">
+        <span class="section-title">Projects & Focus Areas</span>
+
+        <!-- Card 1 -->
+        <div class="project-card">
+          <div class="project-card-inner">
+            <div>
+              <div style="font-size:1.25rem;margin-bottom:0.4rem;">🤖</div>
+              <h4 style="font-family:'Nunito',sans-serif;font-weight:900;font-size:1rem;color:#111;margin-bottom:0.3rem;">AI Receptionist </h4>
+              <span style="font-size:0.7rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#aaa;">Ongoing Personal Project</span>
+              <p style="font-size:0.85rem;color:#555;line-height:1.7;margin-top:0.6rem;max-width:380px;">
+                This is a highly experimental project where I am building an AI-powered receptionist that can handle patient inquiries, schedule appointments, and provide information about medical services. The goal is to create a seamless and efficient experience for both patients and clinic staff. Which also by HIPPA aware and handle patient data with standards
+              </p>
+            </div>
+            <a href="chat.html" target="_blank" class="project-link">View Project ↗</a>
+          </div>
         </div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">4</div>
-        <div>
-          <h3>Compound & scale</h3>
-          <p>Organic authority builds month over month. Rankings strengthen, AI mentions increase, and your patient pipeline becomes self-sustaining without ongoing ad spend.</p>
+
+        <!-- Card 2 -->
+        <div class="project-card">
+          <div class="project-card-inner">
+            <div>
+              <div style="font-size:1.25rem;margin-bottom:0.4rem;">🔍</div>
+              <h4 style="font-family:'Nunito',sans-serif;font-weight:900;font-size:1rem;color:#111;margin-bottom:0.3rem;">SEO & GEO for Medical Clinics</h4>
+              <span style="font-size:0.7rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#aaa;">Specialisation Area</span>
+              <p style="font-size:0.85rem;color:#555;line-height:1.7;margin-top:0.6rem;max-width:380px;">
+                Helping medical practices dominate Google and AI search engines to get more patient bookings without paid ads. Dual SEO + GEO strategy built exclusively for healthcare.
+              </p>
+            </div>
+            <a href="clinicrank.html" target="_blank" class="project-link">View Project ↗</a>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- CASE STUDIES -->
-  <section id="case-studies">
-    <p class="section-label">Real results</p>
-    <h2>Built for <span>founding US-based partners.</span></h2>
-    <p class="intro">This section is currently being prepared for early clinic partners. Once the first pilot results are in, real outcomes and proof points will be featured here.</p>
-    <div class="card">
-      <div class="card-icon">🤝</div>
-      <h3>Founding partner placeholder</h3>
-      <p>This area will soon showcase real clinic wins, patient growth stories, and measurable SEO/GEO outcomes from the first US-based partners.</p>
-    </div>
-  </section>
+        <!-- Card 3 — motivational CTA -->
+        <div class="project-card" style="border-style:solid;border-color:#FFD600;background:linear-gradient(135deg,#FFF9D6 0%,#ffffff 100%);">
+          <div class="project-card-inner">
+            <div>
+              <div style="font-size:1.25rem;margin-bottom:0.4rem;">💡</div>
+              <h4 style="font-family:'Nunito',sans-serif;font-weight:900;font-size:1rem;color:#111;margin-bottom:0.3rem;">Let’s build your next project</h4>
+              <span style="font-size:0.7rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#8a6b00;">Open for new ideas</span>
+              <p style="font-size:0.85rem;color:#555;line-height:1.7;margin-top:0.6rem;max-width:380px;">
+                Whether it is a smarter website, an AI workflow, or a growth system for your business, I am always ready to turn a strong idea into something real.
+              </p>
+            </div>
+            <a href="mailto:prince.of.night1382@gmail.com" class="project-link">Let’s Talk</a>
+          </div>
+        </div>
 
-  <!-- TESTIMONIALS -->
-  <section>
-    <p class="section-label">What clinics say</p>
-    <h2>Coming soon for <span>founding US-based partners.</span></h2>
-    <div class="card">
-      <p>No testimonials are published yet. This section is reserved for the first clinics that join as founding partners and want to share their experience as the offer grows.</p>
-    </div>
-  </section>
+      </div>
 
-  <!-- FAQ -->
-  <section>
-    <p class="section-label">FAQ</p>
-    <h2>Frequently asked questions.</h2>
-    <div>
-      <details class="faq-item">
-        <summary>Do you guarantee rankings? <span class="faq-icon">+</span></summary>
-        <p>No. I focus on visibility, calls, website actions, and clinic growth. In healthcare, the best results come from trust, relevance, and patient-ready profiles — not ranking promises.</p>
-      </details>
-      <details class="faq-item">
-        <summary>How is this different from a normal SEO agency? <span class="faq-icon">+</span></summary>
-        <p>This is clinic-specialised. I work exclusively with medical and dental practices in the US, and I combine traditional SEO with GEO — getting you cited in AI engines like ChatGPT and Perplexity, which most agencies don't even know about yet.</p>
-      </details>
-      <details class="faq-item">
-        <summary>What does the pilot include? <span class="faq-icon">+</span></summary>
-        <p>A clinic visibility review, localised action plan, profile optimisation, AI citation check, and tracking recommendations for calls, booking clicks, and patient leads.</p>
-      </details>
-      <details class="faq-item">
-        <summary>How long before I see results? <span class="faq-icon">+</span></summary>
-        <p>Most clients see measurable improvements within 60–90 days. Unlike ads, organic SEO compounds — results grow month over month without ongoing spend.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Is my patient data kept private? <span class="faq-icon">+</span></summary>
-        <p>Absolutely. I never access patient records or PHI. My work is entirely external — focused on your public search presence, website, and Google Business Profile.</p>
-      </details>
-    </div>
-  </section>
+  </div>
 
-  <!-- FINAL CTA -->
-  <section class="final-cta" style="border-top:1px solid var(--line);padding-top:56px;">
-    <div class="panel">
-      <h3>Reserve your clinic pilot spot.</h3>
-      <p>Only a few US clinics are accepted for this first pilot phase. If you want a specialist who understands healthcare SEO and AI-driven patient search, request a review now.</p>
-      <div class="urgency">
-        <span class="urgency-dot"></span>
-        Only 4 pilot slots remaining this month
-      </div>
-      <small>Your information stays private and is used only to evaluate clinic visibility.</small>
+  <!-- CONNECT SECTION -->
+  <section id="connect" style="background:#111;padding:4rem 2rem;text-align:center;">
+    <p style="font-size:0.75rem;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:#ffffff44;margin-bottom:0.5rem;">Let's connect</p>
+    <h2 style="font-family:'Caveat',cursive;font-size:2.8rem;color:#fff;margin-bottom:2rem;">Find me online.</h2>
+
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+
+      <a href="https://instagram.com/Parssa.Pro" target="_blank" rel="noopener"
+        style="display:inline-flex;align-items:center;gap:0.5rem;background:#FFD600;color:#111;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.9rem;padding:0.75rem 1.5rem;border-radius:999px;text-decoration:none;">
+        📸 Follow on Instagram
+      </a>
+
+      <a href="https://github.com/PyParssa" target="_blank" rel="noopener"
+        style="display:inline-flex;align-items:center;gap:0.5rem;background:#fff;color:#111;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.9rem;padding:0.75rem 1.5rem;border-radius:999px;text-decoration:none;">
+        🐙 GitHub
+      </a>
+
+      <a href="https://www.linkedin.com/in/parssa-mohammadi-a9840a1b4/" target="_blank" rel="noopener"
+        style="display:inline-flex;align-items:center;gap:0.5rem;background:transparent;color:#fff;border:2px solid #444;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.9rem;padding:0.75rem 1.5rem;border-radius:999px;text-decoration:none;">
+        💼 LinkedIn
+      </a>
+
+      <a href="mailto:prince.of.night1382@gmail.com"
+        style="display:inline-flex;align-items:center;gap:0.5rem;background:transparent;color:#fff;border:2px solid #444;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.9rem;padding:0.75rem 1.5rem;border-radius:999px;text-decoration:none;">
+        ✉️ Email Me
+      </a>
+
     </div>
-    <form class="hero-form" action="https://formspree.io/f/mpqgwevw" method="POST">
-      <h2>Quick slot request</h2>
-      <p>We'll be in touch within 48 hours.</p>
-      <div class="field-group">
-        <label for="final-clinic">Clinic name</label>
-        <input id="final-clinic" name="final-clinic" type="text" placeholder="Clinic name" required />
-      </div>
-      <div class="field-group">
-        <label for="final-email">Email</label>
-        <input id="final-email" name="final-email" type="email" placeholder="you@clinic.com" required />
-      </div>
-      <button type="submit" class="btn">Request a pilot review →</button>
-    </form>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2026 Parssa  Mohammadi "PyPe" · <a href="https://parssa.pro">parssa.pro</a></p>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="resume.html">Resume</a>
-      <a href="mailto:prince.of.night1382@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/parssa-mohammadi-a9840a1b4/" target="_blank">LinkedIn</a>
-      <a href="https://github.com/PyParssa" target="_blank">GitHub</a>
-    </div>
+    <p>© 2026 Parssa Mohammadi aka PyPe · <a href="https://parssa.pro">parssa.pro</a></p>
   </footer>
 
-</div>
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav-links');
+      nav.classList.toggle('open');
+    }
 
-<script>
-  function toggleNav() {
-    document.getElementById('main-nav').classList.toggle('open');
-  }
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      document.getElementById('main-nav').classList.remove('open');
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('nav-links').classList.remove('open');
+      });
     });
-  });
-</script>
+  </script>
+
 </body>
 </html>
