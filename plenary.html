@@ -51,6 +51,12 @@
     padding:0 32px;
     grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items:center;
   }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap:40px;
+    align-items:center;
+}
 
   /* ---------- clay utility ---------- */
   .clay{
@@ -104,10 +110,11 @@
     transition: transform .2s ease;
   }
   .nav-cta:hover{ transform: translateY(-2px); }
-
-  @media (max-width: 760px){
-    .nav-links{ display:none; }
-  }
+@media (max-width: 860px){
+    .hero .wrap{ grid-template-columns: 1fr; }
+    .hero{ padding-top:60px; }
+    .orb-stage{ height:320px; order:-1; }
+}
 
   /* ---------- hero ---------- */
   .hero{
