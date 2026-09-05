@@ -77,11 +77,11 @@ export const resumeData: ResumeData = {
   website: "parssa.pro",
   websiteUrl: "https://parssa.pro",
   githubUrl: "https://github.com/parssa",
-  linkedinUrl: "https://www.linkedin.com/in/parssa",
+  linkedinUrl: "https://www.linkedin.com/in/parssa-mohammadi-a9840a1b4/",
   xUrl: "https://x.com/parssadotpro",
   instagramUrl: "https://www.instagram.com/parssa.pro",
   summary:
-    "AI Systems Designer specializing in building elegant, AI-powered systems, web applications, and automated workflows for businesses. Deep background at the intersection of Biomedical Engineering and modern software architecture. Focused on enterprise-secure, cost-effective solutions engineered with restraint—integrating AI only where it genuinely removes manual friction rather than introducing technical debt.",
+    "AI Systems Designer specializing in building elegant, AI-powered systems, web applications, and automated workflows for businesses. Building, designing and shipping practical AI-powered software and workflows where it removes real friction. Focused on enterprise-secure, cost-effective solutions engineered with restraint—integrating AI only where it genuinely removes manual friction rather than introducing technical debt.",
   executiveSummary:
     "AI Systems Designer with high honors Biomedical Engineering background and Meta Backend Certification. Proven track record deploying AI medical imaging applications (National Institute of Cancer), HIPAA-aware clinical voice/chat receptionists, and high-impact business workflow automation engines.",
   philosophy:
