@@ -67,9 +67,12 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-xs font-medium text-neutral-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                  title="Visit website"
+                  className={item.id === 'plenary'
+                    ? 'inline-flex items-center gap-1 rounded-full border border-indigo-200 bg-indigo-50 px-2.5 py-1 text-[11px] font-semibold text-indigo-700 transition-colors hover:border-indigo-300 hover:bg-indigo-100 dark:border-indigo-900 dark:bg-indigo-950/40 dark:text-indigo-300 dark:hover:bg-indigo-950/70'
+                    : 'inline-flex items-center text-xs font-medium text-neutral-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors'}
+                  title={item.id === 'plenary' ? 'Preview Plenary' : 'Visit website'}
                 >
+                  {item.id === 'plenary' && <span>Preview Plenary</span>}
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
               )}

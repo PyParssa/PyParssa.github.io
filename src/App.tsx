@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { resumeData } from './data/resumeData';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
@@ -13,24 +13,12 @@ import { PublicationsAndAffiliations } from './components/PublicationsAndAffilia
 import { SkillsSection } from './components/SkillsSection';
 import { EducationAndCredentials } from './components/EducationAndCredentials';
 import { ContactSection } from './components/ContactSection';
-import { GitHubPagesModal } from './components/GitHubPagesModal';
 import { Toast } from './components/Toast';
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
   const [viewMode, setViewMode] = useState<'full' | 'executive'>('full');
-  const [deployModalOpen, setDeployModalOpen] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [copiedEmail, setCopiedEmail] = useState<boolean>(false);
-
-  // Synchronize dark mode class on <html>
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [darkMode]);
 
   const showToast = (msg: string) => {
     setToastMessage(msg);
@@ -52,16 +40,12 @@ export default function App() {
     <div className="min-h-screen bg-neutral-50 text-neutral-900 transition-colors duration-200 dark:bg-neutral-950 dark:text-neutral-100">
       {/* Top Navigation Bar (Hidden during printing) */}
       <Navbar
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
         viewMode={viewMode}
         setViewMode={(mode) => {
           setViewMode(mode);
           showToast(mode === 'executive' ? 'Switched to One-Page Executive View' : 'Switched to Full CV View');
         }}
-        onOpenDeployGuide={() => setDeployModalOpen(true)}
-        onCopyEmail={handleCopyEmail}
-        copied={copiedEmail}
+        email={resumeData.email}
       />
 
       {/* Main Resume Canvas Container */}
@@ -101,13 +85,6 @@ export default function App() {
           copied={copiedEmail}
         />
       </main>
-
-      {/* GitHub Pages Deployment Instructions Modal */}
-      <GitHubPagesModal
-        isOpen={deployModalOpen}
-        onClose={() => setDeployModalOpen(false)}
-        guide={resumeData.githubPagesGuide}
-      />
 
       {/* Lightweight Status Toast Feedback */}
       <Toast message={toastMessage} />

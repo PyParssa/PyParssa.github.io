@@ -57,6 +57,8 @@ export interface ResumeData {
   websiteUrl: string;
   githubUrl: string;
   linkedinUrl: string;
+  xUrl: string;
+  instagramUrl: string;
   summary: string;
   executiveSummary: string;
   experience: ExperienceItem[];
@@ -64,11 +66,6 @@ export interface ResumeData {
   education: EducationItem[];
   certifications: CertificationItem[];
   skillCategories: SkillCategory[];
-  githubPagesGuide: {
-    title: string;
-    description: string;
-    steps: { step: number; title: string; detail: string }[];
-  };
 }
 
 export const resumeData: ResumeData = {
@@ -81,6 +78,8 @@ export const resumeData: ResumeData = {
   websiteUrl: "https://parssa.pro",
   githubUrl: "https://github.com/parssa",
   linkedinUrl: "https://www.linkedin.com/in/parssa",
+  xUrl: "https://x.com/parssadotpro",
+  instagramUrl: "https://www.instagram.com/parssa.pro",
   summary:
     "AI Systems Designer specializing in building elegant, AI-powered systems, web applications, and automated workflows for businesses. Deep background at the intersection of Biomedical Engineering and modern software architecture. Focused on enterprise-secure, cost-effective solutions engineered with restraint—integrating AI only where it genuinely removes manual friction rather than introducing technical debt.",
   executiveSummary:
@@ -141,6 +140,7 @@ export const resumeData: ResumeData = {
       period: "Independent Product",
       tagline: "An app for mindful personal inquiry, intentional rituals, and daily reflection.",
       badge: "HCI & Product",
+      link: "./plenary.html",
       highlights: [
         "Conceived, designed, and deployed Plenary—a calm, distraction-free personal space centered around deep questions and daily reflection rituals.",
         "Crafted a minimalist aesthetic rooted in typographic elegance, rhythmic spacing, and quiet digital interfaces.",
@@ -276,25 +276,4 @@ export const resumeData: ResumeData = {
       ]
     }
   ],
-  githubPagesGuide: {
-    title: "Upload & Host on GitHub Pages",
-    description: "This project is built as a pure static web application and is 100% ready for GitHub Pages hosting.",
-    steps: [
-      {
-        step: 1,
-        title: "Create a GitHub Repository",
-        detail: "Create a new public repository on GitHub (e.g., `resume` or `<username>.github.io`)."
-      },
-      {
-        step: 2,
-        title: "Build the Static Site",
-        detail: "Run `npm run build` in your terminal. This outputs production static assets directly into the `dist/` folder with relative paths."
-      },
-      {
-        step: 3,
-        title: "Deploy via GitHub Pages or Actions",
-        detail: "Option A: Go to Settings > Pages > Source: choose 'GitHub Actions' (using the included deploy.yml workflow). Option B: Push the `dist/` folder content to your `gh-pages` branch."
-      }
-    ]
-  }
 };

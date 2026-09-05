@@ -5,6 +5,7 @@ import {
   MapPin, 
   Github, 
   Linkedin, 
+  Instagram,
   Sparkles, 
   Copy, 
   Check, 
@@ -14,6 +15,10 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { ResumeData } from '../data/resumeData';
+
+const portraitImage = '/images/pictureme2.jpg';
+const eventImage = '/images/webpic1.webp';
+const groupImage = '/images/webpic2.webp';
 
 interface HeroSectionProps {
   data: ResumeData;
@@ -30,7 +35,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     <section id="hero-section" className="pt-8 pb-6 sm:pt-10 sm:pb-8">
       {/* Bento Header: Title + Location Bar */}
       <header className="flex flex-col md:flex-row justify-between md:items-end gap-4 pb-6 border-b border-neutral-200 dark:border-neutral-800">
-        <div>
+        <div className="flex items-center gap-4 sm:gap-5">
+          <img
+            src={portraitImage}
+            alt="Portrait of Parssa Mohammadi"
+            className="h-24 w-20 shrink-0 rounded-2xl object-cover object-top shadow-sm sm:h-28 sm:w-24"
+          />
+          <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-[11px] font-semibold text-neutral-700 shadow-2xs dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300 mb-3">
             <Cpu className="h-3 w-3 text-indigo-600 dark:text-indigo-400" />
             <span>AI Systems & Biomedical Engineering</span>
@@ -47,6 +58,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <p className="mt-3 max-w-2xl text-sm sm:text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
             {data.summary}
           </p>
+          </div>
         </div>
 
         <div className="text-left md:text-right shrink-0">
@@ -62,6 +74,29 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
         </div>
       </header>
+
+      <div className="mt-6 grid grid-cols-[1.25fr_1fr] gap-3" aria-label="Selected work and community moments">
+        <div className="group relative overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+          <img
+            src={eventImage}
+            alt="Healthcare AI presentation"
+            className="h-28 w-full object-cover transition duration-500 group-hover:scale-[1.03] sm:h-32"
+          />
+          <span className="absolute bottom-2 left-2 rounded-full bg-neutral-950/75 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">
+            Healthcare AI
+          </span>
+        </div>
+        <div className="group relative overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800">
+          <img
+            src={groupImage}
+            alt="Professional engineering community"
+            className="h-28 w-full object-cover transition duration-500 group-hover:scale-[1.03] sm:h-32"
+          />
+          <span className="absolute bottom-2 left-2 rounded-full bg-neutral-950/75 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">
+            In the field
+          </span>
+        </div>
+      </div>
 
       {/* Top Bento Quick Trio: Availability, Links, and Philosophy */}
       <div className="mt-6 grid grid-cols-1 md:grid-cols-12 gap-5">
@@ -148,6 +183,36 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
               <span className="text-neutral-400 group-hover:translate-x-1 group-hover:text-indigo-600 transition-all">→</span>
             </a>
+
+            <a
+              href={data.xUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between text-sm font-semibold text-neutral-800 hover:text-indigo-600 dark:text-neutral-200 transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <span className="flex h-4 w-4 items-center justify-center text-[11px] font-bold text-neutral-400 group-hover:text-indigo-600 transition-colors">X</span>
+                <span>@parssadotpro</span>
+              </div>
+              <span className="text-neutral-400 group-hover:translate-x-1 group-hover:text-indigo-600 transition-all">→</span>
+            </a>
+
+            <a
+              href={data.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between text-sm font-semibold text-neutral-800 hover:text-indigo-600 dark:text-neutral-200 transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <Instagram className="h-4 w-4 text-neutral-400 group-hover:text-indigo-600 transition-colors" />
+                <span>Instagram / parssa.pro</span>
+              </div>
+              <span className="text-neutral-400 group-hover:translate-x-1 group-hover:text-indigo-600 transition-all">→</span>
+            </a>
+
+            <p className="border-t border-neutral-100 pt-2 text-[11px] leading-relaxed text-neutral-500 dark:border-neutral-800 dark:text-neutral-400">
+              Content on implementing practical AI systems in businesses.
+            </p>
           </div>
 
           <div className="pt-2 border-t border-neutral-100 dark:border-neutral-800 flex items-center justify-between text-xs">

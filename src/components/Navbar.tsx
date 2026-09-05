@@ -1,35 +1,21 @@
 import React from 'react';
 import { 
   Printer, 
-  Github, 
-  ExternalLink, 
-  Sun, 
-  Moon, 
   FileText, 
-  CheckCircle2, 
-  HelpCircle,
   Mail,
-  Copy
+  ArrowUpRight
 } from 'lucide-react';
 
 interface NavbarProps {
-  darkMode: boolean;
-  setDarkMode: (val: boolean) => void;
   viewMode: 'full' | 'executive';
   setViewMode: (mode: 'full' | 'executive') => void;
-  onOpenDeployGuide: () => void;
-  onCopyEmail: () => void;
-  copied: boolean;
+  email: string;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
-  darkMode,
-  setDarkMode,
   viewMode,
   setViewMode,
-  onOpenDeployGuide,
-  onCopyEmail,
-  copied
+  email
 }) => {
   const handlePrint = () => {
     window.print();
@@ -114,49 +100,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             <span className="hidden sm:inline">Print / PDF</span>
           </button>
 
-          {/* GitHub Pages Deploy Guide */}
-          <button
-            id="nav-github-deploy-btn"
-            type="button"
-            onClick={onOpenDeployGuide}
-            title="Deploy to GitHub Pages Guide"
-            className="flex h-9 items-center gap-1.5 rounded-xl border border-neutral-200 bg-white px-3 text-xs font-semibold text-neutral-700 shadow-2xs transition-all hover:border-indigo-300 hover:text-indigo-600 hover:bg-neutral-50 active:scale-[0.98] dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:border-neutral-700"
-          >
-            <Github className="h-3.5 w-3.5" />
-            <span className="hidden md:inline">GitHub Pages</span>
-          </button>
-
-          {/* Quick Copy Email */}
-          <button
+          {/* Direct email link */}
+          <a
             id="nav-copy-email-btn"
-            type="button"
-            onClick={onCopyEmail}
-            title="Copy email to clipboard"
+            href={`mailto:${email}`}
+            title={`Email ${email}`}
             className="flex h-9 items-center gap-1.5 rounded-xl border border-neutral-200 bg-white px-3 text-xs font-semibold text-neutral-700 shadow-2xs transition-all hover:border-indigo-300 hover:text-indigo-600 hover:bg-neutral-50 active:scale-[0.98] dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:border-neutral-700"
           >
-            {copied ? (
-              <>
-                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
-                <span className="hidden sm:inline text-emerald-600 dark:text-emerald-400">Copied</span>
-              </>
-            ) : (
-              <>
-                <Mail className="h-3.5 w-3.5" />
-                <span className="hidden sm:inline">Email</span>
-              </>
-            )}
-          </button>
-
-          {/* Dark / Light Mode Toggle */}
-          <button
-            id="theme-toggle-btn"
-            type="button"
-            onClick={() => setDarkMode(!darkMode)}
-            aria-label="Toggle theme"
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-neutral-200 bg-white text-neutral-700 shadow-2xs transition-all hover:border-indigo-300 hover:text-indigo-600 active:scale-[0.98] dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:border-neutral-700"
-          >
-            {darkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </button>
+            <Mail className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">Email</span>
+            <ArrowUpRight className="hidden h-3 w-3 sm:inline" />
+          </a>
         </div>
       </div>
     </header>

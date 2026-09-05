@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Globe, Github, Linkedin, ArrowUpRight, Copy, Check } from 'lucide-react';
+import { Mail, Globe, ArrowUpRight, Copy, Check } from 'lucide-react';
 import { ResumeData } from '../data/resumeData';
 
 interface ContactSectionProps {
@@ -87,12 +87,30 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           </a>
           <span>•</span>
           <a
+            href={data.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+          >
+            Instagram / parssa.pro
+          </a>
+          <span>•</span>
+          <a
             href={data.linkedinUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
           >
             LinkedIn
+          </a>
+          <span>•</span>
+          <a
+            href={data.xUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+          >
+            X / @parssadotpro
           </a>
           <span>•</span>
           <a
