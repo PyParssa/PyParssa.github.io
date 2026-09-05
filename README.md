@@ -1,22 +1,20 @@
-### Hi there 👋
-Ever spent hours chasing a bug you can’t let go? That’s me—curious, persistent, and obsessed with solving problems. I’m Parssa, exploring the world of machine learning, neural networks, and AI to create tools that help people improve their health and everyday lives.
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-I’m learning and experimenting with Python, IoT, electronics, and data-driven solutions, inspired by Andrew Ng’s courses. While I’m still early in my journey, I jump into competitions, projects, and challenges ready to learn from every success and failure.
+# Run and deploy your AI Studio app
 
-Off the screen, you’ll find me strumming flamenco guitar, enjoying classic movies, or laughing at Charlie Brown and Seinfeld.
+This contains everything you need to run your app locally.
 
-If you love tinkering, learning, and building things that matter, check out my projects or connect—I’m always up for a challenge.
-<!--
-**PyParssa/PyParssa** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+View your app in AI Studio: https://ai.studio/apps/0a10ffd3-d705-4f47-934d-33e79911e8ee
 
-Here are some ideas to get you started:
+## Run Locally
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+**Prerequisites:**  Node.js
+
+
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
