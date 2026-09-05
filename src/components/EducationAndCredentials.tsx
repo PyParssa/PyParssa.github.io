@@ -24,7 +24,7 @@ export const EducationAndCredentials: React.FC<EducationAndCredentialsProps> = (
               <div className="flex items-center gap-2.5">
                 <div className="w-2 h-6 bg-indigo-600 rounded-full"></div>
                 <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
-                  Education & Honors
+                  Background
                 </h2>
               </div>
               <span className="font-mono-code text-xs text-neutral-400">B.S. Biomedical Eng.</span>
@@ -92,7 +92,7 @@ export const EducationAndCredentials: React.FC<EducationAndCredentialsProps> = (
               <div className="flex items-center gap-2.5">
                 <div className="w-2 h-6 bg-indigo-600 rounded-full"></div>
                 <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
-                  Accreditations & Certifications
+                  Credentials
                 </h2>
               </div>
               <span className="font-mono-code text-xs text-neutral-400">Meta • IBM Certified</span>

@@ -16,7 +16,7 @@ export const PublicationsAndAffiliations: React.FC<PublicationsAndAffiliationsPr
         <div className="flex items-center gap-2.5">
           <div className="w-2 h-6 bg-indigo-600 rounded-full"></div>
           <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
-            Research, Publications & Affiliations
+            Research & Writing
           </h2>
         </div>
         <span className="font-mono-code text-xs text-neutral-400 dark:text-neutral-500">

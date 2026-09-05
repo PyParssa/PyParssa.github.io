@@ -72,7 +72,7 @@ export const resumeData: ResumeData = {
   name: "Parssa Mohammadi",
   title: "AI Systems Designer",
   tagline: "Designing elegant, AI-powered systems & automated workflows for businesses.",
-  location: "San Francisco Bay Area & Remote",
+  location: "Asia • Open to collaborations in the US",
   email: "parssamohammadi@gmail.com",
   website: "parssa.pro",
   websiteUrl: "https://parssa.pro",

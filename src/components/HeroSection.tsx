@@ -35,13 +35,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     <section id="hero-section" className="pt-8 pb-6 sm:pt-10 sm:pb-8">
       {/* Bento Header: Title + Location Bar */}
       <header className="flex flex-col md:flex-row justify-between md:items-end gap-4 pb-6 border-b border-neutral-200 dark:border-neutral-800">
-        <div className="flex items-center gap-4 sm:gap-5">
+        <div className="flex min-w-0 items-start gap-4 sm:gap-5">
           <img
             src={portraitImage}
             alt="Portrait of Parssa Mohammadi"
-            className="h-24 w-20 shrink-0 rounded-2xl object-cover object-top shadow-sm sm:h-28 sm:w-24"
+            className="h-32 w-28 shrink-0 rounded-2xl object-cover object-top shadow-sm sm:h-28 sm:w-24"
           />
-          <div>
+          <div className="min-w-0">
           <div className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-[11px] font-semibold text-neutral-700 shadow-2xs dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300 mb-3">
             <Cpu className="h-3 w-3 text-indigo-600 dark:text-indigo-400" />
             <span>AI Systems & Biomedical Engineering</span>
@@ -61,11 +61,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
         </div>
 
-        <div className="text-left md:text-right shrink-0">
+        <div className="min-w-0 text-left md:text-right shrink-0">
           <p className="text-xs text-neutral-400 uppercase tracking-widest font-bold">
             Based in
           </p>
-          <p className="text-neutral-800 dark:text-neutral-200 font-semibold text-base">
+          <p className="max-w-sm text-neutral-800 dark:text-neutral-200 font-semibold text-base">
             {data.location}
           </p>
           <div className="mt-1.5 flex items-center md:justify-end gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 font-medium">

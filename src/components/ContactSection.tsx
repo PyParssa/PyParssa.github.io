@@ -23,7 +23,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           <div className="flex items-center gap-2 mb-2">
             <div className="w-2 h-6 bg-indigo-600 rounded-full"></div>
             <span className="text-xs font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
-              Inquiries & Collaborations
+              Let's Work Together
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50">
