@@ -76,7 +76,7 @@ export const resumeData: ResumeData = {
   email: "parssamohammadi@gmail.com",
   website: "parssa.pro",
   websiteUrl: "https://parssa.pro",
-  githubUrl: "https://github.com/parssa",
+  githubUrl: "https://github.com/PyParssa",
   linkedinUrl: "https://www.linkedin.com/in/parssa-mohammadi-a9840a1b4/",
   xUrl: "https://x.com/parssadotpro",
   instagramUrl: "https://www.instagram.com/parssa.pro",
