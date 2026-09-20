@@ -16,12 +16,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   return (
     <section 
       id="contact-section" 
-      className="print-avoid-break my-6 mb-16 rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6 sm:p-8 shadow-xs"
+      className="print-avoid-break my-0 rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-[#FAF8F5] dark:bg-neutral-900 p-6 sm:p-8 shadow-xs"
     >
       <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-2 h-6 bg-indigo-600 rounded-full"></div>
+            <div className="w-2 h-6 bg-[#717744] rounded-full"></div>
             <span className="text-xs font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
               Let's Work Together
             </span>
@@ -32,6 +32,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           <p className="mt-2 max-w-xl text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
             Whether architecting AI-powered diagnostic pipelines, designing autonomous workflow infrastructure, or engineering end-to-end full-stack applications.
           </p>
+          <p className="mt-2 max-w-xl text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+            I read every email personally and typically respond within 24 hours.
+          </p>
         </div>
 
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center md:flex-col md:items-stretch shrink-0">
@@ -39,7 +42,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             <a
               href={`mailto:${data.email}`}
               id="footer-email-btn"
-              className="flex h-11 items-center justify-center gap-2 rounded-2xl bg-indigo-600 px-6 text-xs font-bold text-white shadow-xs transition-all hover:bg-indigo-700 active:scale-[0.98]"
+              className="flex h-11 items-center justify-center gap-2 rounded-2xl bg-[#373d20] px-6 text-xs font-bold text-white shadow-xs transition-all hover:bg-[#717744] active:scale-[0.98]"
             >
               <Mail className="h-4 w-4" />
               <span>Send Email</span>
@@ -50,7 +53,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               type="button"
               onClick={onCopyEmail}
               title="Copy email to clipboard"
-              className="flex h-11 w-11 items-center justify-center rounded-2xl border border-neutral-200 bg-white text-neutral-700 shadow-2xs transition-colors hover:border-indigo-300 hover:text-indigo-600 active:scale-[0.98] dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300 dark:hover:border-neutral-700"
+              className="flex h-11 w-11 items-center justify-center rounded-2xl border border-neutral-200 bg-white text-neutral-700 shadow-2xs transition-colors hover:border-[#bcbd8b] hover:text-[#373d20] active:scale-[0.98] dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300 dark:hover:border-neutral-700"
             >
               {copied ? (
                 <Check className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
@@ -65,7 +68,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             target="_blank"
             rel="noopener noreferrer"
             id="footer-website-link"
-            className="flex h-11 items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-white px-5 text-xs font-semibold text-neutral-700 transition-colors hover:border-indigo-300 hover:text-indigo-600 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300 dark:hover:border-neutral-700 shadow-2xs"
+            className="flex h-11 items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-white px-5 text-xs font-semibold text-neutral-700 transition-colors hover:border-[#bcbd8b] hover:text-[#373d20] dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300 dark:hover:border-neutral-700 shadow-2xs"
           >
             <Globe className="h-4 w-4 text-neutral-400" />
             <span>Visit parssa.pro</span>
@@ -75,54 +78,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
       </div>
 
       {/* Footer Info / Static pages note */}
-      <div className="mt-8 flex flex-col justify-between gap-3 border-t border-neutral-100 dark:border-neutral-800 pt-6 text-xs text-neutral-500 sm:flex-row sm:items-center dark:text-neutral-400">
-        <div className="flex items-center gap-4">
-          <a
-            href={data.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-          >
-            GitHub
-          </a>
-          <span>•</span>
-          <a
-            href={data.instagramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-          >
-            Instagram / parssa.pro
-          </a>
-          <span>•</span>
-          <a
-            href={data.linkedinUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-          >
-            LinkedIn
-          </a>
-          <span>•</span>
-          <a
-            href={data.xUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-          >
-            X / @parssadotpro
-          </a>
-          <span>•</span>
-          <a
-            href={data.websiteUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-          >
-            parssa.pro
-          </a>
-        </div>
-
+      <div className="mt-8 flex flex-col justify-end gap-3 border-t border-neutral-100 dark:border-neutral-800 pt-6 text-xs text-neutral-500 sm:flex-row sm:items-center dark:text-neutral-400">
         <div className="font-mono-code text-[11px] text-neutral-400">
           Static Resume • GitHub Pages Ready • MIT
         </div>

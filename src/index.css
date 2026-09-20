@@ -1,13 +1,22 @@
 @import "tailwindcss";
 
 @layer base {
-  :root {
-    --bg-main: #fafafa;
-    --text-main: #171717;
-    --text-muted: #737373;
-    --border-subtle: #e5e5e5;
+    :root {
+    --bg-main: #FAF8F5;
+    --text-main: #373d20;
+    --text-muted: #8B7355;
+    --border-subtle: #bcbd8b;
     --surface: #ffffff;
-    --accent-indigo: #4f46e5;
+    --accent-olive: #717744;
+    --accent-sage: #bcbd8b;
+    --warm-section: #FFF9F2;
+    
+    --dark-olive: #373d20;
+    --olive-accent: #717744;
+    --sage-accent: #bcbd8b;
+    --warm-brown: #8B7355;
+    --warm-cream: #FAF8F5;
+    --warm-cream-alt: #FFF9F2;
   }
 
   .dark {
@@ -16,12 +25,13 @@
     --text-muted: #a3a3a3;
     --border-subtle: #262626;
     --surface: #121316;
-    --accent-indigo: #6366f1;
+    --accent-olive: #bcbd8b;
   }
 
   html {
     font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     overflow-x: hidden;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -31,6 +41,11 @@
 
   code, pre, .font-mono-code {
     font-family: "JetBrains Mono", monospace;
+  }
+
+  /* Newsreader for editorial/chapter headings */
+  .font-editorial {
+    font-family: "Newsreader", Georgia, "Times New Roman", serif;
   }
 }
 

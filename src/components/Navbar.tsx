@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
-  Printer, 
-  FileText, 
   Mail,
-  ArrowUpRight
+  ArrowUpRight,
+  Menu,
+  X
 } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface NavbarProps {
   viewMode: 'full' | 'executive';
@@ -13,18 +14,22 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
-  viewMode,
-  setViewMode,
+  viewMode, // kept for backwards compatibility
+  setViewMode, // kept for backwards compatibility
   email
 }) => {
-  const handlePrint = () => {
-    window.print();
-  };
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { name: 'Story', href: '#story' },
+    { name: 'Services', href: '#services' },
+    { name: 'Connect', href: '#connect' },
+  ];
 
   return (
     <header 
       id="main-navbar" 
-      className="no-print sticky top-0 z-40 w-full border-b border-neutral-200/90 bg-neutral-50/80 backdrop-blur-md transition-colors duration-200 dark:border-neutral-800/90 dark:bg-neutral-950/80"
+      className="no-print sticky top-0 z-40 w-full border-b border-[#bcbd8b]/20 bg-[#FAF8F5]/80 backdrop-blur-md transition-colors duration-200"
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         {/* Brand / Logo */}
@@ -32,87 +37,99 @@ export const Navbar: React.FC<NavbarProps> = ({
           <a 
             href="#top" 
             id="nav-brand-link"
-            className="group flex items-center gap-2.5 text-neutral-900 transition-opacity hover:opacity-80 dark:text-neutral-100"
+            className="group flex items-center gap-2.5 transition-opacity hover:opacity-80"
           >
-            <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-indigo-600 text-xs font-bold tracking-tight text-white shadow-xs">
+            <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#373d20] text-xs font-bold tracking-tight text-white shadow-xs">
               PM
             </span>
             <div className="flex flex-col">
-              <span className="text-sm font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+              <span className="text-sm font-bold tracking-tight text-[#373d20]">
                 Parssa Mohammadi
               </span>
-              <span className="hidden text-[11px] font-medium text-neutral-400 sm:inline dark:text-neutral-500">
+              <span className="hidden text-[11px] font-medium text-[#8B7355] sm:inline">
                 parssa.pro
               </span>
             </div>
           </a>
 
           {/* Status Indicator */}
-          <div className="hidden items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs font-medium text-neutral-700 md:flex dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300 shadow-2xs">
-            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Available for Q4/2026 Systems</span>
+          <div className="hidden items-center gap-2 rounded-full border border-[#bcbd8b]/30 bg-[#FAF8F5] px-3 py-1 text-xs font-medium text-[#717744] md:flex shadow-2xs">
+            <span>🟢 Open for projects</span>
           </div>
         </div>
 
         {/* Action Controls */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          {/* Executive / Full Toggle */}
-          <div 
-            id="view-mode-selector"
-            className="hidden sm:flex items-center rounded-full border border-neutral-200 bg-white p-1 text-xs dark:border-neutral-800 dark:bg-neutral-900 shadow-2xs"
-          >
-            <button
-              id="view-mode-full-btn"
-              type="button"
-              onClick={() => setViewMode('full')}
-              className={`flex items-center gap-1.5 rounded-full px-3 py-1 font-medium transition-all ${
-                viewMode === 'full'
-                  ? 'bg-indigo-600 text-white shadow-xs'
-                  : 'text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-200'
-              }`}
+        <div className="flex items-center gap-4 sm:gap-6">
+          {/* Desktop Nav Links */}
+          <nav className="hidden md:flex items-center gap-6">
+            {navLinks.map((link) => (
+              <a 
+                key={link.name} 
+                href={link.href}
+                className="text-[#717744] hover:text-[#373d20] font-medium text-sm transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Direct email link */}
+            <a
+              id="nav-copy-email-btn"
+              href={`mailto:${email}`}
+              title={`Email ${email}`}
+              className="flex h-9 items-center gap-1.5 rounded-xl border border-[#bcbd8b]/30 bg-white px-3 text-xs font-semibold text-[#373d20] shadow-2xs transition-all hover:border-[#717744] hover:text-[#717744] active:scale-[0.98]"
             >
-              <FileText className="h-3.5 w-3.5" />
-              <span>Full CV</span>
-            </button>
+              <Mail className="h-3.5 w-3.5" />
+              <span className="hidden sm:inline">Email</span>
+              <ArrowUpRight className="hidden h-3 w-3 sm:inline" />
+            </a>
+
+            {/* Mobile Menu Toggle */}
             <button
-              id="view-mode-executive-btn"
-              type="button"
-              onClick={() => setViewMode('executive')}
-              className={`flex items-center gap-1.5 rounded-full px-3 py-1 font-medium transition-all ${
-                viewMode === 'executive'
-                  ? 'bg-indigo-600 text-white shadow-xs'
-                  : 'text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-200'
-              }`}
+              className="md:hidden flex h-9 w-9 items-center justify-center rounded-xl border border-[#bcbd8b]/30 bg-white text-[#373d20] hover:text-[#717744] transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle mobile menu"
             >
-              <span>One-Page</span>
+              {isMobileMenuOpen ? (
+                <X className="h-4 w-4" />
+              ) : (
+                <Menu className="h-4 w-4" />
+              )}
             </button>
           </div>
-
-          {/* Print / Save PDF Button */}
-          <button
-            id="nav-print-btn"
-            type="button"
-            onClick={handlePrint}
-            title="Print or Save as PDF"
-            className="flex h-9 items-center gap-1.5 rounded-xl border border-neutral-200 bg-white px-3 text-xs font-semibold text-neutral-700 shadow-2xs transition-all hover:border-indigo-300 hover:text-indigo-600 hover:bg-neutral-50 active:scale-[0.98] dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:border-neutral-700"
-          >
-            <Printer className="h-3.5 w-3.5" />
-            <span className="hidden sm:inline">Print / PDF</span>
-          </button>
-
-          {/* Direct email link */}
-          <a
-            id="nav-copy-email-btn"
-            href={`mailto:${email}`}
-            title={`Email ${email}`}
-            className="flex h-9 items-center gap-1.5 rounded-xl border border-neutral-200 bg-white px-3 text-xs font-semibold text-neutral-700 shadow-2xs transition-all hover:border-indigo-300 hover:text-indigo-600 hover:bg-neutral-50 active:scale-[0.98] dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:border-neutral-700"
-          >
-            <Mail className="h-3.5 w-3.5" />
-            <span className="hidden sm:inline">Email</span>
-            <ArrowUpRight className="hidden h-3 w-3 sm:inline" />
-          </a>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden overflow-hidden border-t border-[#bcbd8b]/20 bg-[#FAF8F5]"
+          >
+            <nav className="flex flex-col px-4 py-4 space-y-4">
+              {navLinks.map((link) => (
+                <a 
+                  key={link.name} 
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-[#717744] hover:text-[#373d20] font-medium text-sm transition-colors block w-full"
+                >
+                  {link.name}
+                </a>
+              ))}
+              <div className="flex items-center gap-2 rounded-full border border-[#bcbd8b]/30 bg-white px-3 py-2 text-xs font-medium text-[#717744] shadow-2xs w-fit">
+                <span>🟢 Open for projects</span>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
