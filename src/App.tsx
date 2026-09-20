@@ -10,6 +10,7 @@ import { resumeData } from './data/resumeData';
 import { Navbar } from './components/Navbar';
 import { ContactSection } from './components/ContactSection';
 import { SocialConnectSection } from './components/SocialConnectSection';
+import { SkillsVisionSection } from './components/SkillsVisionSection';
 import { Toast } from './components/Toast';
 
 export default function App() {
@@ -160,7 +161,7 @@ export default function App() {
               title="The Products — MedicChatbot & Plenary"
               narrative={
                 <span>
-                  Then came the products. <a href="https://parssa.pro/medicchatbot" className="text-[#717744] underline font-semibold hover:text-[#373d20]" target="_blank" rel="noreferrer">MedicChatbot</a> is an autonomous medical receptionist — it handles patient inquiries, books appointments, and never sleeps. <a href="https://parssa.pro/plenary" className="text-[#717744] underline font-semibold hover:text-[#373d20]" target="_blank" rel="noreferrer">Plenary</a> is the opposite — a quiet, mindful app for personal reflection. Two very different products, one principle: build only what genuinely helps.
+                  Then came the products. <a href="./medicchatbot.html" className="text-[#717744] underline font-semibold hover:text-[#373d20]" target="_blank" rel="noreferrer">MedicChatbot</a> is an autonomous medical receptionist — it handles patient inquiries, books appointments, and never sleeps. <a href="https://parssa.pro/plenary" className="text-[#717744] underline font-semibold hover:text-[#373d20]" target="_blank" rel="noreferrer">Plenary</a> is the opposite — a quiet, mindful app for personal reflection. Two very different products, one principle: build only what genuinely helps.
                 </span>
               }
               image="/images/timeline_product_dashboard.jpg"
@@ -254,6 +255,9 @@ export default function App() {
           </div>
         </div>
       </section>
+
+      {/* Skills, Vision & Future Projects */}
+      <SkillsVisionSection />
 
       {/* Social Media Connect Section */}
       <SocialConnectSection />
@@ -364,9 +368,12 @@ function ServiceCard({ number, title, description, details, tag, color }: any) {
         ))}
       </ul>
       
-      <button className="mt-8 w-full py-3 rounded-xl border border-[#bcbd8b]/30 text-[#373d20] font-medium hover:bg-[#FFF9F2] transition-colors hover:cursor-pointer">
+      <a 
+        href="#contact-section"
+        className="mt-8 w-full py-3 rounded-xl border border-[#bcbd8b]/30 text-[#373d20] font-medium hover:bg-[#FFF9F2] transition-colors hover:cursor-pointer flex justify-center"
+      >
         Learn More
-      </button>
+      </a>
     </motion.div>
   );
 }

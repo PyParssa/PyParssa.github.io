@@ -17,6 +17,7 @@ export default defineConfig(() => {
         input: {
           main: path.resolve(__dirname, 'index.html'),
           plenary: path.resolve(__dirname, 'plenary.html'),
+          medicchatbot: path.resolve(__dirname, 'medicchatbot.html'),
         },
       },
     },
